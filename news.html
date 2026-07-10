@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Новости | Art of War 3 Community Wiki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
+        <nav class="main-nav" aria-label="Главная навигация"><a class="active" href="news.html">Новости</a><a href="wiki.html">Wiki</a><a href="community.html">Сообщество</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="tournaments.html">Турниры</a></nav>
+        <a class="login-link" href="author.html?type=news">Войти</a>
+      </header>
+      <main>
+        <section class="page-hero"><h1>Новости</h1><p>Раздел для обновлений игры, событий, турниров и оффлайн-мероприятий.</p></section>
+        <section class="command-panel" aria-label="Поиск по новостям">
+          <label class="search-box"><span>Поиск по новостям</span><input id="news-search" type="search" placeholder="Патч, событие, турнир, оффлайн..." /></label>
+          <div class="tags"><a href="#">Обновления</a><a href="#">События</a><a href="#">Турниры</a><a href="#">Оффлайн</a></div>
+        </section>
+        <section class="portal-layout" data-tabs="news">
+          <aside class="side-panel">
+            <h2>Категории</h2>
+            <button class="tab-button active" data-tab="updates">Обновления</button>
+            <button class="tab-button" data-tab="events">События</button>
+            <button class="tab-button" data-tab="tournaments">Турниры</button>
+            <button class="tab-button" data-tab="offline">Оффлайн</button>
+          </aside>
+          <div class="content-panel">
+            <div class="section-heading"><div><h2 id="news-title">Обновления</h2></div><a class="admin-only" href="author.html?type=news">Добавить новость</a></div>
+            <div class="tab-panel active" data-panel="updates">
+              <article class="article-row featured-row" data-news-id="season-patch"><span>Обновления · 10 июля 2026</span><h3>Большой патч сезона</h3><p>Балансные изменения, новые события и обновление интерфейса.</p><a href="news/season-patch.html">Читать</a></article>
+              <article class="article-row" data-news-id="fixes-and-improvements"><span>Обновления · 10 июля 2026</span><h3>Исправления и улучшения</h3><p>Технические правки, улучшения стабильности и исправления известных ошибок.</p><a href="news/fixes-and-improvements.html">Читать</a></article>
+            </div>
+            <div class="tab-panel" data-panel="events">
+              <article class="article-row featured-row" data-news-id="weekly-battle-pass"><span>События · 10 июля 2026</span><h3>Боевой пропуск недели</h3><p>Временная активность, цепочка заданий и набор наград для активных командиров.</p><a href="news/weekly-battle-pass.html">Читать</a></article>
+            </div>
+            <div class="tab-panel" data-panel="tournaments">
+              <article class="article-row featured-row" data-news-id="masters-qualification"><span>Турниры · 10 июля 2026</span><h3>Анонс квалификации Masters</h3><p>Даты, правила участия и первый этап отбора в Art of War Masters.</p><a href="news/masters-qualification.html">Читать</a></article>
+            </div>
+            <div class="tab-panel" data-panel="offline">
+              <article class="article-row featured-row" data-news-id="community-meetup"><span>Оффлайн · 10 июля 2026</span><h3>Встреча сообщества</h3><p>План будущей встречи игроков, авторов и организаторов турниров.</p><a href="news/community-meetup.html">Читать</a></article>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="index.html">На главную</a></div></footer>
+    </div>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/markdown.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/news.js"></script>
+  </body>
+</html>
