@@ -14,14 +14,22 @@ if (loginPanel && editorPanel) {
   const previewPanel = document.querySelector("#preview-panel");
   const previewContent = document.querySelector("#preview-content");
   const draftsList = document.querySelector("#drafts-list");
-  const params = new URLSearchParams(window.location.search);
-  const requestedType = params.get("type");
+  const requestedType = new URLSearchParams(window.location.search).get("type");
+  const credentialsDigest = "28cac627945d3f3ae09b7ce4c1f951421d24f815636889c199d568eae84f7cae";
   let selectedImage = "source materials/images/banner.jpg";
+  let failedAttempts = 0;
+  let blockedUntil = 0;
 
   const toolbar = document.createElement("div");
   toolbar.className = "markdown-toolbar";
-  toolbar.innerHTML = '<button type="button" data-md="bold" title="Жирный"><strong>B</strong></button><button type="button" data-md="italic" title="Курсив"><em>I</em></button><button type="button" data-md="h2" title="Заголовок">H2</button><button type="button" data-md="list" title="Список">•</button><button type="button" data-md="quote" title="Цитата">❝</button><button type="button" data-md="link" title="Ссылка">🔗</button>';
+  toolbar.innerHTML = '<button type="button" data-md="bold" title="Жирный"><strong>B</strong></button><button type="button" data-md="italic" title="Курсив"><em>I</em></button><button type="button" data-md="h2" title="Заголовок">H2</button><button type="button" data-md="list" title="Список">*</button><button type="button" data-md="quote" title="Цитата">&quot;</button><button type="button" data-md="link" title="Ссылка">Link</button>';
   body.closest("label").querySelector("span").after(toolbar);
+
+  const digestCredentials = async (name, password) => {
+    const bytes = new TextEncoder().encode(`aow3-community-editor:v1|${name}|${password}`);
+    const hash = await crypto.subtle.digest("SHA-256", bytes);
+    return Array.from(new Uint8Array(hash), (byte) => byte.toString(16).padStart(2, "0")).join("");
+  };
 
   const insertMarkdown = (before, after = "", fallback = "") => {
     const start = body.selectionStart;
@@ -35,8 +43,7 @@ if (loginPanel && editorPanel) {
   };
 
   toolbar.addEventListener("click", (event) => {
-    const button = event.target.closest("button");
-    const action = button?.dataset.md;
+    const action = event.target.closest("button")?.dataset.md;
     if (!action) return;
     if (action === "bold") insertMarkdown("**", "**");
     if (action === "italic") insertMarkdown("*", "*");
@@ -47,7 +54,7 @@ if (loginPanel && editorPanel) {
   });
 
   const setLoggedIn = (value) => {
-    localStorage.setItem("aowAuthorLoggedIn", value ? "true" : "false");
+    sessionStorage.setItem("aowAuthorLoggedIn", value ? "true" : "false");
     loginPanel.classList.toggle("hidden", value);
     editorPanel.classList.toggle("hidden", !value);
   };
@@ -58,18 +65,23 @@ if (loginPanel && editorPanel) {
       wiki: ["Для новичков", "Фракции", "Юниты", "Герои", "Режимы игры", "Экономика", "FAQ", "Полный функционал"],
       news: ["Обновления", "События", "Турниры", "Оффлайн"],
       lore: ["Досье персонажей", "История мира", "Рассказы", "Карта мира"],
-      video: ["Гайды", "Турниры", "Дневники разработчиков", "Трейлеры", "Интересные видео", "Развлекательные"]
+      video: ["Обучающие", "Соревнования", "Обновления", "Трейлеры", "Ответы разработчиков", "Интересные Видео", "Видео от игроков"]
     };
-    const articleFields = ["news", "wiki"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image" type="file" accept="image/*" /></label>' : "";
-    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option>${item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
+    const articleFields = ["news", "wiki"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" maxlength="300" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image" type="file" accept="image/png,image/jpeg,image/webp" /></label>' : "";
+    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" maxlength="240" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option>${item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
     if (["news", "wiki"].includes(type)) {
       selectedImage = "source materials/images/banner.jpg";
       document.querySelector("#content-image").addEventListener("change", (event) => {
         const file = event.target.files[0];
         if (!file) return;
+        if (file.size > 2 * 1024 * 1024) {
+          loginMessage.textContent = "Изображение должно быть не больше 2 МБ.";
+          event.target.value = "";
+          return;
+        }
         const reader = new FileReader();
         reader.addEventListener("load", () => {
-          selectedImage = reader.result;
+          selectedImage = AOW.safeImageUrl(reader.result);
         });
         reader.readAsDataURL(file);
       });
@@ -85,7 +97,7 @@ if (loginPanel && editorPanel) {
     lead: document.querySelector("#content-lead")?.value.trim() || "",
     image: selectedImage,
     video: document.querySelector("#content-video")?.value.trim() || "",
-    body: body.value
+    body: body.value.trim()
   });
 
   const renderPreview = (data) => {
@@ -93,16 +105,37 @@ if (loginPanel && editorPanel) {
     const heading = data.typeKey === "wiki" ? "Материал" : "Текст новости";
     const emptyLead = data.typeKey === "wiki" ? "Краткое описание Wiki-страницы появится здесь." : "Краткое описание новости появится здесь.";
     const emptyBody = data.typeKey === "wiki" ? "Текст Wiki-страницы пока пуст." : "Текст новости пока пуст.";
-    return `<article class="news-article preview-article"><div class="article-meta">${data.category} · ${AOW.formatDate(data.date)}</div><h1>${data.title}</h1><p class="article-lead">${data.lead || emptyLead}</p><img class="article-hero-image" src="${data.image}" alt="" /><section><h2>${heading}</h2><div>${AOW.markdown(data.body || emptyBody)}</div></section></article>`;
+    return `<article class="news-article preview-article"><div class="article-meta">${AOW.escapeHtml(data.category)} · ${AOW.formatDate(data.date)}</div><h1>${AOW.escapeHtml(data.title)}</h1><p class="article-lead">${AOW.escapeHtml(data.lead || emptyLead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(data.image))}" alt="" /><section><h2>${heading}</h2><div>${AOW.markdown(data.body || emptyBody)}</div></section></article>`;
   };
 
   const renderDrafts = () => {
     const drafts = AOW.getDrafts();
-    draftsList.innerHTML = drafts.length ? "" : '<p class="muted-text">Черновиков пока нет.</p>';
+    draftsList.replaceChildren();
+    if (!drafts.length) {
+      const empty = document.createElement("p");
+      empty.className = "muted-text";
+      empty.textContent = "Черновиков пока нет.";
+      draftsList.append(empty);
+      return;
+    }
     drafts.forEach((draft) => {
       const row = document.createElement("div");
       row.className = "draft-row";
-      row.innerHTML = `<div><strong>${draft.title}</strong><span>${draft.type} · ${draft.category}</span></div><button type="button" data-open="${draft.id}">Открыть</button><button type="button" data-delete="${draft.id}">Удалить</button>`;
+      const details = document.createElement("div");
+      const title = document.createElement("strong");
+      title.textContent = draft.title;
+      const type = document.createElement("span");
+      type.textContent = `${draft.type} · ${draft.category}`;
+      details.append(title, type);
+      const open = document.createElement("button");
+      open.type = "button";
+      open.dataset.open = draft.id;
+      open.textContent = "Открыть";
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.dataset.delete = draft.id;
+      remove.textContent = "Удалить";
+      row.append(details, open, remove);
       draftsList.append(row);
     });
   };
@@ -119,9 +152,9 @@ if (loginPanel && editorPanel) {
       document.querySelector("#content-tags").value = draft.tags;
       document.querySelector("#content-category").value = draft.category;
       if (document.querySelector("#content-lead")) document.querySelector("#content-lead").value = draft.lead || "";
-      selectedImage = draft.image || "source materials/images/banner.jpg";
+      selectedImage = AOW.safeImageUrl(draft.image);
       if (document.querySelector("#content-video")) document.querySelector("#content-video").value = draft.video || "";
-      body.value = draft.body;
+      body.value = draft.body || "";
     }
     if (deleteId) {
       AOW.saveDrafts(AOW.getDrafts().filter((item) => item.id !== deleteId));
@@ -129,13 +162,31 @@ if (loginPanel && editorPanel) {
     }
   });
 
-  loginForm.addEventListener("submit", (event) => {
+  loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    if (!crypto?.subtle) {
+      loginMessage.textContent = "Ваш браузер не поддерживает защищённую проверку входа.";
+      return;
+    }
+    if (Date.now() < blockedUntil) {
+      loginMessage.textContent = "Слишком много попыток. Повторите вход через минуту.";
+      return;
+    }
     const name = document.querySelector("#login-name").value.trim();
-    const password = document.querySelector("#login-password").value.trim();
-    if (name === "admin" && password === "admin") {
+    const password = document.querySelector("#login-password").value;
+    const digest = await digestCredentials(name, password);
+    if (name === "admin" && digest === credentialsDigest) {
+      failedAttempts = 0;
+      loginMessage.textContent = "";
       setLoggedIn(true);
       renderDrafts();
+      return;
+    }
+    failedAttempts += 1;
+    if (failedAttempts >= 5) {
+      blockedUntil = Date.now() + 60_000;
+      failedAttempts = 0;
+      loginMessage.textContent = "Слишком много попыток. Повторите вход через минуту.";
       return;
     }
     loginMessage.textContent = "Неверный логин или пароль.";
@@ -151,10 +202,10 @@ if (loginPanel && editorPanel) {
     event.preventDefault();
     const typeLabels = { wiki: "Wiki-страница", news: "Новость", lore: "Лор", video: "Видео" };
     const data = getFormData();
-    const draft = { id: String(Date.now()), type: typeLabels[data.typeKey], created: new Date().toLocaleString("ru-RU"), ...data };
+    const draft = { id: crypto.randomUUID(), type: typeLabels[data.typeKey], created: new Date().toLocaleString("ru-RU"), ...data };
     const drafts = AOW.getDrafts();
     drafts.unshift(draft);
-    AOW.saveDrafts(drafts);
+    AOW.saveDrafts(drafts.slice(0, 50));
     renderDrafts();
   });
 
@@ -170,32 +221,15 @@ if (loginPanel && editorPanel) {
       return;
     }
     const isWiki = data.typeKey === "wiki";
-    if (!window.confirm(isWiki ? "Опубликовать Wiki-страницу? После публикации она появится в разделе Wiki." : "Опубликовать новость? После публикации она появится в разделе Новости.")) return;
+    if (!window.confirm(isWiki ? "Опубликовать Wiki-страницу?" : "Опубликовать новость?")) return;
     const published = isWiki ? AOW.getPublishedWiki() : AOW.getPublishedNews();
-    published.unshift({ id: String(Date.now()), publishedAt: new Date().toISOString(), ...data });
-    localStorage.setItem(isWiki ? "aowPublishedWiki" : "aowPublishedNews", JSON.stringify(published));
-    window.alert(isWiki ? "Wiki-страница опубликована и доступна в разделе Wiki." : "Новость опубликована и доступна в разделе Новости.");
-  });
-
-  const clearStorageButton = document.createElement("button");
-  clearStorageButton.className = "button button-danger";
-  clearStorageButton.type = "button";
-  clearStorageButton.textContent = "Очистить localStorage";
-  editorForm.querySelector(".hero-actions").append(clearStorageButton);
-  clearStorageButton.addEventListener("click", () => {
-    if (!window.confirm("Очистить localStorage сайта? Черновики, публикации и состояние входа будут удалены.")) return;
-    localStorage.removeItem("aowAuthorLoggedIn");
-    localStorage.removeItem("aowDrafts");
-    localStorage.removeItem("aowPublishedNews");
-    localStorage.removeItem("aowDeletedNews");
-    localStorage.removeItem("aowPublishedWiki");
-    localStorage.removeItem("aowDeletedWiki");
-    window.alert("localStorage очищен.");
-    window.location.reload();
+    published.unshift({ id: crypto.randomUUID(), publishedAt: new Date().toISOString(), ...data });
+    localStorage.setItem(isWiki ? "aowPublishedWiki" : "aowPublishedNews", JSON.stringify(published.slice(0, 100)));
+    window.alert(isWiki ? "Wiki-страница опубликована локально." : "Новость опубликована локально.");
   });
 
   if (["wiki", "news", "lore", "video"].includes(requestedType)) contentType.value = requestedType;
   renderFields();
-  setLoggedIn(localStorage.getItem("aowAuthorLoggedIn") === "true");
+  setLoggedIn(sessionStorage.getItem("aowAuthorLoggedIn") === "true");
   renderDrafts();
 }

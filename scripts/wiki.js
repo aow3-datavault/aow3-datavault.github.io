@@ -15,36 +15,18 @@ AOW.renderPublishedWiki = () => {
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedWikiId = item.id;
-    article.innerHTML = `<span>${item.category} · ${AOW.formatDate(item.date)}</span><h3>${item.title}</h3><p>${item.lead || "Опубликованная Wiki-страница."}</p><a href="wiki/article.html?id=${item.id}">Читать</a>`;
+    article.dataset.searchTags = item.tags || "";
+    const meta = document.createElement("span");
+    meta.textContent = `${item.category} · ${AOW.formatDate(item.date)}`;
+    const title = document.createElement("h3");
+    title.textContent = item.title || "Без названия";
+    const lead = document.createElement("p");
+    lead.textContent = item.lead || "Опубликованная Wiki-страница.";
+    const link = document.createElement("a");
+    link.href = `wiki/article.html?id=${encodeURIComponent(item.id)}`;
+    link.textContent = "Читать";
+    article.append(meta, title, lead, link);
     panel.prepend(article);
-  });
-};
-
-AOW.applyWikiAdminControls = () => {
-  const wikiPage = document.querySelector('[data-tabs="wiki"]');
-  if (!wikiPage || localStorage.getItem("aowAuthorLoggedIn") !== "true") return;
-  wikiPage.querySelectorAll(".article-row").forEach((row) => {
-    if (row.querySelector(".delete-wiki-button")) return;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "delete-news-button delete-wiki-button";
-    button.innerHTML = "🗑 Удалить";
-    button.addEventListener("click", () => {
-      const title = row.querySelector("h3")?.textContent || "эту страницу";
-      if (!window.confirm(`Удалить Wiki-страницу «${title}»?`)) return;
-      if (row.dataset.publishedWikiId) {
-        localStorage.setItem("aowPublishedWiki", JSON.stringify(AOW.getPublishedWiki().filter((item) => item.id !== row.dataset.publishedWikiId)));
-      }
-      if (row.dataset.wikiId) {
-        const deleted = AOW.getDeletedWiki();
-        if (!deleted.includes(row.dataset.wikiId)) {
-          deleted.push(row.dataset.wikiId);
-          AOW.saveDeletedWiki(deleted);
-        }
-      }
-      row.remove();
-    });
-    row.append(button);
   });
 };
 
@@ -54,7 +36,7 @@ AOW.initWikiSearch = () => {
   wikiSearch.addEventListener("input", () => {
     const query = wikiSearch.value.trim().toLowerCase();
     document.querySelectorAll('[data-tabs="wiki"] .article-row').forEach((row) => {
-      row.classList.toggle("hidden", query && !row.textContent.toLowerCase().includes(query));
+      row.classList.toggle("hidden", !AOW.matchesSearch(query, row.textContent, row.dataset.searchTags));
     });
   });
 };
@@ -64,10 +46,11 @@ AOW.renderPublishedWikiArticle = () => {
   if (!publishedWiki) return;
   const id = new URLSearchParams(window.location.search).get("id");
   const item = AOW.getPublishedWiki().find((entry) => entry.id === id);
-  publishedWiki.innerHTML = item ? `<article class="news-article"><div class="article-meta">${item.category} · ${AOW.formatDate(item.date)}</div><h1>${item.title}</h1><p class="article-lead">${item.lead || ""}</p><img class="article-hero-image" src="${item.image}" alt="" /><section><h2>Материал</h2><div>${AOW.markdown(item.body || "")}</div></section></article>` : '<section class="content-section"><h1>Wiki-страница не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
+  publishedWiki.innerHTML = item
+    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(item.image))}" alt="" /><section><h2>Материал</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
+    : '<section class="content-section"><h1>Wiki-страница не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
 };
 
 AOW.renderPublishedWiki();
-AOW.applyWikiAdminControls();
 AOW.initWikiSearch();
 AOW.renderPublishedWikiArticle();

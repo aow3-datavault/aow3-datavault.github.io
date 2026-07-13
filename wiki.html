@@ -10,14 +10,14 @@
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
-        <nav class="main-nav" aria-label="Главная навигация"><a href="news.html">Новости</a><a class="active" href="wiki.html">Wiki</a><a href="community.html">Сообщество</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="tournaments.html">Турниры</a></nav>
-        <a class="login-link" href="author.html?type=wiki">Войти</a>
+        <nav class="main-nav" aria-label="Главная навигация"><a class="active" href="wiki.html">Wiki</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="community.html">Сообщество</a></nav>
+        <div class="language-switcher" aria-label="Выбор языка"><button class="active" type="button" aria-current="true">🇷🇺 Русский</button><button type="button" disabled title="English version is coming soon">🇬🇧 English</button></div>
       </header>
       <main>
         <section class="page-hero"><h1>Wiki и гайды</h1><p>Справочник для новичков и опытных командиров: механики, фракции, юниты, герои, режимы и экономика.</p></section>
         <section class="command-panel" aria-label="Поиск по Wiki">
           <label class="search-box"><span>Поиск по Wiki</span><input id="wiki-search" type="search" placeholder="Энергия, штаб, фракции, герои, FAQ..." /></label>
-          <div class="tags"><a href="#">Новички</a><a href="#">Фракции</a><a href="#">Юниты</a><a href="#">Герои</a><a href="#">FAQ</a></div>
+          <div class="tags"><a href="index.html?q=Новички">Новички</a><a href="index.html?q=Фракции">Фракции</a><a href="index.html?q=Юниты">Юниты</a><a href="index.html?q=Герои">Герои</a><a href="index.html?q=FAQ">FAQ</a></div>
         </section>
         <section class="portal-layout" data-tabs="wiki">
           <aside class="side-panel">
@@ -32,7 +32,7 @@
             <button class="tab-button" data-tab="features">Полный функционал</button>
           </aside>
           <div class="content-panel">
-            <div class="section-heading"><div><h2 id="wiki-title">Для новичков</h2></div><a class="admin-only" href="author.html?type=wiki">Добавить страницу</a></div>
+            <div class="section-heading"><div><h2 id="wiki-title">Для новичков</h2></div></div>
             <div class="tab-panel active" data-panel="beginners">
               <article class="article-row featured-row" data-wiki-id="first-hour"><span>Для новичков · 10 июля 2026</span><h3>Первый час в игре</h3><p>Базовый маршрут для нового командира: интерфейс, первые бои и развитие.</p><a href="wiki/first-hour.html">Читать</a></article>
             </div>
@@ -60,7 +60,7 @@
           </div>
         </section>
       </main>
-      <footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="index.html">На главную</a></div></footer>
+      <footer class="footer"><p class="footer-note">Все права защищены. © Gear Games, 2026.</p></footer>
     </div>
     <script src="scripts/common.js"></script>
     <script src="scripts/markdown.js"></script>

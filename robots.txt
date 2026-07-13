@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /author.html
+Disallow: /activity.html
+Disallow: /news.html
+Disallow: /tournaments.html

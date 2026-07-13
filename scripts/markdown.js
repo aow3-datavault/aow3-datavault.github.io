@@ -4,7 +4,9 @@ AOW.inlineMarkdown = (text) => text
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;")
-  .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noreferrer">$1</a>')
+  .replace(/\"/g, "&quot;")
+  .replace(/'/g, "&#39;")
+  .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
   .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.*?)\*/g, "<em>$1</em>");
 

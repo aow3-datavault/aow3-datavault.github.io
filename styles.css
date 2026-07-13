@@ -167,6 +167,53 @@ h3,
   font-size: 16px;
 }
 
+.main-nav a[href$="news.html"],
+.main-nav a[href$="tournaments.html"],
+.login-link,
+a[href*="author.html"] {
+  display: none !important;
+}
+
+.main-nav a[href$="wiki.html"] { order: 1; }
+.main-nav a[href$="videos.html"] { order: 2; }
+.main-nav a[href$="lore.html"] { order: 3; }
+.main-nav a[href$="community.html"] { order: 4; }
+
+.language-switcher {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex: 0 0 264px;
+  width: 264px;
+  border: 1px solid rgba(95, 210, 219, 0.42);
+  background: rgba(10, 62, 68, 0.36);
+}
+
+.language-switcher button {
+  padding: 11px 13px;
+  border: 0;
+  color: var(--muted);
+  font: 16px "Squares", "Refrigerator", sans-serif;
+  text-transform: uppercase;
+  background: transparent;
+}
+
+.language-switcher button.active {
+  color: var(--text);
+}
+
+.language-switcher button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.language-switcher button + button {
+  border-left: 1px solid rgba(95, 210, 219, 0.26);
+}
+
 .main-nav a:hover,
 .login-link:hover,
 .main-nav a.active,
@@ -385,6 +432,50 @@ h3 {
   border: 1px solid rgba(95, 210, 219, 0.42);
   color: var(--cyan);
   background: rgba(10, 62, 68, 0.36);
+}
+
+.search-results-panel {
+  display: none;
+}
+
+.search-results-panel:has(.search-results:not(:empty)) {
+  display: block;
+}
+
+.search-results-panel.is-searching {
+  display: block;
+}
+
+.search-results {
+  display: grid;
+  gap: 12px;
+}
+
+.search-result {
+  display: block;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: rgba(9, 19, 20, 0.74);
+}
+
+.search-result:hover {
+  border-color: var(--line-hot);
+  background: rgba(10, 62, 68, 0.3);
+}
+
+.search-result span,
+.search-result small {
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.search-result h3 {
+  margin: 8px 0;
+}
+
+.search-result p {
+  margin: 0 0 10px;
+  color: var(--muted);
 }
 
 .section-block {
@@ -718,7 +809,7 @@ h3 {
 
 .video-strip {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: 12px;
   margin: 16px 0 22px;
 }
@@ -803,8 +894,7 @@ h3 {
 }
 
 .footer {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: block;
   align-items: center;
   gap: 24px;
   margin: 22px 0 40px;
@@ -815,10 +905,23 @@ h3 {
 }
 
 .footer-note {
-  max-width: 520px;
+  max-width: none;
   margin: 0;
   color: rgba(153, 166, 165, 0.62);
   text-align: center;
+}
+
+.footer > :not(.footer-note) {
+  display: none;
+}
+
+.footer-note {
+  font-size: 0;
+}
+
+.footer-note::after {
+  content: "Все права защищены. © Gear Games, 2026.";
+  font-size: 18px;
 }
 
 .footer strong {
@@ -1059,8 +1162,26 @@ h3 {
 }
 
 .video-card {
-  min-height: 96px;
-  padding: 14px;
+  display: grid;
+  grid-template-columns: 168px minmax(0, 1fr);
+  align-items: center;
+  min-height: 94px;
+  padding: 0;
+  overflow: hidden;
+  text-align: left;
+}
+
+.video-card img {
+  width: 168px;
+  height: 94px;
+  object-fit: cover;
+}
+
+.video-card span {
+  padding: 18px 20px;
+  font-family: "Squares", "Refrigerator", sans-serif;
+  font-size: 22px;
+  line-height: 1.05;
 }
 
 .video-card.active {
@@ -1074,6 +1195,23 @@ h3 {
   border: 1px solid var(--line);
   color: var(--muted);
   background: rgba(8, 15, 16, 0.45);
+}
+
+@media (max-width: 680px) {
+  .video-card {
+    grid-template-columns: 120px minmax(0, 1fr);
+    min-height: 68px;
+  }
+
+  .video-card img {
+    width: 120px;
+    height: 68px;
+  }
+
+  .video-card span {
+    padding: 12px 14px;
+    font-size: 19px;
+  }
 }
 
 .form-message {
@@ -1295,6 +1433,16 @@ h3 {
   .main-nav a,
   .login-link {
     width: 100%;
+  }
+
+  .language-switcher {
+    position: static;
+    justify-content: flex-start;
+    transform: none;
+  }
+
+  .language-switcher {
+    flex-wrap: wrap;
   }
 
   .hero {

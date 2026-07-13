@@ -10,34 +10,38 @@
     <div class="site-shell">
       <header class="topbar">
         <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
-        <nav class="main-nav" aria-label="Главная навигация"><a href="news.html">Новости</a><a href="wiki.html">Wiki</a><a href="community.html">Сообщество</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="tournaments.html">Турниры</a></nav>
-        <a class="login-link" href="author.html">Войти</a>
+        <nav class="main-nav" aria-label="Главная навигация"><a href="wiki.html">Wiki</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="community.html">Сообщество</a></nav>
+        <div class="language-switcher" aria-label="Выбор языка"><button class="active" type="button" aria-current="true">🇷🇺 Русский</button><button type="button" disabled title="English version is coming soon">🇬🇧 English</button></div>
       </header>
       <main>
         <section class="hero hero-home" aria-labelledby="hero-title">
           <div class="hero-copy hero-home-copy">
             <p class="hero-kicker">Официальная база знаний</p>
             <h1 id="hero-title">AoW3 Community Wiki</h1>
-            <div class="hero-actions"><a class="button button-primary" href="wiki.html">Открыть Wiki</a><a class="button button-secondary" href="news.html">Последние новости</a></div>
+            <div class="hero-actions"><a class="button button-primary" href="wiki.html">Открыть Wiki</a></div>
           </div>
         </section>
         <section class="command-panel" aria-label="Поиск и теги">
-          <label class="search-box"><span>Глобальный поиск</span><input type="search" placeholder="Юниты, герои, экономика, FAQ..." /></label>
-          <div class="tags"><a href="wiki.html">Новички</a><a href="wiki.html">Фракции</a><a href="wiki.html">Юниты</a><a href="news.html">События</a><a href="tournaments.html">Турниры</a><a href="lore.html">Лор</a></div>
+          <label class="search-box"><span>Глобальный поиск</span><input id="site-search" type="search" placeholder="Юниты, герои, экономика, FAQ..." autocomplete="off" /></label>
+          <div class="tags"><a href="#search-results" data-search-tag="Новички">Новички</a><a href="#search-results" data-search-tag="Фракции">Фракции</a><a href="#search-results" data-search-tag="Юниты">Юниты</a><a href="#search-results" data-search-tag="Герои">Герои</a><a href="#search-results" data-search-tag="Экономика">Экономика</a><a href="#search-results" data-search-tag="Лор">Лор</a></div>
+        </section>
+        <section class="content-section search-results-panel" aria-live="polite">
+          <div class="section-heading"><div><h2>Результаты поиска</h2><p id="search-status">Введите ключевое слово или выберите тег.</p></div></div>
+          <div class="search-results" id="search-results"></div>
         </section>
         <section class="section-block">
           <div class="section-heading"><div><h2>Разделы сайта</h2></div></div>
           <div class="cards three-cols">
-            <a class="card card-accent" href="news.html"><h3>Новости</h3><p>Обновления игры, события и турнирные анонсы.</p></a>
             <a class="card" href="wiki.html"><h3>Wiki и гайды</h3><p>База для новичков, фракции, юниты, герои, экономика и FAQ.</p></a>
-            <a class="card" href="community.html"><h3>Сообщество</h3><p>Социальные сети, фан-кит, партнеры и медиа-материалы.</p></a>
             <a class="card" href="videos.html"><h3>Видео</h3><p>Туториалы, турниры, ответы разработчиков, трейлеры и развлекательные ролики.</p></a>
             <a class="card" href="lore.html"><h3>Лор</h3><p>Карта мира, персонажи, история мира и рассказы.</p></a>
-            <a class="card" href="tournaments.html"><h3>AoW Masters</h3><p>Расписание, сетки, правила, призы, записи матчей и рейтинги.</p></a>
+            <a class="card" href="community.html"><h3>Сообщество</h3><p>Социальные сети, фан-кит, партнеры и медиа-материалы.</p></a>
           </div>
         </section>
       </main>
-      <footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="author.html">Вход</a></div></footer>
+      <footer class="footer"><p class="footer-note">Все права защищены. © Gear Games, 2026.</p></footer>
     </div>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/search.js"></script>
   </body>
 </html>

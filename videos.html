@@ -1,5 +1,40 @@
 <!doctype html>
 <html lang="ru">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Видео | Art of War 3 Community Wiki</title><link rel="stylesheet" href="styles.css" /></head>
-  <body><div class="site-shell"><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a><nav class="main-nav" aria-label="Главная навигация"><a href="news.html">Новости</a><a href="wiki.html">Wiki</a><a href="community.html">Сообщество</a><a class="active" href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="tournaments.html">Турниры</a></nav><a class="login-link" href="author.html?type=video">Войти</a></header><main><section class="page-hero"><h1>Видео</h1><p>Все наши видео, удобно разбитые по категориям!</p></section><section class="portal-layout" data-videos><aside class="side-panel"><h2>Категории</h2><button class="tab-button active" data-video-category="guides">Гайды</button><button class="tab-button" data-video-category="tournaments">Турниры</button><button class="tab-button" data-video-category="dev">Дневники разработчиков</button><button class="tab-button" data-video-category="trailers">Трейлеры</button><button class="tab-button" data-video-category="interesting">Интересные видео</button><button class="tab-button" data-video-category="fun">Развлекательные</button></aside><div class="content-panel"><div class="video-embed"><iframe id="video-player" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><div class="section-heading"><div><h2 id="video-category-title">Гайды</h2></div><a href="author.html?type=video">Добавить видео</a></div><div class="video-strip" id="video-list"></div></div></section></main><footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="index.html">На главную</a></div></footer></div><script src="scripts/videos.js"></script></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Видео | Art of War 3 Community Wiki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
+        <nav class="main-nav" aria-label="Главная навигация"><a href="wiki.html">Wiki</a><a class="active" href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="community.html">Сообщество</a></nav>
+        <div class="language-switcher" aria-label="Выбор языка"><button class="active" type="button" aria-current="true">🇷🇺 Русский</button><button type="button" disabled title="English version is coming soon">🇬🇧 English</button></div>
+      </header>
+      <main>
+        <section class="page-hero"><h1>Видео</h1><p>Все наши видео, удобно разбитые по категориям!</p></section>
+        <section class="portal-layout" data-videos>
+          <aside class="side-panel">
+            <h2>Категории</h2>
+            <button class="tab-button active" data-video-category="guides">Обучающие</button>
+            <button class="tab-button" data-video-category="tournaments">Соревнования</button>
+            <button class="tab-button" data-video-category="updates">Обновления</button>
+            <button class="tab-button" data-video-category="trailers">Трейлеры</button>
+            <button class="tab-button" data-video-category="developers">Ответы разработчиков</button>
+            <button class="tab-button" data-video-category="interesting">Интересные Видео</button>
+            <button class="tab-button" data-video-category="players">Видео от игроков</button>
+          </aside>
+          <div class="content-panel">
+            <div class="video-embed"><iframe id="video-player" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="section-heading"><div><h2 id="video-category-title">Обучающие</h2></div></div>
+            <div class="video-strip" id="video-list"></div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"><p class="footer-note">Все права защищены. © Gear Games, 2026.</p></footer>
+    </div>
+    <script src="scripts/videos.js"></script>
+  </body>
 </html>

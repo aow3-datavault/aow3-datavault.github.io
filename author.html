@@ -1,5 +1,48 @@
 <!doctype html>
 <html lang="ru">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Авторская зона | Art of War 3 Community Wiki</title><link rel="stylesheet" href="styles.css" /></head>
-  <body><div class="site-shell"><header class="topbar"><a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a><nav class="main-nav" aria-label="Главная навигация"><a href="news.html">Новости</a><a href="wiki.html">Wiki</a><a href="community.html">Сообщество</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="tournaments.html">Турниры</a></nav><a class="login-link active" href="author.html">Войти</a></header><main><section class="page-hero"><h1>Авторская зона</h1><p>Закрытый раздел для редакторов сайта.</p></section><section class="content-panel standalone" id="login-panel"><div class="section-heading"><div><h2>Вход</h2></div></div><form class="form-shell" id="login-form"><label><span>Логин</span><input id="login-name" type="text" autocomplete="username" placeholder="admin" /></label><label><span>Пароль</span><input id="login-password" type="password" autocomplete="current-password" placeholder="admin" /></label><p class="form-message" id="login-message"></p><button class="button button-primary" type="submit">Войти</button></form></section><section class="content-panel standalone hidden" id="editor-panel"><div class="section-heading"><div><h2>Панель автора</h2></div><button class="button button-secondary small-button" id="logout-button" type="button">Выйти</button></div><form class="form-shell" id="editor-form"><label><span>Тип материала</span><select id="content-type"><option value="wiki">Wiki-страница</option><option value="news">Новость</option><option value="lore">Лор</option><option value="video">Видео</option></select></label><div id="dynamic-fields"></div><label><span>Текст</span><textarea id="content-body" placeholder="Пишите материал в Markdown"></textarea></label><div class="hero-actions"><button class="button button-primary" id="preview-button" type="button">Предпросмотр</button><button class="button button-secondary" type="submit">Сохранить черновик</button></div></form><div class="preview-panel hidden" id="preview-panel"><div class="section-heading"><div><h2>Предпросмотр</h2></div></div><div id="preview-content"></div></div><div class="drafts-panel"><div class="section-heading"><div><h2>Сохранённые черновики</h2></div></div><div id="drafts-list"></div></div></section></main><footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="index.html">На главную</a></div></footer></div><script src="scripts/common.js"></script><script src="scripts/markdown.js"></script><script src="scripts/storage.js"></script><script src="scripts/author.js"></script></body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" />
+    <title>Авторская зона | Art of War 3 Community Wiki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
+        <nav class="main-nav" aria-label="Главная навигация"><a href="wiki.html">Wiki</a><a href="videos.html">Видео</a><a href="lore.html">Лор</a><a href="community.html">Сообщество</a></nav>
+        <div class="language-switcher" aria-label="Выбор языка"><button class="active" type="button" aria-current="true">🇷🇺 Русский</button><button type="button" disabled title="English version is coming soon">🇬🇧 English</button></div>
+      </header>
+      <main>
+        <section class="page-hero"><h1>Авторская зона</h1><p>Закрытый раздел для редакторов сайта.</p></section>
+        <section class="content-panel standalone" id="login-panel">
+          <div class="section-heading"><div><h2>Вход</h2></div></div>
+          <form class="form-shell" id="login-form">
+            <label><span>Логин</span><input id="login-name" type="text" autocomplete="username" placeholder="admin" /></label>
+            <label><span>Пароль</span><input id="login-password" type="password" autocomplete="current-password" /></label>
+            <p class="form-message" id="login-message" aria-live="polite"></p>
+            <button class="button button-primary" type="submit">Войти</button>
+          </form>
+        </section>
+        <section class="content-panel standalone hidden" id="editor-panel">
+          <div class="section-heading"><div><h2>Панель автора</h2></div><button class="button button-secondary small-button" id="logout-button" type="button">Выйти</button></div>
+          <form class="form-shell" id="editor-form">
+            <label><span>Тип материала</span><select id="content-type"><option value="wiki">Wiki-страница</option><option value="news">Новость</option><option value="lore">Лор</option><option value="video">Видео</option></select></label>
+            <div id="dynamic-fields"></div>
+            <label><span>Текст</span><textarea id="content-body" maxlength="20000" placeholder="Пишите материал в Markdown"></textarea></label>
+            <div class="hero-actions"><button class="button button-primary" id="preview-button" type="button">Предпросмотр</button><button class="button button-secondary" type="submit">Сохранить черновик</button></div>
+          </form>
+          <section class="preview-panel hidden" id="preview-panel"><h2>Предпросмотр</h2><div id="preview-content"></div></section>
+          <section class="drafts-panel"><h2>Черновики</h2><div id="drafts-list"></div></section>
+        </section>
+      </main>
+      <footer class="footer"><p class="footer-note">Все права защищены. © Gear Games, 2026.</p></footer>
+    </div>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/markdown.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/author.js"></script>
+  </body>
 </html>

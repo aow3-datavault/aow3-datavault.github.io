@@ -15,36 +15,18 @@ AOW.renderPublishedNews = () => {
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedId = item.id;
-    article.innerHTML = `<span>${item.category} · ${AOW.formatDate(item.date)}</span><h3>${item.title}</h3><p>${item.lead || "Опубликованная новость."}</p><a href="news/article.html?id=${item.id}">Читать</a>`;
+    article.dataset.searchTags = item.tags || "";
+    const meta = document.createElement("span");
+    meta.textContent = `${item.category} · ${AOW.formatDate(item.date)}`;
+    const title = document.createElement("h3");
+    title.textContent = item.title || "Без названия";
+    const lead = document.createElement("p");
+    lead.textContent = item.lead || "Опубликованная новость.";
+    const link = document.createElement("a");
+    link.href = `news/article.html?id=${encodeURIComponent(item.id)}`;
+    link.textContent = "Читать";
+    article.append(meta, title, lead, link);
     panel.prepend(article);
-  });
-};
-
-AOW.applyNewsAdminControls = () => {
-  const newsPage = document.querySelector('[data-tabs="news"]');
-  if (!newsPage || localStorage.getItem("aowAuthorLoggedIn") !== "true") return;
-  newsPage.querySelectorAll(".article-row").forEach((row) => {
-    if (row.querySelector(".delete-news-button")) return;
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "delete-news-button";
-    button.innerHTML = "🗑 Удалить";
-    button.addEventListener("click", () => {
-      const title = row.querySelector("h3")?.textContent || "эту новость";
-      if (!window.confirm(`Удалить новость «${title}»?`)) return;
-      if (row.dataset.publishedId) {
-        localStorage.setItem("aowPublishedNews", JSON.stringify(AOW.getPublishedNews().filter((item) => item.id !== row.dataset.publishedId)));
-      }
-      if (row.dataset.newsId) {
-        const deleted = AOW.getDeletedNews();
-        if (!deleted.includes(row.dataset.newsId)) {
-          deleted.push(row.dataset.newsId);
-          AOW.saveDeletedNews(deleted);
-        }
-      }
-      row.remove();
-    });
-    row.append(button);
   });
 };
 
@@ -54,7 +36,7 @@ AOW.initNewsSearch = () => {
   newsSearch.addEventListener("input", () => {
     const query = newsSearch.value.trim().toLowerCase();
     document.querySelectorAll('[data-tabs="news"] .article-row').forEach((row) => {
-      row.classList.toggle("hidden", query && !row.textContent.toLowerCase().includes(query));
+      row.classList.toggle("hidden", !AOW.matchesSearch(query, row.textContent, row.dataset.searchTags));
     });
   });
 };
@@ -64,10 +46,11 @@ AOW.renderPublishedArticle = () => {
   if (!publishedArticle) return;
   const id = new URLSearchParams(window.location.search).get("id");
   const item = AOW.getPublishedNews().find((entry) => entry.id === id);
-  publishedArticle.innerHTML = item ? `<article class="news-article"><div class="article-meta">${item.category} · ${AOW.formatDate(item.date)}</div><h1>${item.title}</h1><p class="article-lead">${item.lead || ""}</p><img class="article-hero-image" src="${item.image}" alt="" /><section><h2>Текст новости</h2><div>${AOW.markdown(item.body || "")}</div></section></article>` : '<section class="content-section"><h1>Новость не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
+  publishedArticle.innerHTML = item
+    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(item.image))}" alt="" /><section><h2>Текст новости</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
+    : '<section class="content-section"><h1>Новость не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
 };
 
 AOW.renderPublishedNews();
-AOW.applyNewsAdminControls();
 AOW.initNewsSearch();
 AOW.renderPublishedArticle();

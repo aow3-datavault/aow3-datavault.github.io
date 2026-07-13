@@ -36,11 +36,4 @@ AOW.initTabs = () => {
   });
 };
 
-AOW.applyAdminOnly = () => {
-  document.querySelectorAll(".admin-only").forEach((item) => {
-    item.classList.toggle("hidden", localStorage.getItem("aowAuthorLoggedIn") !== "true");
-  });
-};
-
 AOW.initTabs();
-AOW.applyAdminOnly();
