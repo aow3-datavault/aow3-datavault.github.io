@@ -84,9 +84,15 @@ const publish = async (request, env) => {
   const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, { headers: githubToken(body.token) });
   if (!source.ok) return githubFailure(request, env, source, "publication_store_unavailable");
   const stored = await source.json();
+  let encodedContent = stored.content;
+  if (!encodedContent) {
+    const blob = await github(`/repos/${env.GITHUB_REPOSITORY}/git/blobs/${stored.sha}`, { headers: githubToken(body.token) });
+    if (!blob.ok) return githubFailure(request, env, blob, "publication_store_unavailable");
+    encodedContent = (await blob.json()).content;
+  }
   let content;
   try {
-    content = JSON.parse(decodeBase64(stored.content));
+    content = JSON.parse(decodeBase64(encodedContent));
   } catch {
     return json(request, env, { error: "publication_store_invalid" }, 502);
   }
