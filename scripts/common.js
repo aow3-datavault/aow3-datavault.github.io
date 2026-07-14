@@ -12,7 +12,10 @@ AOW.tabTitles = {
   modes: "Режимы игры",
   economy: "Экономика",
   faq: "FAQ",
-  features: "Полный функционал"
+  features: "Полный функционал",
+  dossiers: "Досье персонажей",
+  "world-history": "История мира",
+  stories: "Рассказы"
 };
 
 AOW.formatDate = (value) => {

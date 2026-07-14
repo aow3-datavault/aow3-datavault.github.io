@@ -15,19 +15,21 @@
       </header>
       <main>
         <section class="page-hero"><h1>Лор</h1><p>Лор, досье персонажей, история мира и рассказы.</p></section>
-        <section class="content-section">
-          <div class="section-heading"><div><h2>Досье персонажей</h2></div></div>
-          <div class="cards three-cols">
-            <div class="lore-card-list" data-lore-list="Досье персонажей"></div>
+        <section class="portal-layout" data-tabs="lore">
+          <aside class="side-panel">
+            <h2>Категории</h2>
+            <button class="tab-button active" data-tab="dossiers">Досье персонажей</button>
+            <button class="tab-button" data-tab="world-history">История мира</button>
+            <button class="tab-button" data-tab="stories">Рассказы</button>
+          </aside>
+          <div class="content-panel">
+            <div class="section-heading"><div><h2 id="lore-title">Досье персонажей</h2></div></div>
+            <div class="tab-panel active" data-panel="dossiers">
+              <div class="cards three-cols"><div class="lore-card-list" data-lore-list="Досье персонажей"></div></div>
+            </div>
+            <div class="tab-panel" data-panel="world-history"><div data-lore-list="История мира"></div></div>
+            <div class="tab-panel" data-panel="stories"><div data-lore-list="Рассказы"></div></div>
           </div>
-        </section>
-        <section class="content-section">
-          <div class="section-heading"><div><h2>История мира</h2></div></div>
-          <div data-lore-list="История мира"></div>
-        </section>
-        <section class="content-section">
-          <div class="section-heading"><div><h2>Рассказы</h2></div></div>
-          <div data-lore-list="Рассказы"></div>
         </section>
       </main>
       <footer class="footer">
