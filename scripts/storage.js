@@ -120,12 +120,16 @@ AOW.publicationControls = (type, item, onDelete) => {
 };
 const storageScript = document.currentScript?.src || "scripts/storage.js";
 const publicationDataUrl = new URL("../data/published-content.json", storageScript).toString();
-const githubPublicationDataUrl = "https://raw.githubusercontent.com/aow3-datavault/aow3-datavault.github.io/main/data/published-content.json";
+const publicationApiUrl = "https://aow3-community-publisher.v1p3rnik.workers.dev/content";
 const fetchPublicationData = async () => {
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), 3000);
   try {
-    const response = await fetch(`${githubPublicationDataUrl}?v=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(publicationApiUrl, { cache: "no-store", signal: controller.signal });
     if (response.ok) return response;
-  } catch {}
+  } catch {} finally {
+    window.clearTimeout(timeout);
+  }
   return fetch(publicationDataUrl, { cache: "no-store" });
 };
 

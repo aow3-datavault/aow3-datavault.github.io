@@ -6,5 +6,11 @@
   "vars": {
     "ALLOWED_ORIGIN": "https://aow3-datavault.github.io",
     "GITHUB_REPOSITORY": "aow3-datavault/aow3-datavault.github.io"
-  }
+  },
+  "kv_namespaces": [
+    {
+      "binding": "CONTENT",
+      "id": "c45657a92fca4198949eae6cb535a6d2"
+    }
+  ]
 }

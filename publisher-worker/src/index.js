@@ -6,7 +6,7 @@ const corsHeaders = (request, env) => {
   return {
     "Access-Control-Allow-Origin": origin === env.ALLOWED_ORIGIN ? origin : env.ALLOWED_ORIGIN,
     "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Max-Age": "86400",
     "Vary": "Origin"
   };
@@ -36,6 +36,22 @@ const github = (path, options = {}) => fetch(`https://api.github.com${path}`, {
 });
 
 const githubToken = (token) => ({ "Authorization": `Bearer ${token}` });
+
+const publicContent = async (request, env) => {
+  const cached = await env.CONTENT.get(contentPath);
+  if (cached) return new Response(cached, { headers: { "Content-Type": "application/json; charset=utf-8", ...corsHeaders(request, env) } });
+  const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`);
+  if (!source.ok) return githubFailure(request, env, source, "publication_store_unavailable");
+  const stored = await source.json();
+  if (!stored.content) return json(request, env, { error: "publication_store_unavailable" }, 502);
+  try {
+    const content = JSON.parse(decodeBase64(stored.content));
+    await env.CONTENT.put(contentPath, JSON.stringify(content));
+    return json(request, env, content);
+  } catch {
+    return json(request, env, { error: "publication_store_invalid" }, 502);
+  }
+};
 
 const githubFailure = async (request, env, response, error) => {
   const data = await response.json().catch(() => ({}));
@@ -114,7 +130,10 @@ const publish = async (request, env) => {
         branch: "main"
       })
     });
-    if (update.ok) return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
+    if (update.ok) {
+      await env.CONTENT.put(contentPath, JSON.stringify(content));
+      return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
+    }
     if (![409, 422].includes(update.status) || attempt === 2) return githubFailure(request, env, update, "publication_commit_failed");
   }
 };
@@ -124,6 +143,7 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(request, env) });
     if (request.headers.get("Origin") !== env.ALLOWED_ORIGIN) return new Response("Forbidden", { status: 403 });
     const path = new URL(request.url).pathname;
+    if (request.method === "GET" && path === "/content") return publicContent(request, env);
     if (request.method === "POST" && path === "/auth/device") return requestDeviceCode(request, env);
     if (request.method === "POST" && path === "/auth/token") return requestAccessToken(request, env);
     if (request.method === "POST" && path === "/publish") return publish(request, env);
