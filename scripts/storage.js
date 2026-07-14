@@ -120,8 +120,16 @@ AOW.publicationControls = (type, item, onDelete) => {
 };
 const storageScript = document.currentScript?.src || "scripts/storage.js";
 const publicationDataUrl = new URL("../data/published-content.json", storageScript).toString();
+const githubPublicationDataUrl = "https://raw.githubusercontent.com/aow3-datavault/aow3-datavault.github.io/main/data/published-content.json";
+const fetchPublicationData = async () => {
+  try {
+    const response = await fetch(`${githubPublicationDataUrl}?v=${Date.now()}`, { cache: "no-store" });
+    if (response.ok) return response;
+  } catch {}
+  return fetch(publicationDataUrl, { cache: "no-store" });
+};
 
-AOW.readyPublishedContent = fetch(publicationDataUrl, { cache: "no-store" })
+AOW.readyPublishedContent = fetchPublicationData()
   .then((response) => {
     if (!response.ok) throw new Error("publication_data_unavailable");
     return response.json();

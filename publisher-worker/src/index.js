@@ -79,44 +79,44 @@ const publish = async (request, env) => {
   const body = await getRequestBody(request, env);
   const deleting = body?.action === "delete";
   if (!body?.token || !contentTypes.has(body.type) || (deleting ? !body.id : !body.item?.id || body.item.typeKey !== body.type)) return json(request, env, { error: "invalid_publication" }, 400);
-  const repository = await github(`/repos/${env.GITHUB_REPOSITORY}`, { headers: githubToken(body.token) });
-  if (!repository.ok) return githubFailure(request, env, repository, "repository_access_denied");
-  const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, { headers: githubToken(body.token) });
-  if (!source.ok) return githubFailure(request, env, source, "publication_store_unavailable");
-  const stored = await source.json();
-  let encodedContent = stored.content;
-  if (!encodedContent) {
-    const blob = await github(`/repos/${env.GITHUB_REPOSITORY}/git/blobs/${stored.sha}`, { headers: githubToken(body.token) });
-    if (!blob.ok) return githubFailure(request, env, blob, "publication_store_unavailable");
-    encodedContent = (await blob.json()).content;
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, { headers: githubToken(body.token) });
+    if (!source.ok) return githubFailure(request, env, source, "publication_store_unavailable");
+    const stored = await source.json();
+    let encodedContent = stored.content;
+    if (!encodedContent) {
+      const blob = await github(`/repos/${env.GITHUB_REPOSITORY}/git/blobs/${stored.sha}`, { headers: githubToken(body.token) });
+      if (!blob.ok) return githubFailure(request, env, blob, "publication_store_unavailable");
+      encodedContent = (await blob.json()).content;
+    }
+    let content;
+    try {
+      content = JSON.parse(decodeBase64(encodedContent));
+    } catch {
+      return json(request, env, { error: "publication_store_invalid" }, 502);
+    }
+    contentTypes.forEach((type) => { if (!Array.isArray(content[type])) content[type] = []; });
+    const items = content[body.type];
+    const id = deleting ? body.id : body.item.id;
+    const index = items.findIndex((item) => item.id === id);
+    if (deleting && index === -1) return json(request, env, { error: "publication_not_found" }, 404);
+    if (deleting) items.splice(index, 1);
+    else if (index === -1) items.unshift(body.item);
+    else items[index] = body.item;
+    const title = String(deleting ? id : body.item.title || "material").replace(/[\r\n]/g, " ").slice(0, 72);
+    const update = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, {
+      method: "PUT",
+      headers: { ...githubToken(body.token), "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: `content: ${deleting ? "delete" : "publish"} ${body.type} ${title}`,
+        content: encodeBase64(JSON.stringify(content, null, 2)),
+        sha: stored.sha,
+        branch: "main"
+      })
+    });
+    if (update.ok) return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
+    if (![409, 422].includes(update.status) || attempt === 2) return githubFailure(request, env, update, "publication_commit_failed");
   }
-  let content;
-  try {
-    content = JSON.parse(decodeBase64(encodedContent));
-  } catch {
-    return json(request, env, { error: "publication_store_invalid" }, 502);
-  }
-  contentTypes.forEach((type) => { if (!Array.isArray(content[type])) content[type] = []; });
-  const items = content[body.type];
-  const id = deleting ? body.id : body.item.id;
-  const index = items.findIndex((item) => item.id === id);
-  if (deleting && index === -1) return json(request, env, { error: "publication_not_found" }, 404);
-  if (deleting) items.splice(index, 1);
-  else if (index === -1) items.unshift(body.item);
-  else items[index] = body.item;
-  const title = String(deleting ? id : body.item.title || "material").replace(/[\r\n]/g, " ").slice(0, 72);
-  const update = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, {
-    method: "PUT",
-    headers: { ...githubToken(body.token), "Content-Type": "application/json" },
-    body: JSON.stringify({
-      message: `content: ${deleting ? "delete" : "publish"} ${body.type} ${title}`,
-      content: encodeBase64(JSON.stringify(content, null, 2)),
-      sha: stored.sha,
-      branch: "main"
-    })
-  });
-  if (!update.ok) return githubFailure(request, env, update, "publication_commit_failed");
-  return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
 };
 
 export default {
