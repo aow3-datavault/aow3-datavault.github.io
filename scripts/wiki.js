@@ -33,10 +33,13 @@ AOW.renderPublishedWiki = () => {
     if (tags.childElementCount) article.append(tags);
     article.append(link);
     if (AOW.isAuthor()) {
-      const edit = document.createElement("a");
-      edit.className = "edit-publication-button";
-      edit.href = `author.html?edit=wiki:${encodeURIComponent(item.id)}`;
+      const edit = document.createElement("button");
+      edit.className = "edit-wiki-button";
+      edit.type = "button";
       edit.textContent = "✎ Редактировать";
+      edit.addEventListener("click", () => {
+        window.location.href = `author.html?edit=wiki:${encodeURIComponent(item.id)}`;
+      });
       const remove = document.createElement("button");
       remove.className = "delete-news-button";
       remove.type = "button";
