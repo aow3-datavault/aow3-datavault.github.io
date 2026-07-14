@@ -8,18 +8,6 @@ AOW.renderPublishedLore = () => {
     const target = document.querySelector(`[data-lore-list="${item.category}"]`);
     if (!target) return;
     const href = `lore/article.html?id=${encodeURIComponent(item.id)}`;
-    if (AOW.categoryKey(item.category) === "dossiers") {
-      const card = document.createElement("div");
-      card.className = "card";
-      card.dataset.publishedLoreId = item.id;
-      const link = document.createElement("a");
-      link.href = href;
-      link.innerHTML = `<h3>${AOW.escapeHtml(item.title || AOW.t("Без названия"))}</h3><p>${AOW.escapeHtml(item.lead || AOW.t("Лор-материал."))}</p>`;
-      card.append(link);
-      card.append(...AOW.publicationControls("lore", item, AOW.renderPublishedLore));
-      target.append(card);
-      return;
-    }
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedLoreId = item.id;
