@@ -38,7 +38,8 @@ const githubToken = (token) => ({ "Authorization": `Bearer ${token}` });
 
 const githubFailure = async (request, env, response, error) => {
   const data = await response.json().catch(() => ({}));
-  const detail = String(data.message || "GitHub API request failed").slice(0, 300);
+  const sso = response.headers.get("X-GitHub-SSO");
+  const detail = String(sso || data.message || "GitHub API request failed").slice(0, 300);
   console.log(`${error}: ${response.status} ${detail}`);
   return json(request, env, { error, github_status: response.status, detail }, 502);
 };
