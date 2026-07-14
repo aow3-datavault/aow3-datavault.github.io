@@ -552,11 +552,15 @@
     },
     {
       "typeKey": "video",
-      "id": "video-HGcFJ9OPcvo",
       "title": "Что улучшать в Мастерской?",
+      "tags": "Мастерская",
       "category": "Обучающие",
       "date": "2026-03-18",
+      "lead": "",
+      "image": "source materials/images/banner.jpg",
       "video": "https://www.youtube.com/watch?v=HGcFJ9OPcvo",
+      "body": "",
+      "id": "video-HGcFJ9OPcvo",
       "publishedAt": "2026-03-18T00:00:00.000Z"
     },
     {
