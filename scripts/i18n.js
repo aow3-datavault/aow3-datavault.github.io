@@ -112,6 +112,8 @@ const translations = {
   "Категория": "Category",
   "Краткое описание": "Short description",
   "Изображение": "Image",
+  "Изображение не выбрано": "No image selected",
+  "Убрать изображение": "Remove image",
   "Ссылка YouTube": "YouTube URL",
   "Мини-игры": "Mini-games",
   "Активности": "Activities",

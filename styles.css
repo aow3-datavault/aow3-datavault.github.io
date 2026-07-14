@@ -425,6 +425,15 @@ h3 {
   box-shadow: 0 0 0 3px rgba(95, 210, 219, 0.16);
 }
 
+#content-image-current {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+#remove-image {
+  margin-top: 10px;
+}
+
 .tags {
   display: flex;
   gap: 10px;

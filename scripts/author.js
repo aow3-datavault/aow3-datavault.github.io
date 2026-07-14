@@ -21,6 +21,13 @@ if (loginPanel && editorPanel) {
   let editingItem = null;
   let loginPending = false;
 
+  const updateImageState = () => {
+    const current = document.querySelector("#content-image-current");
+    const remove = document.querySelector("#remove-image");
+    if (current) current.value = selectedImage || "Изображение не выбрано";
+    if (remove) remove.disabled = !selectedImage;
+  };
+
   const toolbar = document.createElement("div");
   toolbar.className = "markdown-toolbar";
   toolbar.innerHTML = '<button type="button" data-md="bold" title="Жирный"><strong>B</strong></button><button type="button" data-md="italic" title="Курсив"><em>I</em></button><button type="button" data-md="h2" title="Заголовок">H2</button><button type="button" data-md="list" title="Список">*</button><button type="button" data-md="quote" title="Цитата">&quot;</button><button type="button" data-md="link" title="Ссылка">Link</button>';
@@ -74,10 +81,9 @@ if (loginPanel && editorPanel) {
       lore: ["Досье персонажей", "История мира", "Рассказы"],
       video: ["Обучающие", "Соревнования", "Обновления", "Трейлеры", "Ответы разработчиков", "Интересные Видео", "Видео от игроков"]
     };
-    const articleFields = ["news", "wiki", "lore"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" maxlength="300" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image" type="file" accept="image/png,image/jpeg,image/webp" /></label>' : "";
+    const articleFields = ["news", "wiki", "lore"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" maxlength="300" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image-current" type="text" readonly /><input id="content-image" type="file" accept="image/png,image/jpeg,image/webp" /><button class="small-button" id="remove-image" type="button">Убрать изображение</button></label>' : "";
     dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" maxlength="240" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option value="${item}">${contentLanguage.value === "en" ? AOW.t(item) : item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
     if (["news", "wiki", "lore"].includes(type)) {
-      selectedImage = "source materials/images/banner.jpg";
       document.querySelector("#content-image").addEventListener("change", (event) => {
         const file = event.target.files[0];
         if (!file) return;
@@ -89,9 +95,16 @@ if (loginPanel && editorPanel) {
         const reader = new FileReader();
         reader.addEventListener("load", () => {
           selectedImage = AOW.safeImageUrl(reader.result);
+          updateImageState();
         });
         reader.readAsDataURL(file);
       });
+      document.querySelector("#remove-image").addEventListener("click", () => {
+        selectedImage = "";
+        document.querySelector("#content-image").value = "";
+        updateImageState();
+      });
+      updateImageState();
     }
   };
 
@@ -113,7 +126,8 @@ if (loginPanel && editorPanel) {
     const heading = data.typeKey === "wiki" ? "Материал" : data.typeKey === "lore" ? "Лор" : "Текст новости";
     const emptyLead = data.typeKey === "wiki" ? "Краткое описание Wiki-страницы появится здесь." : data.typeKey === "lore" ? "Краткое описание лор-материала появится здесь." : "Краткое описание новости появится здесь.";
     const emptyBody = data.typeKey === "wiki" ? "Текст Wiki-страницы пока пуст." : data.typeKey === "lore" ? "Текст лор-материала пока пуст." : "Текст новости пока пуст.";
-    return `<article class="news-article preview-article"><div class="article-meta">${AOW.escapeHtml(data.category)} · ${AOW.formatDate(data.date)}</div><h1>${AOW.escapeHtml(data.title)}</h1><p class="article-lead">${AOW.escapeHtml(data.lead || emptyLead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(data.image))}" alt="" /><section><h2>${heading}</h2><div>${AOW.markdown(data.body || emptyBody)}</div></section></article>`;
+    const image = data.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(data.image))}" alt="" />` : "";
+    return `<article class="news-article preview-article"><div class="article-meta">${AOW.escapeHtml(data.category)} · ${AOW.formatDate(data.date)}</div><h1>${AOW.escapeHtml(data.title)}</h1><p class="article-lead">${AOW.escapeHtml(data.lead || emptyLead)}</p>${image}<section><h2>${heading}</h2><div>${AOW.markdown(data.body || emptyBody)}</div></section></article>`;
   };
 
   const renderDrafts = () => {
@@ -156,7 +170,8 @@ if (loginPanel && editorPanel) {
     document.querySelector("#content-tags").value = item.tags || "";
     document.querySelector("#content-category").value = item.category;
     if (document.querySelector("#content-lead")) document.querySelector("#content-lead").value = item.lead || "";
-    selectedImage = AOW.safeImageUrl(item.image || "source materials/images/banner.jpg");
+    selectedImage = item.image || "";
+    updateImageState();
     if (document.querySelector("#content-video")) document.querySelector("#content-video").value = item.video || "";
     body.value = item.body || "";
   };
