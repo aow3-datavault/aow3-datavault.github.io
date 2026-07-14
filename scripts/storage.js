@@ -37,16 +37,17 @@ AOW.matchesSearch = (query, ...values) => {
 
 AOW.tagMarkup = (value) => String(value || "").split(",").map((tag) => tag.trim()).filter(Boolean).map((tag) => `<span>${AOW.escapeHtml(tag)}</span>`).join("");
 
-AOW.getPublishedNews = () => AOW.getStoredList("aowPublishedNews");
+AOW.filterPublishedLanguage = (items) => items.filter((item) => (item.language || "ru") === AOW.language);
+AOW.getPublishedNews = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedNews"));
 AOW.getDeletedNews = () => AOW.getStoredList("aowDeletedNews");
 AOW.saveDeletedNews = (items) => localStorage.setItem("aowDeletedNews", JSON.stringify(items));
 
-AOW.getPublishedWiki = () => AOW.getStoredList("aowPublishedWiki");
+AOW.getPublishedWiki = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedWiki"));
 AOW.getDeletedWiki = () => AOW.getStoredList("aowDeletedWiki");
 AOW.saveDeletedWiki = (items) => localStorage.setItem("aowDeletedWiki", JSON.stringify(items));
 
-AOW.getPublishedLore = () => AOW.getStoredList("aowPublishedLore");
-AOW.getPublishedVideos = () => AOW.getStoredList("aowPublishedVideos");
+AOW.getPublishedLore = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedLore"));
+AOW.getPublishedVideos = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedVideos"));
 AOW.authorSessionLifetime = 12 * 60 * 60 * 1000;
 AOW.getAuthorToken = () => {
   try {
@@ -89,10 +90,10 @@ const publicationStorageKeys = {
   video: "aowPublishedVideos"
 };
 AOW.removePublication = async (type, item) => {
-  if (!window.confirm(`Удалить «${item.title || "этот материал"}»?`)) return false;
+  if (!window.confirm(AOW.language === "en" ? `Delete "${item.title || "this material"}"?` : `Удалить «${item.title || "этот материал"}»?`)) return false;
   const result = await AOW.deletePublication(type, item.id);
   if (!result.ok) {
-    window.alert("Удаление не прошло. Войдите через GitHub заново.");
+    window.alert(AOW.language === "en" ? "Deletion failed. Sign in through GitHub again." : "Удаление не прошло. Войдите через GitHub заново.");
     return false;
   }
   const key = publicationStorageKeys[type];
@@ -104,14 +105,14 @@ AOW.publicationControls = (type, item, onDelete) => {
   const edit = document.createElement("button");
   edit.className = "edit-wiki-button";
   edit.type = "button";
-  edit.textContent = "✎ Редактировать";
+  edit.textContent = AOW.language === "en" ? "✎ Edit" : "✎ Редактировать";
   edit.addEventListener("click", () => {
     window.location.href = `${location.pathname.includes("/") && /\/(wiki|news|lore)\//.test(location.pathname) ? "../" : ""}author.html?edit=${type}:${encodeURIComponent(item.id)}`;
   });
   const remove = document.createElement("button");
   remove.className = "delete-news-button";
   remove.type = "button";
-  remove.textContent = "Удалить";
+  remove.textContent = AOW.t("Удалить");
   remove.addEventListener("click", async () => {
     if (await AOW.removePublication(type, item)) onDelete?.();
   });
@@ -128,7 +129,7 @@ AOW.readyPublishedContent = fetch(publicationDataUrl, { cache: "no-store" })
   .then((content) => {
     Object.entries(publicationStorageKeys).forEach(([type, key]) => {
       const remote = Array.isArray(content[type]) ? content[type] : [];
-      localStorage.setItem(key, JSON.stringify(remote.slice(0, 100)));
+      localStorage.setItem(key, JSON.stringify(remote));
     });
     return content;
   })

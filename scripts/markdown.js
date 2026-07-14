@@ -6,6 +6,7 @@ AOW.inlineMarkdown = (text) => text
   .replace(/>/g, "&gt;")
   .replace(/\"/g, "&quot;")
   .replace(/'/g, "&#39;")
+  .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g, '<img class="article-inline-image" src="$2" alt="$1" loading="lazy" />')
   .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
   .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.*?)\*/g, "<em>$1</em>");

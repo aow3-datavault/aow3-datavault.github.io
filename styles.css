@@ -159,6 +159,10 @@ h3,
   flex-wrap: wrap;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .main-nav a,
 .login-link {
   padding: 13px 15px;
@@ -1360,6 +1364,13 @@ h3 {
   object-fit: cover;
 }
 
+.article-inline-image {
+  display: block;
+  width: 100%;
+  margin: 24px 0;
+  border: 1px solid var(--line-hot);
+}
+
 .news-article section {
   max-width: 960px;
   margin-top: 30px;
@@ -1465,7 +1476,62 @@ h3 {
   }
 
   .topbar {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+    gap: 10px;
     margin-top: 10px;
+    padding: 10px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-mark::before {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand strong {
+    font-size: 20px;
+  }
+
+  .brand small {
+    font-size: 13px;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 4px;
+    width: 42px;
+    padding: 10px;
+    border: 1px solid var(--line-hot);
+    background: rgba(10, 62, 68, 0.36);
+  }
+
+  .menu-toggle span {
+    display: block;
+    height: 2px;
+    background: var(--cyan);
+  }
+
+  .main-nav {
+    display: none;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    gap: 4px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+
+  .topbar.menu-open .main-nav {
+    display: grid;
   }
 
   .main-nav a,
@@ -1475,12 +1541,17 @@ h3 {
 
   .language-switcher {
     position: static;
-    justify-content: flex-start;
-    transform: none;
+    flex: 0 0 auto;
+    width: auto;
   }
 
-  .language-switcher {
-    flex-wrap: wrap;
+  .language-switcher button {
+    min-width: 38px;
+    padding: 9px 8px;
+  }
+
+  .language-label {
+    display: none;
   }
 
   .hero {
@@ -1500,6 +1571,21 @@ h3 {
 
   .hero-copy p:not(.eyebrow) {
     font-size: 23px;
+  }
+
+  .hero-copy,
+  .page-hero {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-home h1,
+  .page-hero h1 {
+    font-size: clamp(38px, 14vw, 62px);
+  }
+
+  .page-hero p:not(.eyebrow) {
+    font-size: 22px;
   }
 
   .button {
@@ -1525,5 +1611,33 @@ h3 {
   .section-heading a {
     display: inline-block;
     margin-top: 12px;
+  }
+
+  .portal-layout {
+    gap: 12px;
+  }
+
+  .side-panel {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .side-panel h2 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .side-panel button,
+  .side-panel a {
+    flex: 0 0 auto;
+    padding: 10px 12px;
+    white-space: nowrap;
   }
 }

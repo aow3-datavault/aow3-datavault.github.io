@@ -7,6 +7,7 @@ if (loginPanel && editorPanel) {
   const loginMessage = document.querySelector("#login-message");
   const logoutButton = document.querySelector("#logout-button");
   const contentType = document.querySelector("#content-type");
+  const contentLanguage = document.querySelector("#content-language");
   const dynamicFields = document.querySelector("#dynamic-fields");
   const editorForm = document.querySelector("#editor-form");
   const body = document.querySelector("#content-body");
@@ -70,11 +71,11 @@ if (loginPanel && editorPanel) {
     const categories = {
       wiki: ["Для новичков", "Фракции", "Юниты", "Герои", "Режимы игры", "Экономика", "FAQ", "Полный функционал"],
       news: ["Обновления", "События", "Турниры", "Оффлайн"],
-      lore: ["Досье персонажей", "История мира", "Рассказы", "Карта мира"],
+      lore: ["Досье персонажей", "История мира", "Рассказы"],
       video: ["Обучающие", "Соревнования", "Обновления", "Трейлеры", "Ответы разработчиков", "Интересные Видео", "Видео от игроков"]
     };
     const articleFields = ["news", "wiki", "lore"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" maxlength="300" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image" type="file" accept="image/png,image/jpeg,image/webp" /></label>' : "";
-    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" maxlength="240" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option>${item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
+    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" maxlength="240" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option value="${item}">${contentLanguage.value === "en" ? AOW.t(item) : item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
     if (["news", "wiki", "lore"].includes(type)) {
       selectedImage = "source materials/images/banner.jpg";
       document.querySelector("#content-image").addEventListener("change", (event) => {
@@ -96,6 +97,7 @@ if (loginPanel && editorPanel) {
 
   const getFormData = () => ({
     typeKey: contentType.value,
+    language: contentLanguage.value,
     title: document.querySelector("#content-title").value.trim() || "Без названия",
     tags: document.querySelector("#content-tags").value.trim(),
     category: document.querySelector("#content-category").value,
@@ -147,6 +149,7 @@ if (loginPanel && editorPanel) {
   };
 
   const fillEditor = (item) => {
+    contentLanguage.value = item.language || "ru";
     contentType.value = item.typeKey;
     renderFields();
     document.querySelector("#content-title").value = item.title || "";
@@ -215,6 +218,11 @@ if (loginPanel && editorPanel) {
     editingItem = null;
     renderFields();
   });
+  contentLanguage.addEventListener("change", () => {
+    const category = document.querySelector("#content-category")?.value;
+    renderFields();
+    if (category) document.querySelector("#content-category").value = category;
+  });
   previewButton.addEventListener("click", () => {
     previewContent.innerHTML = renderPreview(getFormData());
     previewPanel.classList.remove("hidden");
@@ -270,7 +278,7 @@ if (loginPanel && editorPanel) {
       const index = published.findIndex((item) => item.id === updated.id);
       if (index === -1) published.unshift(updated);
       else published[index] = updated;
-      localStorage.setItem(stores[data.typeKey], JSON.stringify(published.slice(0, 100)));
+      localStorage.setItem(stores[data.typeKey], JSON.stringify(published));
       window.alert(editingItem ? "Изменения отправлены в GitHub Pages." : "Материал отправлен в GitHub Pages.");
     } catch (error) {
       window.alert(`Публикация не прошла: ${error.message}`);
@@ -284,6 +292,7 @@ if (loginPanel && editorPanel) {
     const stores = { wiki: "aowPublishedWiki", news: "aowPublishedNews", lore: "aowPublishedLore", video: "aowPublishedVideos" };
     editingItem = AOW.getStoredList(stores[editType]).find((item) => item.id === editId) || null;
   }
+  contentLanguage.value = AOW.language;
   if (editingItem) contentType.value = editingItem.typeKey;
   else if (["wiki", "news", "lore", "video"].includes(requestedType)) contentType.value = requestedType;
   renderFields();

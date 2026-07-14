@@ -11,24 +11,24 @@ AOW.renderPublishedWiki = () => {
     if (deleted.includes(row.dataset.wikiId)) row.remove();
   });
   AOW.getPublishedWiki().forEach((item) => {
-    const panel = wikiPage.querySelector(`[data-panel="${AOW.wikiCategoryToPanel[item.category] || "beginners"}"]`);
+    const panel = wikiPage.querySelector(`[data-panel="${AOW.categoryKey(item.category) || "beginners"}"]`);
     if (!panel) return;
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedWikiId = item.id;
     article.dataset.searchTags = item.tags || "";
     const meta = document.createElement("span");
-    meta.textContent = `${item.category} · ${AOW.formatDate(item.date)}`;
+    meta.textContent = `${AOW.categoryTitle(AOW.categoryKey(item.category))} · ${AOW.formatDate(item.date)}`;
     const title = document.createElement("h3");
-    title.textContent = item.title || "Без названия";
+    title.textContent = item.title || AOW.t("Без названия");
     const lead = document.createElement("p");
-    lead.textContent = item.lead || "Опубликованная Wiki-страница.";
+    lead.textContent = item.lead || AOW.t("Опубликованная Wiki-страница.");
     const tags = document.createElement("div");
     tags.className = "article-tags";
     tags.innerHTML = AOW.tagMarkup(item.tags);
     const link = document.createElement("a");
     link.href = `wiki/article.html?id=${encodeURIComponent(item.id)}`;
-    link.textContent = "Читать";
+    link.textContent = AOW.t("Читать");
     article.append(meta, title, lead);
     if (tags.childElementCount) article.append(tags);
     article.append(link);
@@ -51,13 +51,13 @@ AOW.initWikiSearch = () => {
       wikiPage.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === selectedTab));
       wikiPage.querySelectorAll(".tab-button").forEach((button) => button.classList.toggle("active", button.dataset.tab === selectedTab));
       const title = wikiPage.querySelector("#wiki-title");
-      if (title && AOW.tabTitles[selectedTab]) title.textContent = AOW.tabTitles[selectedTab];
+      if (title && AOW.tabTitles[selectedTab]) title.textContent = AOW.t(AOW.tabTitles[selectedTab]);
       return;
     }
     wikiPage.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", Boolean(panel.querySelector(".article-row:not(.hidden)"))));
     wikiPage.querySelectorAll(".tab-button").forEach((button) => button.classList.remove("active"));
     const title = wikiPage.querySelector("#wiki-title");
-    if (title) title.textContent = "Результаты поиска";
+    if (title) title.textContent = AOW.t("Результаты поиска");
   };
   wikiSearch.addEventListener("input", filterWiki);
   wikiPage.querySelectorAll(".tab-button").forEach((button) => {
@@ -81,8 +81,8 @@ AOW.renderPublishedWikiArticle = () => {
   const id = new URLSearchParams(window.location.search).get("id");
   const item = AOW.getPublishedWiki().find((entry) => entry.id === id);
   publishedWiki.innerHTML = item
-    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${AOW.tagMarkup(item.tags) ? `<div class="article-tags">${AOW.tagMarkup(item.tags)}</div>` : ""}<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
-    : '<section class="content-section"><h1>Wiki-страница не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
+    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.categoryTitle(AOW.categoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${AOW.tagMarkup(item.tags) ? `<div class="article-tags">${AOW.tagMarkup(item.tags)}</div>` : ""}<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
+    : `<section class="content-section"><h1>${AOW.t("Wiki-страница не найдена")}</h1><p>${AOW.t("Материал мог быть удалён из локального хранилища браузера.")}</p></section>`;
   if (item) publishedWiki.querySelector("article").append(...AOW.publicationControls("wiki", item, AOW.renderPublishedWikiArticle));
 };
 

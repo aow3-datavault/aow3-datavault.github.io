@@ -28,6 +28,7 @@
         <section class="content-panel standalone hidden" id="editor-panel">
           <div class="section-heading"><div><h2>Панель автора</h2></div><button class="button button-secondary small-button" id="logout-button" type="button">Выйти</button></div>
           <form class="form-shell" id="editor-form">
+            <label><span>Язык публикации</span><select id="content-language"><option value="ru">Русский</option><option value="en">English</option></select></label>
             <label><span>Тип материала</span><select id="content-type"><option value="wiki">Wiki-страница</option><option value="news">Новость</option><option value="lore">Лор</option><option value="video">Видео</option></select></label>
             <div id="dynamic-fields"></div>
             <label><span>Текст</span><textarea id="content-body" maxlength="20000" placeholder="Пишите материал в Markdown"></textarea></label>
@@ -43,6 +44,7 @@
         <div class="footer-links"><a href="about.html">О проекте</a></div>
       </footer>
     </div>
+    <script src="scripts/i18n.js"></script>
     <script src="scripts/common.js"></script>
     <script src="scripts/markdown.js"></script>
     <script src="scripts/storage.js"></script>

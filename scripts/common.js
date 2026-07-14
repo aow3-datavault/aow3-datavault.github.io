@@ -16,8 +16,9 @@ AOW.tabTitles = {
 };
 
 AOW.formatDate = (value) => {
-  if (!value) return new Date().toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
-  return new Date(`${value}T00:00:00`).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
+  const locale = AOW.language === "en" ? "en-GB" : "ru-RU";
+  if (!value) return new Date().toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" });
+  return new Date(`${value}T00:00:00`).toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" });
 };
 
 AOW.initTabs = () => {
@@ -28,9 +29,9 @@ AOW.initTabs = () => {
         scope.querySelectorAll(".tab-button").forEach((item) => item.classList.toggle("active", item === button));
         scope.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === tab));
         const newsTitle = scope.querySelector("#news-title");
-        if (newsTitle && AOW.tabTitles[tab]) newsTitle.textContent = AOW.tabTitles[tab];
+        if (newsTitle && AOW.tabTitles[tab]) newsTitle.textContent = AOW.t(AOW.tabTitles[tab]);
         const wikiTitle = scope.querySelector("#wiki-title");
-        if (wikiTitle && AOW.tabTitles[tab]) wikiTitle.textContent = AOW.tabTitles[tab];
+        if (wikiTitle && AOW.tabTitles[tab]) wikiTitle.textContent = AOW.t(AOW.tabTitles[tab]);
       });
     });
   });

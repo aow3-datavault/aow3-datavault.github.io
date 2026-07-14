@@ -1,14 +1,6 @@
 window.AOW = window.AOW || {};
 
-const videoCategories = {
-  guides: "Обучающие",
-  tournaments: "Соревнования",
-  updates: "Обновления",
-  trailers: "Трейлеры",
-  developers: "Ответы разработчиков",
-  interesting: "Интересные Видео",
-  players: "Видео от игроков"
-};
+const videoCategoryKeys = ["guides", "tournaments", "updates", "trailers", "developers", "interesting", "players"];
 
 const getYoutubeId = (value) => {
   try {
@@ -20,9 +12,9 @@ const getYoutubeId = (value) => {
 };
 
 const initializeVideoCatalog = () => {
-  const videoData = Object.fromEntries(Object.entries(videoCategories).map(([key, title]) => [key, { title, items: [] }]));
+  const videoData = Object.fromEntries(videoCategoryKeys.map((key) => [key, { title: AOW.categoryTitle(key), items: [] }]));
   AOW.getPublishedVideos().forEach((item) => {
-    const category = Object.entries(videoCategories).find(([, title]) => title === item.category)?.[0];
+    const category = AOW.categoryKey(item.category);
     const youtubeId = getYoutubeId(item.video);
     if (category && youtubeId) videoData[category].items.push({ ...item, youtubeId, publishedAt: Date.parse(item.publishedAt || item.date) || 0 });
   });
@@ -30,10 +22,10 @@ const initializeVideoCatalog = () => {
 
   AOW.videoSearchEntries = Object.entries(videoData).flatMap(([categoryKey, category]) => category.items.map((item) => ({
     title: item.title,
-    description: `Видео из категории «${category.title}».`,
-    tags: `видео ${category.title}`,
+      description: AOW.language === "en" ? `Video in the ${category.title} category.` : `Видео из категории «${category.title}».`,
+      tags: `${AOW.t("Видео")} ${category.title}`,
     url: `videos.html?category=${encodeURIComponent(categoryKey)}&video=${encodeURIComponent(item.id)}`,
-    section: "Видео"
+      section: AOW.t("Видео")
   })));
 
   const videoScope = document.querySelector("[data-videos]");
@@ -49,7 +41,7 @@ const initializeVideoCatalog = () => {
       player.removeAttribute("src");
       const empty = document.createElement("div");
       empty.className = "video-empty";
-      empty.textContent = "Материалы появятся позже.";
+      empty.textContent = AOW.t("Материалы появятся позже.");
       list.append(empty);
       return;
     }
