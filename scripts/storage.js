@@ -47,7 +47,27 @@ AOW.saveDeletedWiki = (items) => localStorage.setItem("aowDeletedWiki", JSON.str
 
 AOW.getPublishedLore = () => AOW.getStoredList("aowPublishedLore");
 AOW.getPublishedVideos = () => AOW.getStoredList("aowPublishedVideos");
-AOW.isAuthor = () => Boolean(sessionStorage.getItem("aowGithubToken"));
+AOW.authorSessionLifetime = 12 * 60 * 60 * 1000;
+AOW.getAuthorToken = () => {
+  try {
+    const session = JSON.parse(localStorage.getItem("aowAuthorSession") || "null");
+    if (session?.token && session.expiresAt > Date.now()) return session.token;
+  } catch {}
+  localStorage.removeItem("aowAuthorSession");
+  const legacyToken = sessionStorage.getItem("aowGithubToken");
+  if (legacyToken) AOW.saveAuthorToken(legacyToken);
+  return legacyToken;
+};
+AOW.saveAuthorToken = (token) => {
+  if (!token) {
+    localStorage.removeItem("aowAuthorSession");
+    sessionStorage.removeItem("aowGithubToken");
+    return;
+  }
+  localStorage.setItem("aowAuthorSession", JSON.stringify({ token, expiresAt: Date.now() + AOW.authorSessionLifetime }));
+  sessionStorage.removeItem("aowGithubToken");
+};
+AOW.isAuthor = () => Boolean(AOW.getAuthorToken());
 
 AOW.getDrafts = () => AOW.getStoredList("aowDrafts");
 AOW.saveDrafts = (drafts) => localStorage.setItem("aowDrafts", JSON.stringify(drafts));

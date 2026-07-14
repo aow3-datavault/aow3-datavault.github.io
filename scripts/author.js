@@ -48,8 +48,7 @@ if (loginPanel && editorPanel) {
   });
 
   const setLoggedIn = (token) => {
-    if (token) sessionStorage.setItem("aowGithubToken", token);
-    else sessionStorage.removeItem("aowGithubToken");
+    AOW.saveAuthorToken(token);
     const loggedIn = Boolean(token);
     loginPanel.classList.toggle("hidden", loggedIn);
     editorPanel.classList.toggle("hidden", !loggedIn);
@@ -258,7 +257,7 @@ if (loginPanel && editorPanel) {
       date: editingItem?.date || data.date,
       publishedAt: editingItem?.publishedAt || new Date().toISOString()
     };
-    const token = sessionStorage.getItem("aowGithubToken");
+    const token = AOW.getAuthorToken();
     if (!token) {
       setLoggedIn(null);
       window.alert("Сессия GitHub завершена. Войдите снова.");
@@ -289,7 +288,7 @@ if (loginPanel && editorPanel) {
   else if (["wiki", "news", "lore", "video"].includes(requestedType)) contentType.value = requestedType;
   renderFields();
   if (editingItem) fillEditor(editingItem);
-  setLoggedIn(sessionStorage.getItem("aowGithubToken"));
+  setLoggedIn(AOW.getAuthorToken());
   renderDrafts();
   AOW.readyPublishedContent?.then(() => {
     if (editingItem || !["wiki", "news", "lore", "video"].includes(editType) || !editId) return;
