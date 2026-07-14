@@ -5,6 +5,7 @@ AOW.newsCategoryToPanel = { "Обновления": "updates", "События":
 AOW.renderPublishedNews = () => {
   const newsPage = document.querySelector('[data-tabs="news"]');
   if (!newsPage) return;
+  newsPage.querySelectorAll(".published-row").forEach((row) => row.remove());
   const deleted = AOW.getDeletedNews();
   newsPage.querySelectorAll("[data-news-id]").forEach((row) => {
     if (deleted.includes(row.dataset.newsId)) row.remove();
@@ -26,6 +27,13 @@ AOW.renderPublishedNews = () => {
     link.href = `news/article.html?id=${encodeURIComponent(item.id)}`;
     link.textContent = "Читать";
     article.append(meta, title, lead, link);
+    if (AOW.isAuthor()) {
+      const edit = document.createElement("a");
+      edit.className = "edit-publication-button";
+      edit.href = `author.html?edit=news:${encodeURIComponent(item.id)}`;
+      edit.textContent = "✎ Редактировать";
+      article.append(edit);
+    }
     panel.prepend(article);
   });
 };
@@ -47,10 +55,21 @@ AOW.renderPublishedArticle = () => {
   const id = new URLSearchParams(window.location.search).get("id");
   const item = AOW.getPublishedNews().find((entry) => entry.id === id);
   publishedArticle.innerHTML = item
-    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(item.image))}" alt="" /><section><h2>Текст новости</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
+    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><h2>Текст новости</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : '<section class="content-section"><h1>Новость не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
+  if (item && AOW.isAuthor()) {
+    const edit = document.createElement("a");
+    edit.className = "edit-publication-button";
+    edit.href = `../author.html?edit=news:${encodeURIComponent(item.id)}`;
+    edit.textContent = "✎ Редактировать";
+    publishedArticle.querySelector("article").append(edit);
+  }
 };
 
 AOW.renderPublishedNews();
 AOW.initNewsSearch();
 AOW.renderPublishedArticle();
+AOW.readyPublishedContent?.then(() => {
+  AOW.renderPublishedNews();
+  AOW.renderPublishedArticle();
+});

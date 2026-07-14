@@ -1,3 +1,5 @@
+window.AOW = window.AOW || {};
+
 const videoData = {
   guides: {
     title: "Обучающие",
@@ -177,20 +179,45 @@ const videoPublishDates = {
   CvGaVij6dbA: 20240715, "5cUZ-GGy1xI": 20240409, Kv_KPkJ254c: 20230802
 };
 
+const initializeVideoCatalog = () => {
 const knownVideoIds = new Set(Object.values(videoData).flatMap((category) => category.items.map((item) => item.id)));
 Object.entries(channelVideoAdditions).forEach(([category, additions]) => {
   const uniqueAdditions = additions.filter(([, id]) => !knownVideoIds.has(id)).map(([title, id]) => ({ title, id }));
   uniqueAdditions.forEach((item) => knownVideoIds.add(item.id));
   videoData[category].items.push(...uniqueAdditions);
 });
-Object.values(videoData).forEach(({ items }) => items.sort((a, b) => videoPublishDates[b.id] - videoPublishDates[a.id]));
+const videoCategoryKeys = Object.fromEntries(Object.entries(videoData).map(([key, category]) => [category.title, key]));
+const getYoutubeId = (value) => {
+  try {
+    const url = new URL(value);
+    if (url.hostname.includes("youtu.be")) return url.pathname.slice(1);
+    if (url.hostname.includes("youtube.com")) return url.searchParams.get("v") || url.pathname.split("/").filter(Boolean).pop();
+  } catch {
+    return "";
+  }
+  return "";
+};
+AOW.getPublishedVideos?.().forEach((item) => {
+  const category = videoCategoryKeys[item.category];
+  const id = getYoutubeId(item.video);
+  if (category && id) videoData[category].items.push({ title: item.title || "Без названия", id, localId: item.id, publishedAt: Date.parse(item.publishedAt) || 0 });
+});
+Object.values(videoData).forEach(({ items }) => items.sort((a, b) => (b.publishedAt || videoPublishDates[b.id] || 0) - (a.publishedAt || videoPublishDates[a.id] || 0)));
+
+AOW.videoSearchEntries = Object.entries(videoData).flatMap(([categoryKey, category]) => category.items.map((item) => ({
+  title: item.title,
+  description: `Видео из категории «${category.title}».`,
+  tags: `видео ${category.title}`,
+  url: `videos.html?category=${encodeURIComponent(categoryKey)}&video=${encodeURIComponent(item.id)}`,
+  section: "Видео"
+})));
 
 const videoScope = document.querySelector("[data-videos]");
 if (videoScope) {
   const player = document.querySelector("#video-player");
   const list = document.querySelector("#video-list");
   const title = document.querySelector("#video-category-title");
-  const renderVideos = (category) => {
+  const renderVideos = (category, selectedId) => {
     const data = videoData[category];
     title.textContent = data.title;
     list.innerHTML = "";
@@ -204,10 +231,11 @@ if (videoScope) {
       return;
     }
 
+    const selectedIndex = Math.max(0, data.items.findIndex((item) => item.id === selectedId));
     data.items.forEach((item, index) => {
       const button = document.createElement("button");
       button.type = "button";
-      button.className = `video-card${index === 0 ? " active" : ""}`;
+      button.className = `video-card${index === selectedIndex ? " active" : ""}`;
       const thumbnail = document.createElement("img");
       thumbnail.src = `https://i.ytimg.com/vi/${item.id}/mqdefault.jpg`;
       thumbnail.alt = "";
@@ -220,8 +248,15 @@ if (videoScope) {
         list.querySelectorAll(".video-card").forEach((card) => card.classList.toggle("active", card === button));
       });
       list.append(button);
+      if (item.localId && AOW.isAuthor?.()) {
+        const edit = document.createElement("a");
+        edit.className = "edit-publication-button";
+        edit.href = `author.html?edit=video:${encodeURIComponent(item.localId)}`;
+        edit.textContent = "✎ Редактировать";
+        list.append(edit);
+      }
     });
-    player.src = `https://www.youtube.com/embed/${data.items[0].id}`;
+    player.src = `https://www.youtube.com/embed/${data.items[selectedIndex].id}`;
   };
   videoScope.querySelectorAll("[data-video-category]").forEach((button) => {
     button.addEventListener("click", () => {
@@ -229,5 +264,11 @@ if (videoScope) {
       renderVideos(button.dataset.videoCategory);
     });
   });
-  renderVideos("guides");
+  const params = new URLSearchParams(window.location.search);
+  const category = videoData[params.get("category")] ? params.get("category") : "guides";
+  videoScope.querySelectorAll("[data-video-category]").forEach((button) => button.classList.toggle("active", button.dataset.videoCategory === category));
+  renderVideos(category, params.get("video"));
 }
+};
+
+(AOW.readyPublishedContent || Promise.resolve()).then(initializeVideoCatalog);

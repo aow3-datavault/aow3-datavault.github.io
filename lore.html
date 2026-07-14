@@ -1,9 +1,55 @@
 <!doctype html>
 <html lang="ru">
-  <head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Лор | Art of War 3 Community Wiki</title><link rel="stylesheet" href="styles.css" /></head>
-  <body><div class="site-shell"><header class="topbar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Лор | Art of War 3 Community Wiki</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
         <a class="brand" href="index.html"><span class="brand-mark">A3</span><span><strong>AOW3</strong><small>Community Wiki</small></span></a>
         <nav class="main-nav" aria-label="Главная навигация"><a href="wiki.html">Wiki</a><a href="videos.html">Видео</a><a class="active" href="lore.html">Лор</a><a href="community.html">Сообщество</a></nav>
         <div class="language-switcher" aria-label="Выбор языка"><button class="active" type="button" aria-current="true">🇷🇺 Русский</button><button type="button" disabled title="English version is coming soon">🇬🇧 English</button></div>
-      </header><main><section class="page-hero"><h1>Лор</h1><p>Карта мира, досье персонажей, история мира и рассказы.</p></section><section class="content-section"><div class="section-heading"><div><h2>Карта мира</h2></div></div><div class="world-map">Карта мира</div></section><section class="content-section"><div class="section-heading"><div><h2>Досье персонажей</h2></div><a href="author.html?type=lore">Новая публикация</a></div><div class="cards three-cols"><article class="card"><h3>Командир Конфедерации</h3><p>Заглушка досье персонажа.</p><a href="#">Открыть</a></article><article class="card"><h3>Офицер Сопротивления</h3><p>Заглушка досье персонажа.</p><a href="#">Открыть</a></article><article class="card"><h3>Наёмник</h3><p>Заглушка досье персонажа.</p><a href="#">Открыть</a></article></div></section><section class="content-section"><div class="section-heading"><div><h2>История мира</h2></div></div><article class="article-row featured-row"><span>Хроника</span><h3>Начало глобального конфликта</h3><p>Заглушка лорной публикации.</p><a href="#">Читать</a></article></section><section class="content-section"><div class="section-heading"><div><h2>Рассказы</h2></div></div><article class="article-row"><span>Рассказ</span><h3>Последний приказ</h3><p>Заглушка художественного текста.</p><a href="#">Читать</a></article></section></main><footer class="footer"><div><strong>Art of War 3 Community Wiki</strong><p>Официальный сайт сообщества Art of War 3.</p></div><p class="footer-note">© Gear Games, 2026</p><div class="footer-links"><a href="about.html">О проекте</a><a href="index.html">На главную</a></div></footer></div></body>
+      </header>
+      <main>
+        <section class="page-hero"><h1>Лор</h1><p>Карта мира, досье персонажей, история мира и рассказы.</p></section>
+        <section class="content-section">
+          <div class="section-heading"><div><h2>Карта мира</h2></div></div>
+          <div class="world-map">Карта мира</div>
+          <div data-lore-list="Карта мира"></div>
+        </section>
+        <section class="content-section">
+          <div class="section-heading"><div><h2>Досье персонажей</h2></div></div>
+          <div class="cards three-cols">
+            <a class="card" href="lore/natalie-janne.html"><h3>Натали Жанне</h3><p>Лейтенант и офицер связи Конфедерации.</p></a>
+            <a class="card" href="lore/nikolai-lazarev.html"><h3>Николай Лазарев</h3><p>Майор и полевой командир Сопротивления.</p></a>
+            <div class="lore-card-list" data-lore-list="Досье персонажей"></div>
+          </div>
+        </section>
+        <section class="content-section">
+          <div class="section-heading"><div><h2>История мира</h2></div></div>
+          <article class="article-row featured-row"><span>Хроника</span><h3>Начало глобального конфликта</h3><p>Заглушка лорной публикации.</p><a href="#">Читать</a></article>
+          <div data-lore-list="История мира"></div>
+        </section>
+        <section class="content-section">
+          <div class="section-heading"><div><h2>Рассказы</h2></div></div>
+          <article class="article-row"><span>Рассказ</span><h3>Ограбление века</h3><p>Бойцы Сопротивления совершают вылазку на базу Конфедерации за ценными криокапсулами.</p><a href="lore/ograblenie-veka.html">Читать</a></article>
+          <article class="article-row"><span>Рассказ</span><h3>Серебряные крылья</h3><p>Рассказ по вселенной Art of War 3.</p><a href="lore/serebryanye-krylya.html">Читать</a></article>
+          <article class="article-row"><span>Рассказ</span><h3>Мёртвая частота</h3><p>Герои прошлых историй встречаются в условиях инопланетного зомби-вторжения.</p><a href="lore/myortvaya-chastota.html">Читать</a></article>
+          <div data-lore-list="Рассказы"></div>
+        </section>
+      </main>
+      <footer class="footer">
+        <div class="footer-brand"><strong>Art of War 3: Global Conflict</strong><p>Официальная база знаний</p></div>
+        <p class="footer-note">Все права защищены. © Gear Games, 2026.</p>
+        <div class="footer-links"><a href="about.html">О проекте</a></div>
+      </footer>
+    </div>
+    <script src="scripts/common.js"></script>
+    <script src="scripts/markdown.js"></script>
+    <script src="scripts/storage.js"></script>
+    <script src="scripts/lore.js"></script>
+  </body>
 </html>

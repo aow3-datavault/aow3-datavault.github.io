@@ -9,11 +9,10 @@ const searchEntries = [
   { title: "Ресурсы и темп развития", description: "Производство, армия, технологии и экономика.", tags: "экономика ресурсы производство технологии", url: "wiki/economy-tempo.html", section: "Wiki" },
   { title: "Частые вопросы", description: "Ответы на вопросы о прогрессе, режимах и аккаунте.", tags: "faq вопросы прогресс аккаунт", url: "wiki/faq-start.html", section: "Wiki" },
   { title: "Индекс систем игры", description: "Навигация по системам и возможностям Art of War 3.", tags: "системы механики функционал", url: "wiki/feature-index.html", section: "Wiki" },
-  { title: "Видео", description: "Гайды, дневники разработчиков, трейлеры и развлекательные ролики.", tags: "видео гайды дневники разработчиков трейлеры", url: "videos.html", section: "Видео" },
   { title: "Лор", description: "Карта мира, персонажи, история и рассказы.", tags: "лор история персонажи рассказы мир", url: "lore.html", section: "Лор" },
   { title: "Сообщество", description: "Социальные сети, фан-кит, партнеры и медиа.", tags: "сообщество вконтакте telegram youtube rutube whatsapp фан кит", url: "community.html", section: "Сообщество" },
   { title: "О проекте", description: "Назначение и развитие Community Wiki.", tags: "проект база знаний сообщество", url: "about.html", section: "О проекте" }
-];
+].concat(AOW.videoSearchEntries || []);
 
 const searchInput = document.querySelector("#site-search");
 const searchResults = document.querySelector("#search-results");

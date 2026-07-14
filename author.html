@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://*.workers.dev; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'" />
     <title>Авторская зона | Art of War 3 Community Wiki</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -20,10 +20,9 @@
         <section class="content-panel standalone" id="login-panel">
           <div class="section-heading"><div><h2>Вход</h2></div></div>
           <form class="form-shell" id="login-form">
-            <label><span>Логин</span><input id="login-name" type="text" autocomplete="username" placeholder="admin" /></label>
-            <label><span>Пароль</span><input id="login-password" type="password" autocomplete="current-password" /></label>
+            <p>Войдите через GitHub-аккаунт с правом записи в репозиторий организации.</p>
             <p class="form-message" id="login-message" aria-live="polite"></p>
-            <button class="button button-primary" type="submit">Войти</button>
+            <button class="button button-primary" type="submit">Войти через GitHub</button>
           </form>
         </section>
         <section class="content-panel standalone hidden" id="editor-panel">
@@ -38,11 +37,16 @@
           <section class="drafts-panel"><h2>Черновики</h2><div id="drafts-list"></div></section>
         </section>
       </main>
-      <footer class="footer"><p class="footer-note">Все права защищены. © Gear Games, 2026.</p></footer>
+      <footer class="footer">
+        <div class="footer-brand"><strong>Art of War 3: Global Conflict</strong><p>Официальная база знаний</p></div>
+        <p class="footer-note">Все права защищены. © Gear Games, 2026.</p>
+        <div class="footer-links"><a href="about.html">О проекте</a></div>
+      </footer>
     </div>
     <script src="scripts/common.js"></script>
     <script src="scripts/markdown.js"></script>
     <script src="scripts/storage.js"></script>
+    <script src="scripts/publisher-config.js"></script>
     <script src="scripts/author.js"></script>
   </body>
 </html>

@@ -1,0 +1,10 @@
+{
+  "name": "aow3-community-publisher",
+  "main": "src/index.js",
+  "compatibility_date": "2026-07-14",
+  "workers_dev": true,
+  "vars": {
+    "ALLOWED_ORIGIN": "https://aow3-datavault.github.io",
+    "GITHUB_REPOSITORY": "aow3-datavault/aow3-datavault.github.io"
+  }
+}
