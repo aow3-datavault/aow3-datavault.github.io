@@ -260,12 +260,6 @@ if (loginPanel && editorPanel) {
   editorForm.querySelector(".hero-actions").prepend(publishButton);
   publishButton.addEventListener("click", async () => {
     const data = getFormData();
-    const stores = {
-      wiki: "aowPublishedWiki",
-      news: "aowPublishedNews",
-      lore: "aowPublishedLore",
-      video: "aowPublishedVideos"
-    };
     if (data.typeKey === "video" && !/(youtube\.com|youtu\.be)/i.test(data.video)) {
       window.alert("Укажите ссылку на ролик YouTube.");
       return;
@@ -273,7 +267,7 @@ if (loginPanel && editorPanel) {
     const typeLabels = { wiki: "Wiki-страницу", news: "новость", lore: "лор-материал", video: "видео" };
     const action = editingItem ? "Сохранить изменения" : "Опубликовать";
     if (!window.confirm(`${action} ${typeLabels[data.typeKey]} через GitHub?`)) return;
-    const published = AOW.getStoredList(stores[data.typeKey]);
+    const published = AOW.getPublishedRawList(data.typeKey);
     const updated = {
       ...data,
       id: editingItem?.id || crypto.randomUUID(),
@@ -293,7 +287,7 @@ if (loginPanel && editorPanel) {
       const index = published.findIndex((item) => item.id === updated.id);
       if (index === -1) published.unshift(updated);
       else published[index] = updated;
-      localStorage.setItem(stores[data.typeKey], JSON.stringify(published));
+      AOW.savePublishedList(data.typeKey, published);
       window.alert(editingItem ? "Изменения отправлены в GitHub Pages." : "Материал отправлен в GitHub Pages.");
     } catch (error) {
       window.alert(`Публикация не прошла: ${error.message}`);
@@ -304,8 +298,7 @@ if (loginPanel && editorPanel) {
 
   const [editType, editId] = (editReference || "").split(":");
   if (["wiki", "news", "lore", "video"].includes(editType) && editId) {
-    const stores = { wiki: "aowPublishedWiki", news: "aowPublishedNews", lore: "aowPublishedLore", video: "aowPublishedVideos" };
-    editingItem = AOW.getStoredList(stores[editType]).find((item) => item.id === editId) || null;
+    editingItem = AOW.getPublishedRawList(editType).find((item) => item.id === editId) || null;
   }
   contentLanguage.value = AOW.language;
   if (editingItem) contentType.value = editingItem.typeKey;
@@ -316,8 +309,7 @@ if (loginPanel && editorPanel) {
   renderDrafts();
   AOW.readyPublishedContent?.then(() => {
     if (editingItem || !["wiki", "news", "lore", "video"].includes(editType) || !editId) return;
-    const stores = { wiki: "aowPublishedWiki", news: "aowPublishedNews", lore: "aowPublishedLore", video: "aowPublishedVideos" };
-    editingItem = AOW.getStoredList(stores[editType]).find((item) => item.id === editId) || null;
+    editingItem = AOW.getPublishedRawList(editType).find((item) => item.id === editId) || null;
     if (editingItem) fillEditor(editingItem);
   });
 }

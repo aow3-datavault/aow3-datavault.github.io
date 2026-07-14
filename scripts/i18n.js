@@ -198,6 +198,7 @@ const initializeLanguage = () => {
       button.type = "button";
       button.className = language === AOW.language ? "active" : "";
       button.setAttribute("aria-current", language === AOW.language ? "true" : "false");
+      button.setAttribute("aria-label", label);
       button.innerHTML = `<span class="language-flag">${flag}</span><span class="language-label">${label}</span>`;
       button.addEventListener("click", () => AOW.setLanguage(language));
       switcher.append(button);

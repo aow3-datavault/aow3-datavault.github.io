@@ -1,5 +1,6 @@
 const contentPath = "data/published-content.json";
 const contentTypes = new Set(["wiki", "news", "lore", "video"]);
+const contentCacheTtl = 60;
 
 const corsHeaders = (request, env) => {
   const origin = request.headers.get("Origin");
@@ -46,7 +47,7 @@ const publicContent = async (request, env) => {
   if (!stored.content) return json(request, env, { error: "publication_store_unavailable" }, 502);
   try {
     const content = JSON.parse(decodeBase64(stored.content));
-    await env.CONTENT.put(contentPath, JSON.stringify(content));
+    await env.CONTENT.put(contentPath, JSON.stringify(content), { expirationTtl: contentCacheTtl });
     return json(request, env, content);
   } catch {
     return json(request, env, { error: "publication_store_invalid" }, 502);
@@ -131,7 +132,7 @@ const publish = async (request, env) => {
       })
     });
     if (update.ok) {
-      await env.CONTENT.put(contentPath, JSON.stringify(content));
+      await env.CONTENT.put(contentPath, JSON.stringify(content), { expirationTtl: contentCacheTtl });
       return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
     }
     if (![409, 422].includes(update.status) || attempt === 2) return githubFailure(request, env, update, "publication_commit_failed");

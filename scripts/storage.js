@@ -38,16 +38,12 @@ AOW.matchesSearch = (query, ...values) => {
 AOW.tagMarkup = (value) => String(value || "").split(",").map((tag) => tag.trim()).filter(Boolean).map((tag) => `<span>${AOW.escapeHtml(tag)}</span>`).join("");
 
 AOW.filterPublishedLanguage = (items) => items.filter((item) => (item.language || "ru") === AOW.language);
-AOW.getPublishedNews = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedNews"));
 AOW.getDeletedNews = () => AOW.getStoredList("aowDeletedNews");
 AOW.saveDeletedNews = (items) => localStorage.setItem("aowDeletedNews", JSON.stringify(items));
 
-AOW.getPublishedWiki = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedWiki"));
 AOW.getDeletedWiki = () => AOW.getStoredList("aowDeletedWiki");
 AOW.saveDeletedWiki = (items) => localStorage.setItem("aowDeletedWiki", JSON.stringify(items));
 
-AOW.getPublishedLore = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedLore"));
-AOW.getPublishedVideos = () => AOW.filterPublishedLanguage(AOW.getStoredList("aowPublishedVideos"));
 AOW.authorSessionLifetime = 12 * 60 * 60 * 1000;
 AOW.getAuthorToken = () => {
   try {
@@ -89,6 +85,19 @@ const publicationStorageKeys = {
   lore: "aowPublishedLore",
   video: "aowPublishedVideos"
 };
+let publishedContent = null;
+AOW.getPublishedRawList = (type) => publishedContent?.[type] || AOW.getStoredList(publicationStorageKeys[type]);
+AOW.getPublishedList = (type) => AOW.filterPublishedLanguage(publishedContent?.[type] || AOW.getStoredList(publicationStorageKeys[type]));
+AOW.savePublishedList = (type, items) => {
+  if (publishedContent) publishedContent[type] = items;
+  try {
+    localStorage.setItem(publicationStorageKeys[type], JSON.stringify(items));
+  } catch {}
+};
+AOW.getPublishedNews = () => AOW.getPublishedList("news");
+AOW.getPublishedWiki = () => AOW.getPublishedList("wiki");
+AOW.getPublishedLore = () => AOW.getPublishedList("lore");
+AOW.getPublishedVideos = () => AOW.getPublishedList("video");
 AOW.removePublication = async (type, item) => {
   if (!window.confirm(AOW.language === "en" ? `Delete "${item.title || "this material"}"?` : `Удалить «${item.title || "этот материал"}»?`)) return false;
   const result = await AOW.deletePublication(type, item.id);
@@ -96,8 +105,7 @@ AOW.removePublication = async (type, item) => {
     window.alert(AOW.language === "en" ? "Deletion failed. Sign in through GitHub again." : "Удаление не прошло. Войдите через GitHub заново.");
     return false;
   }
-  const key = publicationStorageKeys[type];
-  localStorage.setItem(key, JSON.stringify(AOW.getStoredList(key).filter((entry) => entry.id !== item.id)));
+  AOW.savePublishedList(type, AOW.getPublishedRawList(type).filter((entry) => entry.id !== item.id));
   return true;
 };
 AOW.publicationControls = (type, item, onDelete) => {
@@ -139,9 +147,10 @@ AOW.readyPublishedContent = fetchPublicationData()
     return response.json();
   })
   .then((content) => {
+    publishedContent = content;
     Object.entries(publicationStorageKeys).forEach(([type, key]) => {
       const remote = Array.isArray(content[type]) ? content[type] : [];
-      localStorage.setItem(key, JSON.stringify(remote));
+      AOW.savePublishedList(type, remote);
     });
     return content;
   })
