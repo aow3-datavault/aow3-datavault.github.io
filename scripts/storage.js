@@ -125,8 +125,7 @@ AOW.readyPublishedContent = fetch(publicationDataUrl, { cache: "no-store" })
   .then((content) => {
     Object.entries(publicationStorageKeys).forEach(([type, key]) => {
       const remote = Array.isArray(content[type]) ? content[type] : [];
-      const localOnly = AOW.getStoredList(key).filter((item) => !remote.some((remoteItem) => remoteItem.id === item.id));
-      localStorage.setItem(key, JSON.stringify([...remote, ...localOnly].slice(0, 100)));
+      localStorage.setItem(key, JSON.stringify(remote.slice(0, 100)));
     });
     return content;
   })
