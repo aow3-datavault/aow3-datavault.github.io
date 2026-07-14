@@ -101,10 +101,13 @@ AOW.removePublication = async (type, item) => {
 };
 AOW.publicationControls = (type, item, onDelete) => {
   if (!AOW.isAuthor()) return [];
-  const edit = document.createElement("a");
-  edit.className = "edit-publication-button";
-  edit.href = `${location.pathname.includes("/") && /\/(wiki|news|lore)\//.test(location.pathname) ? "../" : ""}author.html?edit=${type}:${encodeURIComponent(item.id)}`;
+  const edit = document.createElement("button");
+  edit.className = "edit-wiki-button";
+  edit.type = "button";
   edit.textContent = "✎ Редактировать";
+  edit.addEventListener("click", () => {
+    window.location.href = `${location.pathname.includes("/") && /\/(wiki|news|lore)\//.test(location.pathname) ? "../" : ""}author.html?edit=${type}:${encodeURIComponent(item.id)}`;
+  });
   const remove = document.createElement("button");
   remove.className = "delete-news-button";
   remove.type = "button";
