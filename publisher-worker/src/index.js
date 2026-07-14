@@ -29,6 +29,7 @@ const github = (path, options = {}) => fetch(`https://api.github.com${path}`, {
   ...options,
   headers: {
     "Accept": "application/vnd.github+json",
+    "User-Agent": "AOW3-Community-Publisher",
     "X-GitHub-Api-Version": "2022-11-28",
     ...options.headers
   }
