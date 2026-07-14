@@ -68,6 +68,16 @@ AOW.saveAuthorToken = (token) => {
   sessionStorage.removeItem("aowGithubToken");
 };
 AOW.isAuthor = () => Boolean(AOW.getAuthorToken());
+AOW.deletePublication = async (type, id) => {
+  const token = AOW.getAuthorToken();
+  if (!token || !AOW.publisherApiUrl) return { ok: false, error: "author_session_required" };
+  const response = await fetch(`${AOW.publisherApiUrl.replace(/\/$/, "")}/publish`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token, type, id, action: "delete" })
+  });
+  return { ...(await response.json().catch(() => ({}))), ok: response.ok };
+};
 
 AOW.getDrafts = () => AOW.getStoredList("aowDrafts");
 AOW.saveDrafts = (drafts) => localStorage.setItem("aowDrafts", JSON.stringify(drafts));

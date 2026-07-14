@@ -77,7 +77,8 @@ const requestAccessToken = async (request, env) => {
 
 const publish = async (request, env) => {
   const body = await getRequestBody(request, env);
-  if (!body?.token || !contentTypes.has(body.type) || !body.item?.id || body.item.typeKey !== body.type) return json(request, env, { error: "invalid_publication" }, 400);
+  const deleting = body?.action === "delete";
+  if (!body?.token || !contentTypes.has(body.type) || (deleting ? !body.id : !body.item?.id || body.item.typeKey !== body.type)) return json(request, env, { error: "invalid_publication" }, 400);
   const repository = await github(`/repos/${env.GITHUB_REPOSITORY}`, { headers: githubToken(body.token) });
   if (!repository.ok) return githubFailure(request, env, repository, "repository_access_denied");
   const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, { headers: githubToken(body.token) });
@@ -91,15 +92,18 @@ const publish = async (request, env) => {
   }
   contentTypes.forEach((type) => { if (!Array.isArray(content[type])) content[type] = []; });
   const items = content[body.type];
-  const index = items.findIndex((item) => item.id === body.item.id);
-  if (index === -1) items.unshift(body.item);
+  const id = deleting ? body.id : body.item.id;
+  const index = items.findIndex((item) => item.id === id);
+  if (deleting && index === -1) return json(request, env, { error: "publication_not_found" }, 404);
+  if (deleting) items.splice(index, 1);
+  else if (index === -1) items.unshift(body.item);
   else items[index] = body.item;
-  const title = String(body.item.title || "material").replace(/[\r\n]/g, " ").slice(0, 72);
+  const title = String(deleting ? id : body.item.title || "material").replace(/[\r\n]/g, " ").slice(0, 72);
   const update = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, {
     method: "PUT",
     headers: { ...githubToken(body.token), "Content-Type": "application/json" },
     body: JSON.stringify({
-      message: `content: publish ${body.type} ${title}`,
+      message: `content: ${deleting ? "delete" : "publish"} ${body.type} ${title}`,
       content: encodeBase64(JSON.stringify(content, null, 2)),
       sha: stored.sha,
       branch: "main"

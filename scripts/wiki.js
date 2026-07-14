@@ -37,7 +37,21 @@ AOW.renderPublishedWiki = () => {
       edit.className = "edit-publication-button";
       edit.href = `author.html?edit=wiki:${encodeURIComponent(item.id)}`;
       edit.textContent = "✎ Редактировать";
-      article.append(edit);
+      const remove = document.createElement("button");
+      remove.className = "delete-news-button";
+      remove.type = "button";
+      remove.textContent = "Удалить";
+      remove.addEventListener("click", async () => {
+        if (!window.confirm(`Удалить «${item.title}»?`)) return;
+        const result = await AOW.deletePublication("wiki", item.id);
+        if (!result.ok) {
+          window.alert("Удаление не прошло. Войдите через GitHub заново.");
+          return;
+        }
+        localStorage.setItem("aowPublishedWiki", JSON.stringify(AOW.getPublishedWiki().filter((entry) => entry.id !== item.id)));
+        AOW.renderPublishedWiki();
+      });
+      article.append(edit, remove);
     }
     panel.prepend(article);
   });
@@ -104,4 +118,8 @@ AOW.renderPublishedWikiArticle();
 AOW.readyPublishedContent?.then(() => {
   AOW.renderPublishedWiki();
   AOW.renderPublishedWikiArticle();
+});
+window.addEventListener("pageshow", AOW.renderPublishedWiki);
+window.addEventListener("storage", (event) => {
+  if (event.key === "aowAuthorSession") AOW.renderPublishedWiki();
 });
