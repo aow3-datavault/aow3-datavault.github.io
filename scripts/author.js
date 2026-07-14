@@ -267,14 +267,14 @@ if (loginPanel && editorPanel) {
     publishButton.disabled = true;
     try {
       const result = await publisherRequest("/publish", { token, type: data.typeKey, item: updated });
-      if (!result.ok) throw new Error(result.error || "publish_failed");
+      if (!result.ok) throw new Error([result.error, result.github_status, result.detail].filter(Boolean).join(": ") || "publish_failed");
       const index = published.findIndex((item) => item.id === updated.id);
       if (index === -1) published.unshift(updated);
       else published[index] = updated;
       localStorage.setItem(stores[data.typeKey], JSON.stringify(published.slice(0, 100)));
       window.alert(editingItem ? "Изменения отправлены в GitHub Pages." : "Материал отправлен в GitHub Pages.");
-    } catch {
-      window.alert("Публикация не прошла. Проверьте права GitHub и настройки Worker.");
+    } catch (error) {
+      window.alert(`Публикация не прошла: ${error.message}`);
     } finally {
       publishButton.disabled = false;
     }

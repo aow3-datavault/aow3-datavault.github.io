@@ -36,6 +36,13 @@ const github = (path, options = {}) => fetch(`https://api.github.com${path}`, {
 
 const githubToken = (token) => ({ "Authorization": `Bearer ${token}` });
 
+const githubFailure = async (request, env, response, error) => {
+  const data = await response.json().catch(() => ({}));
+  const detail = String(data.message || "GitHub API request failed").slice(0, 300);
+  console.log(`${error}: ${response.status} ${detail}`);
+  return json(request, env, { error, github_status: response.status, detail }, 502);
+};
+
 const getRequestBody = async (request, env) => {
   try {
     return await request.json();
@@ -70,9 +77,9 @@ const publish = async (request, env) => {
   const body = await getRequestBody(request, env);
   if (!body?.token || !contentTypes.has(body.type) || !body.item?.id || body.item.typeKey !== body.type) return json(request, env, { error: "invalid_publication" }, 400);
   const repository = await github(`/repos/${env.GITHUB_REPOSITORY}`, { headers: githubToken(body.token) });
-  if (!repository.ok) return json(request, env, { error: "repository_access_denied" }, 403);
+  if (!repository.ok) return githubFailure(request, env, repository, "repository_access_denied");
   const source = await github(`/repos/${env.GITHUB_REPOSITORY}/contents/${contentPath}`, { headers: githubToken(body.token) });
-  if (!source.ok) return json(request, env, { error: "publication_store_unavailable" }, 502);
+  if (!source.ok) return githubFailure(request, env, source, "publication_store_unavailable");
   const stored = await source.json();
   let content;
   try {
@@ -96,7 +103,7 @@ const publish = async (request, env) => {
       branch: "main"
     })
   });
-  if (!update.ok) return json(request, env, { error: "publication_commit_failed" }, 502);
+  if (!update.ok) return githubFailure(request, env, update, "publication_commit_failed");
   return json(request, env, { ok: true, commit: (await update.json()).commit.html_url });
 };
 
