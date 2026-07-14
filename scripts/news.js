@@ -27,13 +27,7 @@ AOW.renderPublishedNews = () => {
     link.href = `news/article.html?id=${encodeURIComponent(item.id)}`;
     link.textContent = "Читать";
     article.append(meta, title, lead, link);
-    if (AOW.isAuthor()) {
-      const edit = document.createElement("a");
-      edit.className = "edit-publication-button";
-      edit.href = `author.html?edit=news:${encodeURIComponent(item.id)}`;
-      edit.textContent = "✎ Редактировать";
-      article.append(edit);
-    }
+    article.append(...AOW.publicationControls("news", item, AOW.renderPublishedNews));
     panel.prepend(article);
   });
 };
@@ -57,13 +51,7 @@ AOW.renderPublishedArticle = () => {
   publishedArticle.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><h2>Текст новости</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : '<section class="content-section"><h1>Новость не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
-  if (item && AOW.isAuthor()) {
-    const edit = document.createElement("a");
-    edit.className = "edit-publication-button";
-    edit.href = `../author.html?edit=news:${encodeURIComponent(item.id)}`;
-    edit.textContent = "✎ Редактировать";
-    publishedArticle.querySelector("article").append(edit);
-  }
+  if (item) publishedArticle.querySelector("article").append(...AOW.publicationControls("news", item, AOW.renderPublishedArticle));
 };
 
 AOW.renderPublishedNews();

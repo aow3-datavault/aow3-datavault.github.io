@@ -249,11 +249,10 @@ if (videoScope) {
       });
       list.append(button);
       if (item.localId && AOW.isAuthor?.()) {
-        const edit = document.createElement("a");
-        edit.className = "edit-publication-button";
-        edit.href = `author.html?edit=video:${encodeURIComponent(item.localId)}`;
-        edit.textContent = "✎ Редактировать";
-        list.append(edit);
+        list.append(...AOW.publicationControls("video", { id: item.localId, title: item.title }, () => {
+          data.items = data.items.filter((entry) => entry.localId !== item.localId);
+          renderVideos(category, data.items[0]?.id);
+        }));
       }
     });
     player.src = `https://www.youtube.com/embed/${data.items[selectedIndex].id}`;

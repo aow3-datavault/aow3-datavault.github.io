@@ -32,30 +32,7 @@ AOW.renderPublishedWiki = () => {
     article.append(meta, title, lead);
     if (tags.childElementCount) article.append(tags);
     article.append(link);
-    if (AOW.isAuthor()) {
-      const edit = document.createElement("button");
-      edit.className = "edit-wiki-button";
-      edit.type = "button";
-      edit.textContent = "✎ Редактировать";
-      edit.addEventListener("click", () => {
-        window.location.href = `author.html?edit=wiki:${encodeURIComponent(item.id)}`;
-      });
-      const remove = document.createElement("button");
-      remove.className = "delete-news-button";
-      remove.type = "button";
-      remove.textContent = "Удалить";
-      remove.addEventListener("click", async () => {
-        if (!window.confirm(`Удалить «${item.title}»?`)) return;
-        const result = await AOW.deletePublication("wiki", item.id);
-        if (!result.ok) {
-          window.alert("Удаление не прошло. Войдите через GitHub заново.");
-          return;
-        }
-        localStorage.setItem("aowPublishedWiki", JSON.stringify(AOW.getPublishedWiki().filter((entry) => entry.id !== item.id)));
-        AOW.renderPublishedWiki();
-      });
-      article.append(edit, remove);
-    }
+    article.append(...AOW.publicationControls("wiki", item, AOW.renderPublishedWiki));
     panel.prepend(article);
   });
 };
@@ -106,13 +83,7 @@ AOW.renderPublishedWikiArticle = () => {
   publishedWiki.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${AOW.tagMarkup(item.tags) ? `<div class="article-tags">${AOW.tagMarkup(item.tags)}</div>` : ""}<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><h2>Материал</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : '<section class="content-section"><h1>Wiki-страница не найдена</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
-  if (item && AOW.isAuthor()) {
-    const edit = document.createElement("a");
-    edit.className = "edit-publication-button";
-    edit.href = `../author.html?edit=wiki:${encodeURIComponent(item.id)}`;
-    edit.textContent = "✎ Редактировать";
-    publishedWiki.querySelector("article").append(edit);
-  }
+  if (item) publishedWiki.querySelector("article").append(...AOW.publicationControls("wiki", item, AOW.renderPublishedWikiArticle));
 };
 
 AOW.renderPublishedWiki();

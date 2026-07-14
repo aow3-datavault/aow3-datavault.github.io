@@ -16,13 +16,7 @@ AOW.renderPublishedLore = () => {
       link.href = href;
       link.innerHTML = `<h3>${AOW.escapeHtml(item.title || "Без названия")}</h3><p>${AOW.escapeHtml(item.lead || "Лор-материал.")}</p>`;
       card.append(link);
-      if (AOW.isAuthor()) {
-        const edit = document.createElement("a");
-        edit.className = "edit-publication-button";
-        edit.href = `author.html?edit=lore:${encodeURIComponent(item.id)}`;
-        edit.textContent = "✎ Редактировать";
-        card.append(edit);
-      }
+      card.append(...AOW.publicationControls("lore", item, AOW.renderPublishedLore));
       target.append(card);
       return;
     }
@@ -39,13 +33,7 @@ AOW.renderPublishedLore = () => {
     link.href = href;
     link.textContent = "Читать";
     article.append(meta, title, lead, link);
-    if (AOW.isAuthor()) {
-      const edit = document.createElement("a");
-      edit.className = "edit-publication-button";
-      edit.href = `author.html?edit=lore:${encodeURIComponent(item.id)}`;
-      edit.textContent = "✎ Редактировать";
-      article.append(edit);
-    }
+    article.append(...AOW.publicationControls("lore", item, AOW.renderPublishedLore));
     target.append(article);
   });
 };
@@ -58,13 +46,7 @@ AOW.renderPublishedLoreArticle = () => {
   container.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(item.category)} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p><img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" /><section><h2>Лор</h2><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : '<section class="content-section"><h1>Материал не найден</h1><p>Материал мог быть удалён из локального хранилища браузера.</p></section>';
-  if (item && AOW.isAuthor()) {
-    const edit = document.createElement("a");
-    edit.className = "edit-publication-button";
-    edit.href = `../author.html?edit=lore:${encodeURIComponent(item.id)}`;
-    edit.textContent = "✎ Редактировать";
-    container.querySelector("article").append(edit);
-  }
+  if (item) container.querySelector("article").append(...AOW.publicationControls("lore", item, AOW.renderPublishedLoreArticle));
 };
 
 AOW.renderPublishedLore();

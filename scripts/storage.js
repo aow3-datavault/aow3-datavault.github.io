@@ -88,6 +88,32 @@ const publicationStorageKeys = {
   lore: "aowPublishedLore",
   video: "aowPublishedVideos"
 };
+AOW.removePublication = async (type, item) => {
+  if (!window.confirm(`Удалить «${item.title || "этот материал"}»?`)) return false;
+  const result = await AOW.deletePublication(type, item.id);
+  if (!result.ok) {
+    window.alert("Удаление не прошло. Войдите через GitHub заново.");
+    return false;
+  }
+  const key = publicationStorageKeys[type];
+  localStorage.setItem(key, JSON.stringify(AOW.getStoredList(key).filter((entry) => entry.id !== item.id)));
+  return true;
+};
+AOW.publicationControls = (type, item, onDelete) => {
+  if (!AOW.isAuthor()) return [];
+  const edit = document.createElement("a");
+  edit.className = "edit-publication-button";
+  edit.href = `${location.pathname.includes("/") && /\/(wiki|news|lore)\//.test(location.pathname) ? "../" : ""}author.html?edit=${type}:${encodeURIComponent(item.id)}`;
+  edit.textContent = "✎ Редактировать";
+  const remove = document.createElement("button");
+  remove.className = "delete-news-button";
+  remove.type = "button";
+  remove.textContent = "Удалить";
+  remove.addEventListener("click", async () => {
+    if (await AOW.removePublication(type, item)) onDelete?.();
+  });
+  return [edit, remove];
+};
 const storageScript = document.currentScript?.src || "scripts/storage.js";
 const publicationDataUrl = new URL("../data/published-content.json", storageScript).toString();
 
