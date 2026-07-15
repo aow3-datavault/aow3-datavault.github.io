@@ -22,13 +22,10 @@ AOW.renderPublishedWiki = () => {
     title.textContent = item.title || AOW.t("Без названия");
     const lead = document.createElement("p");
     lead.textContent = item.lead || AOW.t("Опубликованная Wiki-страница.");
-    const link = document.createElement("a");
-    link.href = `wiki/article.html?id=${encodeURIComponent(item.id)}`;
-    link.textContent = AOW.t("Читать");
+    const href = `wiki/article.html?id=${encodeURIComponent(item.id)}`;
     article.append(meta, title, lead);
-    article.append(link);
     article.append(...AOW.publicationControls("wiki", item, AOW.renderPublishedWiki));
-    AOW.makePublicationClickable(article, link.href);
+    AOW.makePublicationClickable(article, href);
     panel.prepend(article);
   });
 };

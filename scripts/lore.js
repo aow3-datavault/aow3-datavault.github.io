@@ -17,10 +17,7 @@ AOW.renderPublishedLore = () => {
     title.textContent = item.title || AOW.t("Без названия");
     const lead = document.createElement("p");
     lead.textContent = item.lead || AOW.t("Материал сюжета.");
-    const link = document.createElement("a");
-    link.href = href;
-    link.textContent = AOW.t("Читать");
-    article.append(meta, title, lead, link);
+    article.append(meta, title, lead);
     article.append(...AOW.publicationControls("lore", item, AOW.renderPublishedLore));
     AOW.makePublicationClickable(article, href);
     target.append(article);
