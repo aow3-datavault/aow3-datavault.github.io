@@ -35,8 +35,6 @@ AOW.matchesSearch = (query, ...values) => {
   return terms.every((term) => searchable.includes(term));
 };
 
-AOW.tagMarkup = (value) => String(value || "").split(",").map((tag) => tag.trim()).filter(Boolean).map((tag) => `<span>${AOW.escapeHtml(tag)}</span>`).join("");
-
 AOW.filterPublishedLanguage = (items) => items.filter((item) => (item.language || "ru") === AOW.language);
 AOW.getDeletedNews = () => AOW.getStoredList("aowDeletedNews");
 AOW.saveDeletedNews = (items) => localStorage.setItem("aowDeletedNews", JSON.stringify(items));

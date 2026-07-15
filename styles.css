@@ -407,6 +407,10 @@ h3 {
   padding: 24px;
 }
 
+.search-panel {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .search-box input {
   width: 100%;
   margin-top: 8px;
@@ -432,19 +436,6 @@ h3 {
 
 #remove-image {
   margin-top: 10px;
-}
-
-.tags {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.tags a {
-  padding: 10px 14px;
-  border: 1px solid rgba(95, 210, 219, 0.42);
-  color: var(--cyan);
-  background: rgba(10, 62, 68, 0.36);
 }
 
 .search-results-panel {
@@ -614,12 +605,6 @@ h3 {
   border-left: 52px solid var(--gold);
 }
 
-.small-tags {
-  position: relative;
-  z-index: 1;
-  margin-top: 14px;
-}
-
 .tournament {
   border-color: rgba(242, 194, 53, 0.42);
 }
@@ -782,24 +767,6 @@ h3 {
 .article-row p {
   margin-bottom: 4px;
   color: var(--muted);
-}
-
-.article-tags {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin: 14px 0;
-}
-
-.article-tags span {
-  padding: 5px 8px;
-  border: 1px solid rgba(95, 210, 219, 0.34);
-  color: var(--cyan);
-  font-family: "Squares", "Refrigerator", sans-serif;
-  font-size: 15px;
-  line-height: 1;
-  text-transform: uppercase;
-  background: rgba(10, 62, 68, 0.28);
 }
 
 .article-row a {
@@ -1565,6 +1532,10 @@ h3 {
 
   .hero {
     min-height: auto;
+  }
+
+  .page-hero {
+    min-height: 0;
   }
 
   .hero-copy,

@@ -82,7 +82,7 @@ if (loginPanel && editorPanel) {
       video: ["Обучающие", "Соревнования", "Обновления", "Трейлеры", "Ответы разработчиков", "Интересные Видео", "Видео от игроков"]
     };
     const articleFields = ["news", "wiki", "lore"].includes(type) ? '<label><span>Краткое описание</span><input id="content-lead" type="text" maxlength="300" placeholder="Короткое описание материала" /></label><label><span>Изображение</span><input id="content-image-current" type="text" readonly /><input id="content-image" type="file" accept="image/png,image/jpeg,image/webp" /><button class="small-button" id="remove-image" type="button">Убрать изображение</button></label>' : "";
-    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Теги</span><input id="content-tags" type="text" maxlength="240" placeholder="тег1, тег2, тег3" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option value="${item}">${contentLanguage.value === "en" ? AOW.t(item) : item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
+    dynamicFields.innerHTML = `<label><span>Заголовок</span><input id="content-title" type="text" maxlength="160" placeholder="Название материала" /></label><label><span>Категория</span><select id="content-category">${categories[type].map((item) => `<option value="${item}">${contentLanguage.value === "en" ? AOW.t(item) : item}</option>`).join("")}</select></label>${articleFields}${type === "video" ? '<label><span>Ссылка YouTube</span><input id="content-video" type="url" placeholder="https://www.youtube.com/watch?v=..." /></label>' : ""}`;
     if (["news", "wiki", "lore"].includes(type)) {
       document.querySelector("#content-image").addEventListener("change", (event) => {
         const file = event.target.files[0];
@@ -112,7 +112,6 @@ if (loginPanel && editorPanel) {
     typeKey: contentType.value,
     language: contentLanguage.value,
     title: document.querySelector("#content-title").value.trim() || "Без названия",
-    tags: document.querySelector("#content-tags").value.trim(),
     category: document.querySelector("#content-category").value,
     date: new Date().toISOString().slice(0, 10),
     lead: document.querySelector("#content-lead")?.value.trim() || "",
@@ -167,7 +166,6 @@ if (loginPanel && editorPanel) {
     contentType.value = item.typeKey;
     renderFields();
     document.querySelector("#content-title").value = item.title || "";
-    document.querySelector("#content-tags").value = item.tags || "";
     document.querySelector("#content-category").value = item.category;
     if (document.querySelector("#content-lead")) document.querySelector("#content-lead").value = item.lead || "";
     selectedImage = item.image || "";

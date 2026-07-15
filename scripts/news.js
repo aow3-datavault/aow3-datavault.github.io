@@ -16,7 +16,6 @@ AOW.renderPublishedNews = () => {
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedId = item.id;
-    article.dataset.searchTags = item.tags || "";
     const meta = document.createElement("span");
     meta.textContent = `${AOW.categoryTitle(AOW.categoryKey(item.category))} · ${AOW.formatDate(item.date)}`;
     const title = document.createElement("h3");
@@ -38,7 +37,7 @@ AOW.initNewsSearch = () => {
   newsSearch.addEventListener("input", () => {
     const query = newsSearch.value.trim().toLowerCase();
     document.querySelectorAll('[data-tabs="news"] .article-row').forEach((row) => {
-      row.classList.toggle("hidden", !AOW.matchesSearch(query, row.textContent, row.dataset.searchTags));
+      row.classList.toggle("hidden", !AOW.matchesSearch(query, row.textContent));
     });
   });
 };

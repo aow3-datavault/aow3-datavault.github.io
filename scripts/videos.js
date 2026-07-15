@@ -23,12 +23,12 @@ const initializeVideoCatalog = () => {
   AOW.videoSearchEntries = Object.entries(videoData).flatMap(([categoryKey, category]) => category.items.map((item) => ({
     title: item.title,
       description: AOW.language === "en" ? `Video in the ${category.title} category.` : `Видео из категории «${category.title}».`,
-      tags: `${AOW.t("Видео")} ${category.title}`,
     url: `videos.html?category=${encodeURIComponent(categoryKey)}&video=${encodeURIComponent(item.id)}`,
       section: AOW.t("Видео")
   })));
 
   const videoScope = document.querySelector("[data-videos]");
+  window.dispatchEvent(new Event("aow:videos-ready"));
   if (!videoScope) return;
   const player = document.querySelector("#video-player");
   const list = document.querySelector("#video-list");
