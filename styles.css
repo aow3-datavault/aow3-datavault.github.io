@@ -790,7 +790,11 @@ h3 {
 }
 
 .published-row {
-  border-color: rgba(143, 206, 75, 0.58);
+  border-color: var(--line);
+}
+
+.published-row:hover {
+  border-color: var(--line-hot);
 }
 
 .delete-news-button {
@@ -1214,6 +1218,10 @@ h3 {
 .video-card.active {
   border-color: var(--gold);
   color: var(--gold);
+}
+
+.video-card:hover:not(.active) {
+  border-color: var(--line-hot);
 }
 
 .video-empty {
