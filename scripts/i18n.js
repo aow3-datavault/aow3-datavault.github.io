@@ -15,6 +15,7 @@ const translations = {
   "Читать": "Read",
   "Редактировать": "Edit",
   "Удалить": "Delete",
+  "Назад": "Back",
   "Без названия": "Untitled",
   "Материалы появятся позже.": "Materials will appear later.",
   "Материал сюжета.": "Lore material.",

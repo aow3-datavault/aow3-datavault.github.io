@@ -139,6 +139,14 @@ AOW.makePublicationClickable = (element, href) => {
     window.location.href = href;
   });
 };
+AOW.publicationBackLink = (type, item) => {
+  const paths = { wiki: "wiki.html", news: "news.html", lore: "lore.html" };
+  const link = document.createElement("a");
+  link.className = "article-back";
+  link.href = `../${paths[type]}?category=${encodeURIComponent(AOW.categoryKey(item.category))}`;
+  link.textContent = `← ${AOW.t("Назад")}`;
+  return link;
+};
 const storageScript = document.currentScript?.src || "scripts/storage.js";
 const publicationDataUrl = new URL("../data/published-content.json", storageScript).toString();
 const publicationApiUrl = "https://aow3-community-publisher.v1p3rnik.workers.dev/content";

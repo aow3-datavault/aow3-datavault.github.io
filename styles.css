@@ -1357,6 +1357,22 @@ h3 {
   border: 1px solid var(--line-hot);
 }
 
+.article-back {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0 0 24px;
+  padding: 10px 14px;
+  border: 1px solid var(--line-hot);
+  color: var(--cyan) !important;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  background: rgba(10, 62, 68, 0.36);
+}
+
+.news-article > .article-back:last-of-type {
+  margin: 30px 0 0;
+}
+
 .article-inline-image {
   display: block;
   width: 100%;
@@ -1640,5 +1656,43 @@ h3 {
     flex: 0 0 auto;
     padding: 10px 12px;
     white-space: nowrap;
+  }
+
+  .social-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .social-card {
+    flex: 0 0 min(58vw, 220px);
+    min-height: 112px;
+    padding: 14px;
+    grid-template-columns: 48px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 4px 12px;
+    scroll-snap-align: start;
+  }
+
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    grid-row: 1 / span 2;
+  }
+
+  .social-icon img {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-card strong,
+  .social-card small {
+    grid-column: 2;
+  }
+
+  .social-card small {
+    grid-row: 2;
   }
 }

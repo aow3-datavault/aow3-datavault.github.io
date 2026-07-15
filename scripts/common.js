@@ -26,17 +26,19 @@ AOW.formatDate = (value) => {
 
 AOW.initTabs = () => {
   document.querySelectorAll("[data-tabs]").forEach((scope) => {
+    const setTab = (tab) => {
+      scope.querySelectorAll(".tab-button").forEach((item) => item.classList.toggle("active", item.dataset.tab === tab));
+      scope.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === tab));
+      const title = scope.querySelector("#news-title, #wiki-title, #lore-title");
+      if (title && AOW.tabTitles[tab]) title.textContent = AOW.t(AOW.tabTitles[tab]);
+    };
     scope.querySelectorAll(".tab-button").forEach((button) => {
       button.addEventListener("click", () => {
-        const tab = button.dataset.tab;
-        scope.querySelectorAll(".tab-button").forEach((item) => item.classList.toggle("active", item === button));
-        scope.querySelectorAll(".tab-panel").forEach((panel) => panel.classList.toggle("active", panel.dataset.panel === tab));
-        const newsTitle = scope.querySelector("#news-title");
-        if (newsTitle && AOW.tabTitles[tab]) newsTitle.textContent = AOW.t(AOW.tabTitles[tab]);
-        const wikiTitle = scope.querySelector("#wiki-title");
-        if (wikiTitle && AOW.tabTitles[tab]) wikiTitle.textContent = AOW.t(AOW.tabTitles[tab]);
+        setTab(button.dataset.tab);
       });
     });
+    const category = new URLSearchParams(window.location.search).get("category");
+    if (category && scope.querySelector(`[data-panel="${category}"]`)) setTab(category);
   });
 };
 

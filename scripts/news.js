@@ -23,7 +23,7 @@ AOW.renderPublishedNews = () => {
     const lead = document.createElement("p");
     lead.textContent = item.lead || AOW.t("Опубликованная новость.");
     const link = document.createElement("a");
-    link.href = `news/article.html?id=${encodeURIComponent(item.id)}`;
+    link.href = `news/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.categoryKey(item.category))}`;
     link.textContent = AOW.t("Читать");
     article.append(meta, title, lead, link);
     article.append(...AOW.publicationControls("news", item, AOW.renderPublishedNews));
@@ -51,7 +51,11 @@ AOW.renderPublishedArticle = () => {
   publishedArticle.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.categoryTitle(AOW.categoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : `<section class="content-section"><h1>${AOW.t("Новость не найдена")}</h1><p>${AOW.t("Материал мог быть удалён из локального хранилища браузера.")}</p></section>`;
-  if (item) publishedArticle.querySelector("article").append(...AOW.publicationControls("news", item, AOW.renderPublishedArticle));
+  if (item) {
+    const article = publishedArticle.querySelector("article");
+    article.prepend(AOW.publicationBackLink("news", item));
+    article.append(AOW.publicationBackLink("news", item), ...AOW.publicationControls("news", item, AOW.renderPublishedArticle));
+  }
 };
 
 AOW.renderPublishedNews();

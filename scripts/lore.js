@@ -4,10 +4,16 @@ AOW.renderPublishedLore = () => {
   const page = document.querySelector("[data-lore-list]");
   if (!page) return;
   document.querySelectorAll("[data-published-lore-id]").forEach((item) => item.remove());
-  AOW.getPublishedLore().forEach((item) => {
+  const worldHistoryOrder = ["confederation-resistance", "syndicate", "peruvian-conflict", "modifications", "nutricore-global", "new-year-traditions"];
+  AOW.getPublishedLore().sort((left, right) => {
+    if (AOW.categoryKey(left.category) !== "world-history" || AOW.categoryKey(right.category) !== "world-history") return 0;
+    const leftOrder = worldHistoryOrder.indexOf(left.id);
+    const rightOrder = worldHistoryOrder.indexOf(right.id);
+    return (leftOrder === -1 ? worldHistoryOrder.length : leftOrder) - (rightOrder === -1 ? worldHistoryOrder.length : rightOrder);
+  }).forEach((item) => {
     const target = document.querySelector(`[data-lore-list="${item.category}"]`);
     if (!target) return;
-    const href = `lore/article.html?id=${encodeURIComponent(item.id)}`;
+    const href = `lore/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.categoryKey(item.category))}`;
     const article = document.createElement("article");
     article.className = "article-row published-row";
     article.dataset.publishedLoreId = item.id;
@@ -32,7 +38,11 @@ AOW.renderPublishedLoreArticle = () => {
   container.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.categoryTitle(AOW.categoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || "").replace(/^## (Досье|Рассказ|История мира)\s*\n/, ""))}</div></section></article>`
     : `<section class="content-section"><h1>${AOW.t("Материал не найден")}</h1><p>${AOW.t("Материал мог быть удалён из локального хранилища браузера.")}</p></section>`;
-  if (item) container.querySelector("article").append(...AOW.publicationControls("lore", item, AOW.renderPublishedLoreArticle));
+  if (item) {
+    const article = container.querySelector("article");
+    article.prepend(AOW.publicationBackLink("lore", item));
+    article.append(AOW.publicationBackLink("lore", item), ...AOW.publicationControls("lore", item, AOW.renderPublishedLoreArticle));
+  }
 };
 
 AOW.renderPublishedLore();
