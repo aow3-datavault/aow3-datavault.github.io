@@ -218,13 +218,20 @@ a[href*="author.html"] {
   border-left: 1px solid rgba(95, 210, 219, 0.26);
 }
 
-.main-nav a:hover,
-.login-link:hover,
 .main-nav a.active,
 .login-link.active {
   border-color: var(--line-hot);
   color: #fff;
   background: rgba(44, 105, 111, 0.32);
+}
+
+@media (hover: hover) {
+  .main-nav a:hover,
+  .login-link:hover {
+    border-color: var(--line-hot);
+    color: #fff;
+    background: rgba(44, 105, 111, 0.32);
+  }
 }
 
 .login-link {
@@ -1667,33 +1674,26 @@ h3 {
   }
 
   .social-card {
-    flex: 0 0 min(58vw, 220px);
-    min-height: 112px;
-    padding: 14px;
-    grid-template-columns: 48px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    gap: 4px 12px;
+    flex: 0 0 64px;
+    min-height: 64px;
+    padding: 8px;
+    place-items: center;
     scroll-snap-align: start;
   }
 
   .social-icon {
-    width: 48px;
-    height: 48px;
-    grid-row: 1 / span 2;
+    width: 44px;
+    height: 44px;
   }
 
   .social-icon img {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .social-card strong,
   .social-card small {
-    grid-column: 2;
-  }
-
-  .social-card small {
-    grid-row: 2;
+    display: none;
   }
 
   .partner-strip,
@@ -1713,5 +1713,18 @@ h3 {
 
   .media-grid div {
     min-height: 132px;
+  }
+
+  .news-article h1 {
+    font-size: clamp(32px, 9vw, 44px);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .news-article h2,
+  .news-article h3 {
+    font-size: clamp(26px, 7vw, 34px);
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
