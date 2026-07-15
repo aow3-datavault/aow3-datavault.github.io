@@ -1648,6 +1648,8 @@ h3 {
     overflow-x: auto;
     overscroll-behavior-x: contain;
     scrollbar-width: thin;
+    padding-right: 36px;
+    scroll-padding-inline: 12px;
   }
 
   .side-panel h2 {
@@ -1671,10 +1673,12 @@ h3 {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
+    padding-right: 24px;
+    scroll-padding-inline: 12px;
   }
 
   .social-card {
-    flex: 0 0 64px;
+    flex: 0 0 60px;
     min-height: 64px;
     padding: 8px;
     place-items: center;
@@ -1703,6 +1707,8 @@ h3 {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
+    padding-right: 32px;
+    scroll-padding-inline: 12px;
   }
 
   .partner-strip a,

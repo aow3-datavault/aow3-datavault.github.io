@@ -205,6 +205,27 @@ const fitHeroTitles = () => {
   });
 };
 
+AOW.fitArticleTitles = () => {
+  document.querySelectorAll(".news-article h1").forEach((title) => {
+    title.style.removeProperty("font-size");
+    if (!window.matchMedia("(max-width: 680px)").matches) return;
+    const article = title.closest(".news-article");
+    const articleStyle = window.getComputedStyle(article);
+    const availableWidth = article.clientWidth - parseFloat(articleStyle.paddingLeft) - parseFloat(articleStyle.paddingRight);
+    const style = window.getComputedStyle(title);
+    const context = document.createElement("canvas").getContext("2d");
+    let fontSize = parseFloat(style.fontSize);
+    const words = title.textContent.trim().split(/\s+/);
+    const letterSpacing = Number.parseFloat(style.letterSpacing);
+    const measure = (word) => {
+      context.font = `${style.fontStyle} ${style.fontWeight} ${fontSize}px ${style.fontFamily}`;
+      return context.measureText(word).width + Math.max(0, word.length - 1) * (Number.isFinite(letterSpacing) ? letterSpacing : 0);
+    };
+    while (Math.max(...words.map(measure)) > availableWidth && fontSize > 22) fontSize -= 1;
+    title.style.fontSize = `${fontSize}px`;
+  });
+};
+
 const initializeLanguage = () => {
   document.documentElement.lang = AOW.language;
   document.querySelectorAll(".language-switcher").forEach((switcher) => {
@@ -237,6 +258,7 @@ const initializeLanguage = () => {
   });
   if (AOW.language !== "en") {
     fitHeroTitles();
+    AOW.fitArticleTitles();
     return;
   }
   document.title = AOW.t(document.title.replace(" | Art of War 3 Community Wiki", "")) + (document.title.includes(" | Art of War 3 Community Wiki") ? " | Art of War 3 Community Wiki" : "");
@@ -248,6 +270,7 @@ const initializeLanguage = () => {
     if (element.hasAttribute(attribute)) element.setAttribute(attribute, AOW.t(element.getAttribute(attribute)));
   }));
   fitHeroTitles();
+  AOW.fitArticleTitles();
 };
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeLanguage);
@@ -257,6 +280,13 @@ window.addEventListener("resize", () => {
   if (window.innerWidth === viewportWidth) return;
   viewportWidth = window.innerWidth;
   fitHeroTitles();
+  AOW.fitArticleTitles();
 });
-window.addEventListener("load", fitHeroTitles, { once: true });
-document.fonts?.ready?.then(fitHeroTitles);
+window.addEventListener("load", () => {
+  fitHeroTitles();
+  AOW.fitArticleTitles();
+}, { once: true });
+document.fonts?.ready?.then(() => {
+  fitHeroTitles();
+  AOW.fitArticleTitles();
+});

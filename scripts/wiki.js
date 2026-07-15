@@ -68,6 +68,7 @@ AOW.renderPublishedWikiArticle = () => {
   publishedWiki.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.categoryTitle(AOW.categoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : `<section class="content-section"><h1>${AOW.t("Wiki-страница не найдена")}</h1><p>${AOW.t("Материал мог быть удалён из локального хранилища браузера.")}</p></section>`;
+  AOW.fitArticleTitles?.();
   if (item) {
     const article = publishedWiki.querySelector("article");
     article.prepend(AOW.publicationBackLink("wiki", item));
