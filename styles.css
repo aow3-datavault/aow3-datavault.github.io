@@ -1695,4 +1695,23 @@ h3 {
   .social-card small {
     grid-row: 2;
   }
+
+  .partner-strip,
+  .media-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .partner-strip a,
+  .media-grid div {
+    flex: 0 0 min(68vw, 260px);
+    scroll-snap-align: start;
+  }
+
+  .media-grid div {
+    min-height: 132px;
+  }
 }
