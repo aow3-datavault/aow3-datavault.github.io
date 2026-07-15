@@ -251,4 +251,11 @@ const initializeLanguage = () => {
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeLanguage);
 else initializeLanguage();
-window.addEventListener("resize", fitHeroTitles);
+let viewportWidth = window.innerWidth;
+window.addEventListener("resize", () => {
+  if (window.innerWidth === viewportWidth) return;
+  viewportWidth = window.innerWidth;
+  fitHeroTitles();
+});
+window.addEventListener("load", fitHeroTitles, { once: true });
+document.fonts?.ready?.then(fitHeroTitles);

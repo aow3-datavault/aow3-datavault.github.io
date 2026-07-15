@@ -775,6 +775,15 @@ h3 {
   text-transform: uppercase;
 }
 
+.publication-link {
+  cursor: pointer;
+}
+
+.publication-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
 .featured-row {
   border-color: rgba(242, 194, 53, 0.72);
   background: linear-gradient(135deg, rgba(82, 68, 24, 0.82), rgba(36, 51, 52, 0.94));

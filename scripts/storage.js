@@ -124,6 +124,21 @@ AOW.publicationControls = (type, item, onDelete) => {
   });
   return [edit, remove];
 };
+AOW.makePublicationClickable = (element, href) => {
+  const open = (event) => {
+    if (event.target.closest("a, button, input, select, textarea")) return;
+    window.location.href = href;
+  };
+  element.classList.add("publication-link");
+  element.tabIndex = 0;
+  element.setAttribute("role", "link");
+  element.addEventListener("click", open);
+  element.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    window.location.href = href;
+  });
+};
 const storageScript = document.currentScript?.src || "scripts/storage.js";
 const publicationDataUrl = new URL("../data/published-content.json", storageScript).toString();
 const publicationApiUrl = "https://aow3-community-publisher.v1p3rnik.workers.dev/content";

@@ -22,6 +22,7 @@ AOW.renderPublishedLore = () => {
     link.textContent = AOW.t("Читать");
     article.append(meta, title, lead, link);
     article.append(...AOW.publicationControls("lore", item, AOW.renderPublishedLore));
+    AOW.makePublicationClickable(article, href);
     target.append(article);
   });
 };

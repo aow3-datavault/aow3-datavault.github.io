@@ -27,6 +27,7 @@ AOW.renderPublishedNews = () => {
     link.textContent = AOW.t("Читать");
     article.append(meta, title, lead, link);
     article.append(...AOW.publicationControls("news", item, AOW.renderPublishedNews));
+    AOW.makePublicationClickable(article, link.href);
     panel.prepend(article);
   });
 };

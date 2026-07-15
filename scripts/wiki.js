@@ -28,6 +28,7 @@ AOW.renderPublishedWiki = () => {
     article.append(meta, title, lead);
     article.append(link);
     article.append(...AOW.publicationControls("wiki", item, AOW.renderPublishedWiki));
+    AOW.makePublicationClickable(article, link.href);
     panel.prepend(article);
   });
 };
