@@ -122,9 +122,9 @@ if (loginPanel && editorPanel) {
 
   const renderPreview = (data) => {
     if (!["news", "wiki", "lore"].includes(data.typeKey)) return AOW.markdown(data.body || "Предпросмотр пуст.");
-    const heading = data.typeKey === "wiki" ? "Материал" : data.typeKey === "lore" ? "Лор" : "Текст новости";
-    const emptyLead = data.typeKey === "wiki" ? "Краткое описание Wiki-страницы появится здесь." : data.typeKey === "lore" ? "Краткое описание лор-материала появится здесь." : "Краткое описание новости появится здесь.";
-    const emptyBody = data.typeKey === "wiki" ? "Текст Wiki-страницы пока пуст." : data.typeKey === "lore" ? "Текст лор-материала пока пуст." : "Текст новости пока пуст.";
+    const heading = data.typeKey === "wiki" ? "Материал" : data.typeKey === "lore" ? "Сюжет" : "Текст новости";
+    const emptyLead = data.typeKey === "wiki" ? "Краткое описание Wiki-страницы появится здесь." : data.typeKey === "lore" ? "Краткое описание материала сюжета появится здесь." : "Краткое описание новости появится здесь.";
+    const emptyBody = data.typeKey === "wiki" ? "Текст Wiki-страницы пока пуст." : data.typeKey === "lore" ? "Текст материала сюжета пока пуст." : "Текст новости пока пуст.";
     const image = data.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.safeImageUrl(data.image))}" alt="" />` : "";
     return `<article class="news-article preview-article"><div class="article-meta">${AOW.escapeHtml(data.category)} · ${AOW.formatDate(data.date)}</div><h1>${AOW.escapeHtml(data.title)}</h1><p class="article-lead">${AOW.escapeHtml(data.lead || emptyLead)}</p>${image}<section><h2>${heading}</h2><div>${AOW.markdown(data.body || emptyBody)}</div></section></article>`;
   };
@@ -242,7 +242,7 @@ if (loginPanel && editorPanel) {
   });
   editorForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const typeLabels = { wiki: "Wiki-страница", news: "Новость", lore: "Лор", video: "Видео" };
+    const typeLabels = { wiki: "Wiki-страница", news: "Новость", lore: "Сюжет", video: "Видео" };
     const data = getFormData();
     const draft = { id: crypto.randomUUID(), type: typeLabels[data.typeKey], created: new Date().toLocaleString("ru-RU"), ...data };
     const drafts = AOW.getDrafts();
@@ -262,7 +262,7 @@ if (loginPanel && editorPanel) {
       window.alert("Укажите ссылку на ролик YouTube.");
       return;
     }
-    const typeLabels = { wiki: "Wiki-страницу", news: "новость", lore: "лор-материал", video: "видео" };
+    const typeLabels = { wiki: "Wiki-страницу", news: "новость", lore: "материал сюжета", video: "видео" };
     const action = editingItem ? "Сохранить изменения" : "Опубликовать";
     if (!window.confirm(`${action} ${typeLabels[data.typeKey]} через GitHub?`)) return;
     const published = AOW.getPublishedRawList(data.typeKey);

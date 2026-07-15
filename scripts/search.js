@@ -9,7 +9,7 @@ const searchEntries = [
   { title: "Ресурсы и темп развития", description: "Производство, армия, технологии и экономика.", url: "wiki/economy-tempo.html", section: "Wiki" },
   { title: "Частые вопросы", description: "Ответы на вопросы о прогрессе, режимах и аккаунте.", url: "wiki/faq-start.html", section: "Wiki" },
   { title: "Индекс систем игры", description: "Навигация по системам и возможностям Art of War 3.", url: "wiki/feature-index.html", section: "Wiki" },
-  { title: "Лор", description: "Персонажи, история мира и рассказы.", url: "lore.html", section: "Лор" },
+  { title: "Сюжет", description: "Персонажи, история мира и рассказы.", url: "lore.html", section: "Сюжет" },
   { title: "Сообщество", description: "Социальные сети, фан-кит, партнеры и медиа.", url: "community.html", section: "Сообщество" },
   { title: "О проекте", description: "Назначение и развитие Community Wiki.", url: "about.html", section: "О проекте" }
 ];

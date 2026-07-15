@@ -16,7 +16,7 @@ AOW.renderPublishedLore = () => {
     const title = document.createElement("h3");
     title.textContent = item.title || AOW.t("Без названия");
     const lead = document.createElement("p");
-    lead.textContent = item.lead || AOW.t("Лор-материал.");
+    lead.textContent = item.lead || AOW.t("Материал сюжета.");
     const link = document.createElement("a");
     link.href = href;
     link.textContent = AOW.t("Читать");
