@@ -188,6 +188,24 @@ const translateText = (node) => {
   node.nodeValue = node.nodeValue.replace(value, translations[value]);
 };
 
+const fitHeroTitles = () => {
+  document.querySelectorAll(".page-hero h1").forEach((title) => {
+    title.style.removeProperty("font-size");
+    title.style.removeProperty("white-space");
+    if (!window.matchMedia("(max-width: 680px)").matches) return;
+    const hero = title.parentElement;
+    const heroStyle = window.getComputedStyle(hero);
+    const availableWidth = hero.clientWidth - parseFloat(heroStyle.paddingLeft) - parseFloat(heroStyle.paddingRight);
+    let fontSize = parseFloat(window.getComputedStyle(title).fontSize);
+    title.style.whiteSpace = "nowrap";
+    while (title.scrollWidth > availableWidth && fontSize > 22) {
+      fontSize -= 1;
+      title.style.fontSize = `${fontSize}px`;
+    }
+    if (title.scrollWidth > availableWidth) title.style.removeProperty("white-space");
+  });
+};
+
 const initializeLanguage = () => {
   document.documentElement.lang = AOW.language;
   document.querySelectorAll(".language-switcher").forEach((switcher) => {
@@ -218,7 +236,10 @@ const initializeLanguage = () => {
     });
     topbar.insertBefore(toggle, nav);
   });
-  if (AOW.language !== "en") return;
+  if (AOW.language !== "en") {
+    fitHeroTitles();
+    return;
+  }
   document.title = AOW.t(document.title.replace(" | Art of War 3 Community Wiki", "")) + (document.title.includes(" | Art of War 3 Community Wiki") ? " | Art of War 3 Community Wiki" : "");
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
   const nodes = [];
@@ -227,7 +248,9 @@ const initializeLanguage = () => {
   document.querySelectorAll("[placeholder], [aria-label], [title]").forEach((element) => ["placeholder", "aria-label", "title"].forEach((attribute) => {
     if (element.hasAttribute(attribute)) element.setAttribute(attribute, AOW.t(element.getAttribute(attribute)));
   }));
+  fitHeroTitles();
 };
 
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initializeLanguage);
 else initializeLanguage();
+window.addEventListener("resize", fitHeroTitles);
