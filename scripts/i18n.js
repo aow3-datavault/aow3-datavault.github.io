@@ -187,7 +187,7 @@ const translateText = (node) => {
 };
 
 const fitHeroTitles = () => {
-  document.querySelectorAll(".page-hero h1").forEach((title) => {
+  document.querySelectorAll(".page-hero h1, .hero-home h1").forEach((title) => {
     title.style.removeProperty("font-size");
     title.style.removeProperty("white-space");
     if (!window.matchMedia("(max-width: 680px)").matches) return;
