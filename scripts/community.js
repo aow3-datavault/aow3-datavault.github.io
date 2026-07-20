@@ -130,12 +130,12 @@ document.querySelectorAll(".social-grid, .media-grid").forEach((carousel) => {
   previous.className = "carousel-arrow previous";
   previous.type = "button";
   previous.setAttribute("aria-label", "Previous items");
-  previous.textContent = "‹";
+  previous.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>';
   const next = document.createElement("button");
   next.className = "carousel-arrow next";
   next.type = "button";
   next.setAttribute("aria-label", "Next items");
-  next.textContent = "›";
+  next.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6" /></svg>';
   const update = () => {
     previous.disabled = carousel.scrollLeft <= 1;
     next.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1;
