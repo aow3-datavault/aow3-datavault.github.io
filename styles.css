@@ -1202,16 +1202,29 @@ h3 {
   position: absolute;
   z-index: 2;
   top: calc(50% - 20px);
+  display: grid;
+  place-items: center;
   width: 40px;
   height: 40px;
+  padding: 0;
   border: 1px solid var(--line-hot);
-  color: var(--cyan);
-  font: 36px/30px "Refrigerator", sans-serif;
+  color: transparent;
+  font-size: 0;
   background: rgba(8, 30, 33, 0.9);
   cursor: pointer;
 }
 
+.carousel-arrow::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  transform: rotate(45deg);
+}
+
 .carousel-arrow.previous { left: 8px; }
+.carousel-arrow.previous::before { transform: rotate(-135deg); }
 .carousel-arrow.next { right: 8px; }
 
 .carousel-arrow:disabled {
