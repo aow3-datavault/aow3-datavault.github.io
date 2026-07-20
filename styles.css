@@ -1201,7 +1201,7 @@ h3 {
 .carousel-arrow {
   position: absolute;
   z-index: 2;
-  top: calc(50% - 20px);
+  top: calc(50% - 8px);
   display: grid;
   place-items: center;
   width: 40px;
