@@ -279,6 +279,19 @@
     {
       "typeKey": "lore",
       "language": "ru",
+      "title": "Полковник Майкл Райс",
+      "category": "Досье персонажей",
+      "date": "2026-07-20",
+      "lead": "Командир полка Конфедерации и сторонник сильной армии.",
+      "image": "source materials/images/lore/Dossier RU Square Rice.png",
+      "video": "",
+      "body": "**Имя:** Майкл Райс\n**Звание:** полковник\n**Должность:** командир полка\n\nМайкл Райс родился 7 июля 1982 года в Далласе, штат Техас. Его отец, генерал Северо-Атлантической Коалиции, был суров и строг с мальчиком: Майкла с раннего детства готовили к военной службе.\n\nОкончив офицерскую академию с отличием, Райс сумел дослужиться до звания полковника без помощи отцовских связей и репутации. К 2020 году он уже успел принять участие в Третьей Мировой войне против Большого Азиатского Союза — вместе со своим отцом.\n\nВскоре после формирования Всемирной Конфедерации Сенат начал сокращать бюджет армии. Полковник Райс оказался среди тех, кто был недоволен этим решением: в его глазах слабые вооружённые силы могли привести лишь к слабой Конфедерации.\n\nВместе с другими генералами и офицерами он сформировал партию «ястребов». Они всеми силами, но безуспешно пытались помешать всеобщему разоружению.\n\nВ каком-то смысле Райс оказался прав. Несмотря на все усилия, Конфедерации не удалось решить многолетние проблемы человечества, и со временем беспокойство в мире стало нарастать.\n\nПолковник побывал во многих горячих точках ещё до Перу: на Ближнем Востоке, в Китае и Северной Африке. Когда восстание в Южной Америке набрало обороты, для него это стало лишь очередным назначением. Никто тогда не мог представить, что оно выльется в Четвёртую Мировую войну.\n\nМайкл Райс — человек невероятной силы воли. Его хладнокровию сопутствует могучий разум: даже в пылу сражения он никогда не забывает о грамотном снабжении и стратегии.\n\nПод его командованием бойцы чувствуют себя спокойно. Вместе с новым талантливым командиром полковник прошёл через полмира, сражаясь за идеалы Конфедерации, и ни одна операция под их командованием не была провалена.",
+      "id": "michael-rice",
+      "publishedAt": "2026-07-20T12:00:00.000Z"
+    },
+    {
+      "typeKey": "lore",
+      "language": "ru",
       "title": "Ограбление Века",
       "category": "Рассказы",
       "date": "2025-06-30",
@@ -366,6 +379,19 @@
       "body": "**Name:** Nikolai Lazarev\n**Rank:** Major\n**Position:** Field Commander\n\nNikolai Lazarev was born on September 17, 2008, in Saint Petersburg. His parents were creative people: his father was a violinist, and his mother was an artist.\n\nThat is why young Nikolai's decision to enter military service came as a serious surprise to his family. It seemed his path was meant to sound very different, but Lazarev chose the Confederation Peacekeeping Corps. He wanted to defend the ideals of democracy and the future of humanity, just like in the TV shows and games he had grown up with.\n\nHowever, he became disillusioned with the Confederation's ideals very quickly. The work of the Peacekeeping Corps turned out to be far removed from the image Nikolai had seen in the pop culture that shaped him.\n\nAfter the uprising in Peru in 2038, Lazarev was appointed commander of a small garrison. There, he witnessed the dismissive attitude of Confederation officers toward the local population.\n\nWhen the order came to suppress the unrest by force, Lazarev refused to carry it out out of honor and respect for human freedom. Together with his squad, he disappeared into the jungle, where he later met Monteros' guerrillas.\n\nIn the ranks of the Peruvian Liberation Army, Lazarev quickly felt as though he was among brothers and sisters. And when the flames of revolution spread across the world, he was assigned to work alongside a promising new Resistance commander.\n\nTogether, they walked a long road, liberating region after region. For his valor, Lazarev was promoted from captain to major.\n\nMajor Lazarev is known for his expressiveness and his eagerness to join the fight as quickly as possible. He dislikes complex, drawn-out plans, preferring to win through personal courage and the heroism of his soldiers.\n\nThis character trait often leads him to success, but it can also bring serious risks. More than once, the major's impulsiveness has nearly brought him before a tribunal.\n\nFortunately, you have always been there beside him, Commanders. Thanks to your talent and strategic thinking, victory remained with the Resistance even in situations where your ally made the most unpredictable moves.",
       "id": "nikolai-lazarev-en",
       "publishedAt": "2026-06-27T12:00:00.000Z"
+    },
+    {
+      "typeKey": "lore",
+      "language": "en",
+      "title": "Colonel Michael Rice",
+      "category": "Досье персонажей",
+      "date": "2026-07-20",
+      "lead": "A Confederation regiment commander and advocate for a strong military.",
+      "image": "source materials/images/lore/Dossier EN Square Rice.png",
+      "video": "",
+      "body": "**Name:** Michael Rice\n**Rank:** Colonel\n**Position:** Regiment Commander\n\nMichael Rice was born on July 7, 1992, in Dallas, Texas. His father, a general of the North Atlantic Coalition, was harsh and strict with the boy: Michael had been prepared for military service from an early age.\n\nAfter graduating from the officer academy with honors, Rice rose to the rank of colonel without relying on his father's connections or reputation. By 2020, he had already taken part in the Third World War against the Greater Asian Alliance, fighting alongside his father.\n\nSoon after the Global Confederation was formed, the Senate began cutting the army budget. Colonel Rice was among those unhappy with the decision: in his view, weak armed forces could only lead to a weak Confederation.\n\nAlong with other generals and officers, he formed the \"hawks\" party. They did everything they could, but ultimately failed to stop global disarmament.\n\nIn a sense, Rice was right. Despite every effort, the Confederation failed to resolve humanity's long-standing problems, and unrest around the world began to grow.\n\nEven before Peru, the Colonel had served in many hot spots: the Middle East, China, and North Africa. When the uprising in South America gained momentum, it seemed like just another assignment to him. No one could have imagined that it would grow into the Fourth World War.\n\nMichael Rice is a man of incredible willpower. His composure is matched by a brilliant mind: even in the heat of battle, he never loses sight of sound logistics and strategy.\n\nUnder his command, soldiers feel secure. Together with a talented new commander, the Colonel traveled halfway around the world, fighting for the ideals of the Confederation, and not a single operation under their command ended in failure.",
+      "id": "michael-rice-en",
+      "publishedAt": "2026-07-20T12:00:00.000Z"
     },
     {
       "typeKey": "lore",

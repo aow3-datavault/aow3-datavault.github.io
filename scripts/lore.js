@@ -7,8 +7,8 @@ AOW.renderPublishedLore = () => {
   const worldHistoryOrder = ["confederation-resistance", "syndicate", "peruvian-conflict", "modifications", "nutricore-global", "new-year-traditions"];
   AOW.getPublishedLore().sort((left, right) => {
     if (AOW.categoryKey(left.category) !== "world-history" || AOW.categoryKey(right.category) !== "world-history") return 0;
-    const leftOrder = worldHistoryOrder.indexOf(left.id);
-    const rightOrder = worldHistoryOrder.indexOf(right.id);
+    const leftOrder = worldHistoryOrder.indexOf(left.id.replace(/-en$/, ""));
+    const rightOrder = worldHistoryOrder.indexOf(right.id.replace(/-en$/, ""));
     return (leftOrder === -1 ? worldHistoryOrder.length : leftOrder) - (rightOrder === -1 ? worldHistoryOrder.length : rightOrder);
   }).forEach((item) => {
     const target = document.querySelector(`[data-lore-list="${item.category}"]`);
