@@ -4,13 +4,15 @@ AOW.renderPublishedLore = () => {
   const page = document.querySelector("[data-lore-list]");
   if (!page) return;
   document.querySelectorAll("[data-published-lore-id]").forEach((item) => item.remove());
-  const worldHistoryOrder = ["confederation-resistance", "syndicate", "peruvian-conflict", "modifications", "nutricore-global", "new-year-traditions"];
-  AOW.getPublishedLore().sort((left, right) => {
-    if (AOW.categoryKey(left.category) !== "world-history" || AOW.categoryKey(right.category) !== "world-history") return 0;
+  const worldHistoryOrder = ["confederation-resistance", "syndicate", "peruvian-conflict", "modifications", "nutricore-global", "new-year-traditions", "irish-resistance-gold"];
+  const publishedLore = AOW.getPublishedLore();
+  const worldHistory = publishedLore.filter((item) => AOW.categoryKey(item.category) === "world-history").sort((left, right) => {
     const leftOrder = worldHistoryOrder.indexOf(left.id.replace(/-en$/, ""));
     const rightOrder = worldHistoryOrder.indexOf(right.id.replace(/-en$/, ""));
     return (leftOrder === -1 ? worldHistoryOrder.length : leftOrder) - (rightOrder === -1 ? worldHistoryOrder.length : rightOrder);
-  }).forEach((item) => {
+  });
+  let worldHistoryIndex = 0;
+  publishedLore.map((item) => AOW.categoryKey(item.category) === "world-history" ? worldHistory[worldHistoryIndex++] : item).forEach((item) => {
     const target = document.querySelector(`[data-lore-list="${item.category}"]`);
     if (!target) return;
     const href = `lore/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.categoryKey(item.category))}`;
