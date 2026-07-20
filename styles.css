@@ -1138,6 +1138,30 @@ h3 {
   padding: 18px;
 }
 
+.partner-card {
+  min-height: 110px;
+  border-left: 4px solid var(--cyan) !important;
+}
+
+.partner-card:hover {
+  border-color: var(--line-hot) !important;
+}
+
+.partner-avatar {
+  width: 64px;
+  height: 64px;
+  border: 1px solid var(--line-hot);
+  border-radius: 50%;
+  object-fit: cover;
+  background: rgba(10, 62, 68, 0.36);
+}
+
+.partner-card strong {
+  color: var(--text);
+  font-family: "Squares", "Refrigerator", sans-serif;
+  text-transform: uppercase;
+}
+
 .partner-icon {
   display: grid;
   width: 58px;

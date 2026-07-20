@@ -59,6 +59,7 @@ const translations = {
   "Фан-кит": "Fan kit",
   "Материалы для авторов: логотипы, арты, баннеры и шаблоны для публикаций.": "Assets for creators: logos, artwork, banners, and publication templates.",
   "Партнерская программа": "Partner program",
+  "Переходите на каналы наших партнёров и подписывайтесь!": "Visit our partners' channels and subscribe!",
   "Здесь будут условия участия, требования к авторам и форма связи с командой сообщества.": "Participation terms, creator requirements, and contact details for the community team will appear here.",
   "Канал партнера": "Partner channel",
   "Медиа": "Media",
