@@ -120,3 +120,30 @@ if (artCarousel) {
     artCarousel.append(card);
   });
 }
+
+document.querySelectorAll(".social-grid, .media-grid").forEach((carousel) => {
+  const frame = document.createElement("div");
+  frame.className = "carousel-frame";
+  carousel.before(frame);
+  frame.append(carousel);
+  const previous = document.createElement("button");
+  previous.className = "carousel-arrow previous";
+  previous.type = "button";
+  previous.setAttribute("aria-label", "Previous items");
+  previous.textContent = "‹";
+  const next = document.createElement("button");
+  next.className = "carousel-arrow next";
+  next.type = "button";
+  next.setAttribute("aria-label", "Next items");
+  next.textContent = "›";
+  const update = () => {
+    previous.disabled = carousel.scrollLeft <= 1;
+    next.disabled = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1;
+  };
+  previous.addEventListener("click", () => carousel.scrollBy({ left: -carousel.clientWidth * 0.8, behavior: "smooth" }));
+  next.addEventListener("click", () => carousel.scrollBy({ left: carousel.clientWidth * 0.8, behavior: "smooth" }));
+  carousel.addEventListener("scroll", update, { passive: true });
+  if (window.ResizeObserver) new ResizeObserver(update).observe(carousel);
+  frame.append(previous, next);
+  update();
+});

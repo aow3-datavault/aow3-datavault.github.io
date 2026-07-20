@@ -1057,6 +1057,7 @@ h3 {
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 16px;
   scrollbar-width: thin;
+  scrollbar-color: rgba(95, 210, 219, 0.48) transparent;
 }
 
 .social-card {
@@ -1184,6 +1185,55 @@ h3 {
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 16px;
   scrollbar-width: thin;
+  scrollbar-color: rgba(95, 210, 219, 0.48) transparent;
+}
+
+.carousel-frame {
+  position: relative;
+  margin-top: 18px;
+}
+
+.carousel-frame .social-grid,
+.carousel-frame .media-grid {
+  margin-top: 0;
+}
+
+.carousel-arrow {
+  position: absolute;
+  z-index: 2;
+  top: calc(50% - 20px);
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line-hot);
+  color: var(--cyan);
+  font: 36px/30px "Refrigerator", sans-serif;
+  background: rgba(8, 30, 33, 0.9);
+  cursor: pointer;
+}
+
+.carousel-arrow.previous { left: 8px; }
+.carousel-arrow.next { right: 8px; }
+
+.carousel-arrow:disabled {
+  visibility: hidden;
+}
+
+.social-grid::-webkit-scrollbar,
+.media-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.social-grid::-webkit-scrollbar-track,
+.media-grid::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.social-grid::-webkit-scrollbar-thumb,
+.media-grid::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: rgba(95, 210, 219, 0.48);
+  background-clip: padding-box;
 }
 
 .media-card {
@@ -1739,6 +1789,10 @@ h3 {
 
   .social-card strong,
   .social-card small {
+    display: none;
+  }
+
+  .carousel-arrow {
     display: none;
   }
 
