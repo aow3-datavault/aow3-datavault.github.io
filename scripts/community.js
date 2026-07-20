@@ -83,3 +83,40 @@ if (partnerChannels) {
     partnerChannels.append(link);
   });
 }
+
+const artworkFiles = [
+  "Union_stores_standart.jpg",
+  "promo_wolverine_final.jpg",
+  "Promo_salamander_final.jpg",
+  "Promo_psion_final.jpg",
+  "Promo_beholder_polishing.jpg",
+  "Promo_atlant_polishing_alt_m.jpg",
+  "Inapp_atlant_vs_bizon_16x9.jpg",
+  "event_workshop_standart.jpg",
+  "event_UFO_standart.jpg",
+  "event_NY25_standart.jpg",
+  "event_memeBD_standart.jpg",
+  "event_joker_2024.jpg",
+  "event_cybertour_standart.jpg",
+  "event_blackfriday_standart_notext.jpg",
+  "event_9year_standart.jpg",
+  "Energy_flags_BD26_standart.jpg",
+  "Conf_rise_standart.jpg",
+  "caribbean_standart.jpg",
+  "black_friday_25_standart.jpg",
+  "Beholder_x_Wasp_stores_standart.jpg"
+];
+
+const artCarousel = document.querySelector("#art-carousel");
+if (artCarousel) {
+  artworkFiles.forEach((file) => {
+    const card = document.createElement("figure");
+    card.className = "media-card";
+    const image = document.createElement("img");
+    image.src = `source materials/images/art/${file}`;
+    image.alt = file.replace(/[_-]+/g, " ").replace(/\.[^.]+$/, "");
+    image.loading = "lazy";
+    card.append(image);
+    artCarousel.append(card);
+  });
+}

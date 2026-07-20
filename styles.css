@@ -1051,9 +1051,12 @@ h3 {
 }
 
 .social-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
   gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  scrollbar-width: thin;
 }
 
 .social-card {
@@ -1065,6 +1068,8 @@ h3 {
   padding: 20px;
   border: 1px solid var(--line);
   background: var(--panel-strong);
+  flex: 0 0 200px;
+  scroll-snap-align: start;
 }
 
 .social-card::before {
@@ -1173,14 +1178,27 @@ h3 {
 }
 
 .media-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  scrollbar-width: thin;
 }
 
-.media-grid div {
-  display: grid;
-  min-height: 180px;
-  place-items: center;
-  color: var(--muted);
+.media-card {
+  flex: 0 0 min(32vw, 420px);
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  scroll-snap-align: start;
+}
+
+.media-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }
 
 .world-map {
@@ -1741,8 +1759,8 @@ h3 {
     scroll-snap-align: start;
   }
 
-  .media-grid div {
-    min-height: 132px;
+  .media-card {
+    flex-basis: min(72vw, 320px);
   }
 
   .news-article h1 {
