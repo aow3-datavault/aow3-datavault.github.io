@@ -60,7 +60,7 @@ const partners = [
   { title: "VHF.Thunder-Clan", url: "https://www.youtube.com/channel/UCY3Jh0RygXicQ-w0q8cl_0A", image: "https://yt3.googleusercontent.com/C2kAqydlo-BJbDL7lpg1W-UYv6r-bq11kTWFLmHmtkMen0Ui94I-KFdE9YbxGQxarSBZKBjBkg=s900-c-k-c0x00ffffff-no-rj", language: "other" },
   { title: "GANGSTA Art of War 3", url: "https://www.youtube.com/@GANGSTA_ART_OF_WAR_3", image: "https://yt3.googleusercontent.com/WmnjaF00zRbDfwRSBEtMRzqxNR_slH3-FKrY9NF9bQxsMIFpQArNopTApB3QHJkl4yify_fnRg=s900-c-k-c0x00ffffff-no-rj", language: "ru" },
   { title: "Aow3.JAGUAR_IR", url: "https://www.youtube.com/@Aow3.JAGUAR_IR/videos", image: "https://yt3.googleusercontent.com/KPUouLUnHqZKZpkWQT3af6zS--WOGwr-aal6m2HJTECQptKfv3vrhmwSXOCJ1Oo6p3gUrreT=s900-c-k-c0x00ffffff-no-rj", language: "other" },
-  { title: "Hero Dominator", url: "https://space.bilibili.com/332728670", image: "https://i2.hdslb.com/bfs/face/89fa70c816c129b8db926d6c19a95f3a655e50e3.jpg", language: "other" }
+  { title: "Hero Dominator", url: "https://space.bilibili.com/332728670", image: "source materials/images/partners/hero-dominator.jpg", language: "other" }
 ];
 
 const partnerChannels = document.querySelector("#partner-channels");
