@@ -50,7 +50,7 @@ AOW.renderPublishedArticle = () => {
   const item = AOW.getPublishedNews().find((entry) => entry.id === id);
   publishedArticle.innerHTML = item
     ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.categoryTitle(AOW.categoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
-    : `<section class="content-section"><h1>${AOW.t("Новость не найдена")}</h1><p>${AOW.t("Материал мог быть удалён из локального хранилища браузера.")}</p></section>`;
+    : `<section class="content-section"><h1>${AOW.t("Новость не найдена")}</h1><a class="article-back" href="../index.html">${AOW.t("На главную")}</a></section>`;
   AOW.fitArticleTitles?.();
   if (item) {
     const article = publishedArticle.querySelector("article");

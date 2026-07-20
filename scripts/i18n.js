@@ -22,7 +22,7 @@ const translations = {
   "Опубликованная новость.": "Published news item.",
   "Опубликованная Wiki-страница.": "Published Wiki page.",
   "Материал не найден": "Material not found",
-  "Материал мог быть удалён из локального хранилища браузера.": "The material may have been removed from this browser's local storage.",
+  "На главную": "Back to home",
   "Wiki-страница не найдена": "Wiki page not found",
   "Новость не найдена": "News item not found",
   "Wiki и гайды": "Wiki and guides",
