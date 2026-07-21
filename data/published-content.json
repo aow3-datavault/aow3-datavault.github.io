@@ -2473,6 +2473,186 @@
       "date": "2023-08-02",
       "video": "https://www.youtube.com/watch?v=etujCUOp2VM",
       "publishedAt": "2023-08-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-9OI-VhHUlwA",
+      "title": "Resistance Tutorial Video: Tutorial 1 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2024-10-18",
+      "video": "https://www.youtube.com/watch?v=9OI-VhHUlwA",
+      "publishedAt": "2024-10-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-iX4FlC3z0RU",
+      "title": "Resistance Tutorial Video: Tutorial 2 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2024-11-20",
+      "video": "https://www.youtube.com/watch?v=iX4FlC3z0RU",
+      "publishedAt": "2024-11-20T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-8unMp5CV__I",
+      "title": "Resistance Tutorial Video: Tutorial 3 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2024-12-27",
+      "video": "https://www.youtube.com/watch?v=8unMp5CV__I",
+      "publishedAt": "2024-12-27T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-lsyum7n07kA",
+      "title": "Resistance Tutorial Video: Tutorial 4 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2025-01-14",
+      "video": "https://www.youtube.com/watch?v=lsyum7n07kA",
+      "publishedAt": "2025-01-14T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-kvvByOpIHX0",
+      "title": "Resistance Tutorial Video: Tutorial 5 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2025-01-18",
+      "video": "https://www.youtube.com/watch?v=kvvByOpIHX0",
+      "publishedAt": "2025-01-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-_I78yPS705k",
+      "title": "Guide & Tips: Tutorial 6 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2025-01-23",
+      "video": "https://www.youtube.com/watch?v=_I78yPS705k",
+      "publishedAt": "2025-01-23T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-W9ggFrR0rmo",
+      "title": "Guide & Tips: Tutorial 7 - Thunder-Clan",
+      "category": "Обучающие",
+      "date": "2025-02-13",
+      "video": "https://www.youtube.com/watch?v=W9ggFrR0rmo",
+      "publishedAt": "2025-02-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-H94iI3VP8XA",
+      "title": "Battle Tools Tutorial: Episode 8",
+      "category": "Обучающие",
+      "date": "2025-03-08",
+      "video": "https://www.youtube.com/watch?v=H94iI3VP8XA",
+      "publishedAt": "2025-03-08T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-BVd5yi2MAs4",
+      "title": "How to Get Modifications for Free",
+      "category": "Обучающие",
+      "date": "2026-03-22",
+      "video": "https://www.youtube.com/watch?v=BVd5yi2MAs4",
+      "publishedAt": "2026-03-22T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-sXc_K7-DiD4",
+      "title": "How to Convert or Sell Your Skills",
+      "category": "Обучающие",
+      "date": "2025-04-21",
+      "video": "https://www.youtube.com/watch?v=sXc_K7-DiD4",
+      "publishedAt": "2025-04-21T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-sclpC3eRWFo",
+      "title": "6 Basic Steps to Win a Game in AOW3",
+      "category": "Обучающие",
+      "date": "2021-06-13",
+      "video": "https://www.youtube.com/watch?v=sclpC3eRWFo",
+      "publishedAt": "2021-06-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-UPi64eJG4Bc",
+      "title": "Guide: Crush the Early Game",
+      "category": "Обучающие",
+      "date": "2022-06-10",
+      "video": "https://www.youtube.com/watch?v=UPi64eJG4Bc",
+      "publishedAt": "2022-06-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-kywDfTvkmtY",
+      "title": "Credits Management: Tips & Tricks",
+      "category": "Обучающие",
+      "date": "2024-05-09",
+      "video": "https://www.youtube.com/watch?v=kywDfTvkmtY",
+      "publishedAt": "2024-05-09T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-XvPgC7dIKR4",
+      "title": "How to Survive a Max CP HQ 2 Fortress and Heavy Assault Rush",
+      "category": "Обучающие",
+      "date": "2021-08-17",
+      "video": "https://www.youtube.com/watch?v=XvPgC7dIKR4",
+      "publishedAt": "2021-08-17T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-q8utt1O6VLI",
+      "title": "How to Do Delta Rush in Art of War 3",
+      "category": "Обучающие",
+      "date": "2022-10-06",
+      "video": "https://www.youtube.com/watch?v=q8utt1O6VLI",
+      "publishedAt": "2022-10-06T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-vg2Yn85k7Z8",
+      "title": "Resistance Units Basic Guide",
+      "category": "Обучающие",
+      "date": "2021-05-25",
+      "video": "https://www.youtube.com/watch?v=vg2Yn85k7Z8",
+      "publishedAt": "2021-05-25T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-sdB2ss_Byss",
+      "title": "Grenadier Rush: AOW3 Wiki Strategy Guide",
+      "category": "Обучающие",
+      "date": "2021-06-02",
+      "video": "https://www.youtube.com/watch?v=sdB2ss_Byss",
+      "publishedAt": "2021-06-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-community-OM2bdOObjA4",
+      "title": "When to Upgrade Your Headquarters",
+      "category": "Обучающие",
+      "date": "2023-01-27",
+      "video": "https://www.youtube.com/watch?v=OM2bdOObjA4",
+      "publishedAt": "2023-01-27T00:00:00.000Z"
     }
   ]
 }
