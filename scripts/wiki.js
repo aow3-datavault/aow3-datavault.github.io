@@ -1,6 +1,6 @@
 window.AOW = window.AOW || {};
 
-AOW.wikiCategoryToPanel = { "Для новичков": "beginners", "Фракции": "factions", "Юниты": "units", "Герои": "heroes", "Режимы игры": "modes", "Экономика": "economy", "FAQ": "faq", "Полный функционал": "features" };
+AOW.wikiCategoryToPanel = { "Основы игры": "basics", "Бой и управление": "combat", "Развитие": "progression", "Соревнования и кланы": "competitive" };
 
 AOW.renderPublishedWiki = () => {
   const wikiPage = document.querySelector('[data-tabs="wiki"]');
@@ -11,7 +11,7 @@ AOW.renderPublishedWiki = () => {
     if (deleted.includes(row.dataset.wikiId)) row.remove();
   });
   AOW.getPublishedWiki().forEach((item) => {
-    const panel = wikiPage.querySelector(`[data-panel="${AOW.categoryKey(item.category) || "beginners"}"]`);
+    const panel = wikiPage.querySelector(`[data-panel="${AOW.categoryKey(item.category) || "basics"}"]`);
     if (!panel) return;
     const article = document.createElement("article");
     article.className = "article-row published-row";
@@ -34,7 +34,7 @@ AOW.initWikiSearch = () => {
   const wikiSearch = document.querySelector("#wiki-search");
   if (!wikiSearch) return;
   const wikiPage = document.querySelector('[data-tabs="wiki"]');
-  let selectedTab = wikiPage.querySelector(".tab-button.active")?.dataset.tab || "beginners";
+  let selectedTab = wikiPage.querySelector(".tab-button.active")?.dataset.tab || "basics";
   const filterWiki = () => {
     const query = wikiSearch.value.trim().toLowerCase();
     wikiPage.querySelectorAll(".article-row").forEach((row) => {

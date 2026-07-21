@@ -1,18 +1,17 @@
 window.AOW = window.AOW || {};
 
 const searchEntries = [
-  { title: "Первый час в игре", description: "Интерфейс, первые бои, развитие базы и старт для новичков.", url: "wiki/first-hour.html", section: "Wiki" },
-  { title: "Конфедерация и Сопротивление", description: "Сравнение фракций, стилей игры, сильных сторон и подходов.", url: "wiki/factions-overview.html", section: "Wiki" },
-  { title: "Роли юнитов", description: "Пехота, техника, авиация, поддержка и состав армии.", url: "wiki/unit-roles.html", section: "Wiki" },
-  { title: "Основы героев", description: "Роли героев, способности и применение в бою.", url: "wiki/heroes-basics.html", section: "Wiki" },
-  { title: "Режимы игры", description: "PvP, события и тренировочные сценарии.", url: "wiki/game-modes.html", section: "Wiki" },
-  { title: "Ресурсы и темп развития", description: "Производство, армия, технологии и экономика.", url: "wiki/economy-tempo.html", section: "Wiki" },
-  { title: "Частые вопросы", description: "Ответы на вопросы о прогрессе, режимах и аккаунте.", url: "wiki/faq-start.html", section: "Wiki" },
-  { title: "Индекс систем игры", description: "Навигация по системам и возможностям Art of War 3.", url: "wiki/feature-index.html", section: "Wiki" },
   { title: "Сюжет", description: "Персонажи, история мира и рассказы.", url: "lore.html", section: "Сюжет" },
   { title: "Сообщество", description: "Социальные сети, фан-кит, партнеры и медиа.", url: "community.html", section: "Сообщество" },
   { title: "О проекте", description: "Назначение и развитие Community Wiki.", url: "about.html", section: "О проекте" }
 ];
+
+const publishedWikiSearchEntries = () => (AOW.getPublishedWiki?.() || []).map((item) => ({
+  title: item.title,
+  description: item.lead,
+  url: `wiki/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.categoryKey(item.category))}`,
+  section: `Wiki · ${AOW.categoryTitle(AOW.categoryKey(item.category))}`
+}));
 
 const searchInput = document.querySelector("#site-search");
 const searchResults = document.querySelector("#search-results");
@@ -29,7 +28,7 @@ const renderSearchResults = (query) => {
     return;
   }
 
-  const results = [...searchEntries, ...(AOW.videoSearchEntries || [])].filter((entry) => AOW.matchesSearch(trimmedQuery, entry.title, entry.description, entry.section));
+  const results = [...publishedWikiSearchEntries(), ...searchEntries, ...(AOW.videoSearchEntries || [])].filter((entry) => AOW.matchesSearch(trimmedQuery, entry.title, entry.description, entry.section));
   searchStatus.textContent = results.length
     ? (AOW.language === "en" ? `Materials found: ${results.length}` : `Найдено материалов: ${results.length}`)
     : AOW.t("Ничего не найдено.");
@@ -54,4 +53,5 @@ if (searchInput) {
   renderSearchResults(query);
   searchInput.addEventListener("input", () => renderSearchResults(searchInput.value));
   window.addEventListener("aow:videos-ready", () => renderSearchResults(searchInput.value));
+  AOW.readyPublishedContent?.then(() => renderSearchResults(searchInput.value));
 }

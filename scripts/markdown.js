@@ -1,12 +1,16 @@
 window.AOW = window.AOW || {};
 
+AOW.markdownImageUrl = (url) => url.startsWith("source materials/") && /\/(wiki|news|lore)\//.test(window.location.pathname)
+  ? `../${url}`
+  : url;
+
 AOW.inlineMarkdown = (text) => text
   .replace(/&/g, "&amp;")
   .replace(/</g, "&lt;")
   .replace(/>/g, "&gt;")
   .replace(/\"/g, "&quot;")
   .replace(/'/g, "&#39;")
-  .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/g, '<img class="article-inline-image" src="$2" alt="$1" loading="lazy" />')
+  .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|source materials\/images\/[^)]+)\)/g, (_match, alt, url) => `<img class="article-inline-image" src="${AOW.markdownImageUrl(url)}" alt="${alt}" loading="lazy" />`)
   .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
   .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.*?)\*/g, "<em>$1</em>");
