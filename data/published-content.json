@@ -1513,6 +1513,966 @@
       "date": "2023-08-02",
       "video": "https://www.youtube.com/watch?v=Kv_KPkJ254c",
       "publishedAt": "2023-08-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-9JCgx1t-3CA",
+      "title": "Basic unit highlighting. Tutorial 1",
+      "category": "Обучающие",
+      "date": "2023-12-02",
+      "video": "https://www.youtube.com/watch?v=9JCgx1t-3CA",
+      "publishedAt": "2023-12-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-jcTPt4Thpz4",
+      "title": "Selecting units with a frame. Tutorial 2",
+      "category": "Обучающие",
+      "date": "2023-12-09",
+      "video": "https://www.youtube.com/watch?v=jcTPt4Thpz4",
+      "publishedAt": "2023-12-09T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-J5eY59i7FWA",
+      "title": "The Select All Units button. Tutorial 3",
+      "category": "Обучающие",
+      "date": "2023-12-16",
+      "video": "https://www.youtube.com/watch?v=J5eY59i7FWA",
+      "publishedAt": "2023-12-16T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-_PQBazvK4aI",
+      "title": "Movement and attack. Tutorial 4",
+      "category": "Обучающие",
+      "date": "2024-02-10",
+      "video": "https://www.youtube.com/watch?v=_PQBazvK4aI",
+      "publishedAt": "2024-02-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-VqP4nvROgxo",
+      "title": "Unit Group Management. Tutorial 5",
+      "category": "Обучающие",
+      "date": "2024-08-25",
+      "video": "https://www.youtube.com/watch?v=VqP4nvROgxo",
+      "publishedAt": "2024-08-25T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-SLyMcadEx8Q",
+      "title": "The Fog of War. Tutorial 6",
+      "category": "Обучающие",
+      "date": "2024-09-19",
+      "video": "https://www.youtube.com/watch?v=SLyMcadEx8Q",
+      "publishedAt": "2024-09-19T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-YLf83m4CMfU",
+      "title": "Only by Chance Tournament",
+      "category": "Соревнования",
+      "date": "2023-10-05",
+      "video": "https://www.youtube.com/watch?v=YLf83m4CMfU",
+      "publishedAt": "2023-10-05T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-bKL1MFzJXZs",
+      "title": "DUEL Blitz Tournament",
+      "category": "Соревнования",
+      "date": "2023-05-16",
+      "video": "https://www.youtube.com/watch?v=bKL1MFzJXZs",
+      "publishedAt": "2023-05-16T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-ClDIBkaRXqA",
+      "title": "Zombie Apocalypse",
+      "category": "Соревнования",
+      "date": "2023-04-01",
+      "video": "https://www.youtube.com/watch?v=ClDIBkaRXqA",
+      "publishedAt": "2023-04-01T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-RRwDn8YE1Ck",
+      "title": "Searching the Nautilus Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=RRwDn8YE1Ck",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-yzSe3Z_HIgw",
+      "title": "Nice Loot Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=yzSe3Z_HIgw",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-1FJbruvPxds",
+      "title": "Reliable Partner Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=1FJbruvPxds",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-ZhWQQ80OdYk",
+      "title": "Behind the Wall Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=ZhWQQ80OdYk",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-wqE5W-XYZhA",
+      "title": "Large Reserves Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=wqE5W-XYZhA",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-YcqkkHVk2tU",
+      "title": "Two Citadels Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=YcqkkHVk2tU",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-W79viPsAgGs",
+      "title": "More Precious Than Gold Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=W79viPsAgGs",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-OZrEkKQJOJM",
+      "title": "Pumpkin Madness Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=OZrEkKQJOJM",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-wbZAfZMYO-c",
+      "title": "New Year's Alarm Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=wbZAfZMYO-c",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Pg9sEiegkQQ",
+      "title": "All for the Front Tournament",
+      "category": "Соревнования",
+      "date": "2023-03-10",
+      "video": "https://www.youtube.com/watch?v=Pg9sEiegkQQ",
+      "publishedAt": "2023-03-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-W4weavoJLHk",
+      "title": "What to upgrade in the Workshop?",
+      "category": "Обучающие",
+      "date": "2026-03-18",
+      "video": "https://www.youtube.com/watch?v=W4weavoJLHk",
+      "publishedAt": "2026-03-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-_zIgrQB2H9k",
+      "title": "Why AOW3 Matchmaking Feels Unfair",
+      "category": "Обучающие",
+      "date": "2026-01-29",
+      "video": "https://www.youtube.com/watch?v=_zIgrQB2H9k",
+      "publishedAt": "2026-01-29T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-YsHKEVX513I",
+      "title": "How to pay on Android",
+      "category": "Обучающие",
+      "date": "2023-04-25",
+      "video": "https://www.youtube.com/watch?v=YsHKEVX513I",
+      "publishedAt": "2023-04-25T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Oin_Kjp1JZo",
+      "title": "Spectator Mode",
+      "category": "Обновления",
+      "date": "2025-03-12",
+      "video": "https://www.youtube.com/watch?v=Oin_Kjp1JZo",
+      "publishedAt": "2025-03-12T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-0KOB-wvEy2w",
+      "title": "Welcome to the Training Lobby",
+      "category": "Обновления",
+      "date": "2024-01-29",
+      "video": "https://www.youtube.com/watch?v=0KOB-wvEy2w",
+      "publishedAt": "2024-01-29T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-OoPtyPuffUA",
+      "title": "Legendary League",
+      "category": "Обновления",
+      "date": "2025-10-09",
+      "video": "https://www.youtube.com/watch?v=OoPtyPuffUA",
+      "publishedAt": "2025-10-09T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-HdHvZ4AtAxw",
+      "title": "Epic Modifications",
+      "category": "Обновления",
+      "date": "2026-04-21",
+      "video": "https://www.youtube.com/watch?v=HdHvZ4AtAxw",
+      "publishedAt": "2026-04-21T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-332KwyU-AMs",
+      "title": "Jungle Biome Update",
+      "category": "Обновления",
+      "date": "2026-04-06",
+      "video": "https://www.youtube.com/watch?v=332KwyU-AMs",
+      "publishedAt": "2026-04-06T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-hZmkGl4DkeM",
+      "title": "Modifications Are Now in the Game",
+      "category": "Обновления",
+      "date": "2026-03-12",
+      "video": "https://www.youtube.com/watch?v=hZmkGl4DkeM",
+      "publishedAt": "2026-03-12T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-4PSL-Doqlfk",
+      "title": "Old Guard Update",
+      "category": "Обновления",
+      "date": "2025-11-13",
+      "video": "https://www.youtube.com/watch?v=4PSL-Doqlfk",
+      "publishedAt": "2025-11-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-0tL6AxTK35U",
+      "title": "Global Update: New Lighting",
+      "category": "Обновления",
+      "date": "2024-11-20",
+      "video": "https://www.youtube.com/watch?v=0tL6AxTK35U",
+      "publishedAt": "2024-11-20T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-kMrfhbknqAA",
+      "title": "Premium Status: Get Rewards Without Watching Ads",
+      "category": "Обновления",
+      "date": "2024-08-13",
+      "video": "https://www.youtube.com/watch?v=kMrfhbknqAA",
+      "publishedAt": "2024-08-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-JUgg4Cs8rjE",
+      "title": "Join the PvP Lobby and play 2v2 and 3v3 battles",
+      "category": "Обновления",
+      "date": "2024-06-19",
+      "video": "https://www.youtube.com/watch?v=JUgg4Cs8rjE",
+      "publishedAt": "2024-06-19T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-DCG429K_jN4",
+      "title": "Syndicate Message",
+      "category": "Обновления",
+      "date": "2024-06-13",
+      "video": "https://www.youtube.com/watch?v=DCG429K_jN4",
+      "publishedAt": "2024-06-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-b8nENz0FXVk",
+      "title": "Introducing Premium 2.0",
+      "category": "Обновления",
+      "date": "2023-07-13",
+      "video": "https://www.youtube.com/watch?v=b8nENz0FXVk",
+      "publishedAt": "2023-07-13T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-iNzs3kDKF9o",
+      "title": "Balance Update: Calibration of Guns. Confederation",
+      "category": "Обновления",
+      "date": "2026-06-25",
+      "video": "https://www.youtube.com/watch?v=iNzs3kDKF9o",
+      "publishedAt": "2026-06-25T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-_bNYaAzZ3Rw",
+      "title": "Balance Update: Calibration of Guns. Resistance",
+      "category": "Обновления",
+      "date": "2026-06-24",
+      "video": "https://www.youtube.com/watch?v=_bNYaAzZ3Rw",
+      "publishedAt": "2026-06-24T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-jLyodx1u9js",
+      "title": "Balance Update: Meta Reset",
+      "category": "Обновления",
+      "date": "2025-09-11",
+      "video": "https://www.youtube.com/watch?v=jLyodx1u9js",
+      "publishedAt": "2025-09-11T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-VL3CnwBg5gE",
+      "title": "Workshop 2.0",
+      "category": "Обновления",
+      "date": "2025-05-15",
+      "video": "https://www.youtube.com/watch?v=VL3CnwBg5gE",
+      "publishedAt": "2025-05-15T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-FDCCQW2ljrc",
+      "title": "Game Balance Update",
+      "category": "Обновления",
+      "date": "2024-12-12",
+      "video": "https://www.youtube.com/watch?v=FDCCQW2ljrc",
+      "publishedAt": "2024-12-12T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-tTlk23E3LMY",
+      "title": "Balance Update: Phoenix Protocol",
+      "category": "Обновления",
+      "date": "2026-03-05",
+      "video": "https://www.youtube.com/watch?v=tTlk23E3LMY",
+      "publishedAt": "2026-03-05T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-iCpFU2GN2BM",
+      "title": "The Most Epic Atlas Guide in Human History",
+      "category": "Трейлеры",
+      "date": "2025-07-21",
+      "video": "https://www.youtube.com/watch?v=iCpFU2GN2BM",
+      "publishedAt": "2025-07-21T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-7cnpI3pm0sk",
+      "title": "Ten Years of Great Victories! We Are 10 Years Old!",
+      "category": "Трейлеры",
+      "date": "2026-04-28",
+      "video": "https://www.youtube.com/watch?v=7cnpI3pm0sk",
+      "publishedAt": "2026-04-28T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-xOp-sduXiQM",
+      "title": "Art of War 3 Grand Anniversary: 10 Years in Battle",
+      "category": "Трейлеры",
+      "date": "2026-04-23",
+      "video": "https://www.youtube.com/watch?v=xOp-sduXiQM",
+      "publishedAt": "2026-04-23T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-v0WTqwqCRnE",
+      "title": "Battle with equal upgrades in the new 3v3 mode",
+      "category": "Трейлеры",
+      "date": "2026-04-22",
+      "video": "https://www.youtube.com/watch?v=v0WTqwqCRnE",
+      "publishedAt": "2026-04-22T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-ySXCKGLSK84",
+      "title": "Return of the Joker: Strike from Space",
+      "category": "Трейлеры",
+      "date": "2026-03-23",
+      "video": "https://www.youtube.com/watch?v=ySXCKGLSK84",
+      "publishedAt": "2026-03-23T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Hu-BiBVyajE",
+      "title": "Festive Event: St. Patrick's Day",
+      "category": "Трейлеры",
+      "date": "2026-03-16",
+      "video": "https://www.youtube.com/watch?v=Hu-BiBVyajE",
+      "publishedAt": "2026-03-16T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-2ugVTbBd6yQ",
+      "title": "Festive Event: Lunar New Year",
+      "category": "Трейлеры",
+      "date": "2026-02-16",
+      "video": "https://www.youtube.com/watch?v=2ugVTbBd6yQ",
+      "publishedAt": "2026-02-16T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-czRl_y1D8k0",
+      "title": "Battle for Christmas Trees New Year's Event",
+      "category": "Трейлеры",
+      "date": "2025-12-18",
+      "video": "https://www.youtube.com/watch?v=czRl_y1D8k0",
+      "publishedAt": "2025-12-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-uNdHKDF2UEs",
+      "title": "Black Friday Event",
+      "category": "Трейлеры",
+      "date": "2025-11-20",
+      "video": "https://www.youtube.com/watch?v=uNdHKDF2UEs",
+      "publishedAt": "2025-11-20T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Tx9SCuxrBqs",
+      "title": "Halloween Event 2025",
+      "category": "Трейлеры",
+      "date": "2025-10-23",
+      "video": "https://www.youtube.com/watch?v=Tx9SCuxrBqs",
+      "publishedAt": "2025-10-23T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-i7iAPnk-KP4",
+      "title": "Gear Games Birthday: 19 years of legendary games",
+      "category": "Трейлеры",
+      "date": "2025-09-26",
+      "video": "https://www.youtube.com/watch?v=i7iAPnk-KP4",
+      "publishedAt": "2025-09-26T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-kdDezMEZdCg",
+      "title": "The Birthday of Art of War: 9 Years in Battle",
+      "category": "Трейлеры",
+      "date": "2025-04-24",
+      "video": "https://www.youtube.com/watch?v=kdDezMEZdCg",
+      "publishedAt": "2025-04-24T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-eBnWQwbWtk4",
+      "title": "Return of the Joker: Strike from Space",
+      "category": "Трейлеры",
+      "date": "2025-03-27",
+      "video": "https://www.youtube.com/watch?v=eBnWQwbWtk4",
+      "publishedAt": "2025-03-27T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-8ae9UdeJGjY",
+      "title": "Festive Event: Lunar New Year",
+      "category": "Трейлеры",
+      "date": "2025-01-29",
+      "video": "https://www.youtube.com/watch?v=8ae9UdeJGjY",
+      "publishedAt": "2025-01-29T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-FZWiQGneeIc",
+      "title": "Battle for Christmas Trees New Year's Event",
+      "category": "Трейлеры",
+      "date": "2024-12-19",
+      "video": "https://www.youtube.com/watch?v=FZWiQGneeIc",
+      "publishedAt": "2024-12-19T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-cj3082LI9fE",
+      "title": "Salamander: New Resistance Hero",
+      "category": "Трейлеры",
+      "date": "2024-10-23",
+      "video": "https://www.youtube.com/watch?v=cj3082LI9fE",
+      "publishedAt": "2024-10-23T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-_8UL-Z4rWnU",
+      "title": "Psion: New Confederation Hero",
+      "category": "Трейлеры",
+      "date": "2024-10-18",
+      "video": "https://www.youtube.com/watch?v=_8UL-Z4rWnU",
+      "publishedAt": "2024-10-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-eQhO2Nci6bo",
+      "title": "Psion and Salamander: New Heroes Arrive",
+      "category": "Трейлеры",
+      "date": "2024-10-04",
+      "video": "https://www.youtube.com/watch?v=eQhO2Nci6bo",
+      "publishedAt": "2024-10-04T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-JWGT7fQzH5E",
+      "title": "Summer Heat 2024 Event",
+      "category": "Трейлеры",
+      "date": "2024-07-02",
+      "video": "https://www.youtube.com/watch?v=JWGT7fQzH5E",
+      "publishedAt": "2024-07-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-s_Ki2eTMt_0",
+      "title": "Art of War 3 Birthday: 8 Years in Battle",
+      "category": "Трейлеры",
+      "date": "2024-04-24",
+      "video": "https://www.youtube.com/watch?v=s_Ki2eTMt_0",
+      "publishedAt": "2024-04-24T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-T-EYD6y8F48",
+      "title": "The Joker's Trap Game Event",
+      "category": "Трейлеры",
+      "date": "2024-03-28",
+      "video": "https://www.youtube.com/watch?v=T-EYD6y8F48",
+      "publishedAt": "2024-03-28T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-9o-7z1aNTmw",
+      "title": "Beholder: The New Hero of Confederation",
+      "category": "Трейлеры",
+      "date": "2024-03-05",
+      "video": "https://www.youtube.com/watch?v=9o-7z1aNTmw",
+      "publishedAt": "2024-03-05T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-0XqZ5mQWD9U",
+      "title": "Wolverine: The New Hero of Resistance",
+      "category": "Трейлеры",
+      "date": "2024-02-20",
+      "video": "https://www.youtube.com/watch?v=0XqZ5mQWD9U",
+      "publishedAt": "2024-02-20T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-mhwnzBsy0e8",
+      "title": "New Heroes 2024 Trailer",
+      "category": "Трейлеры",
+      "date": "2023-12-31",
+      "video": "https://www.youtube.com/watch?v=mhwnzBsy0e8",
+      "publishedAt": "2023-12-31T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-pT3NuYox6k0",
+      "title": "Christmas Trees New Year's Event",
+      "category": "Трейлеры",
+      "date": "2023-12-20",
+      "video": "https://www.youtube.com/watch?v=pT3NuYox6k0",
+      "publishedAt": "2023-12-20T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-25MWeP7iSyQ",
+      "title": "Halloween Event",
+      "category": "Трейлеры",
+      "date": "2023-10-25",
+      "video": "https://www.youtube.com/watch?v=25MWeP7iSyQ",
+      "publishedAt": "2023-10-25T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-nxDSzTeU3_E",
+      "title": "Summer Heat Event",
+      "category": "Трейлеры",
+      "date": "2023-07-26",
+      "video": "https://www.youtube.com/watch?v=nxDSzTeU3_E",
+      "publishedAt": "2023-07-26T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-w9TutFJSCqo",
+      "title": "Art of War celebrates its 7th anniversary",
+      "category": "Трейлеры",
+      "date": "2023-04-28",
+      "video": "https://www.youtube.com/watch?v=w9TutFJSCqo",
+      "publishedAt": "2023-04-28T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-tBVIMAYncpA",
+      "title": "Bison: Unexpected Power Outage",
+      "category": "Трейлеры",
+      "date": "2025-07-19",
+      "video": "https://www.youtube.com/watch?v=tBVIMAYncpA",
+      "publishedAt": "2025-07-19T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-9tL4ETX_p2Q",
+      "title": "Disturbing News from Resistance Recon",
+      "category": "Трейлеры",
+      "date": "2024-07-24",
+      "video": "https://www.youtube.com/watch?v=9tL4ETX_p2Q",
+      "publishedAt": "2024-07-24T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-gnnjOoUa9Xg",
+      "title": "Developer Answers #3",
+      "category": "Ответы разработчиков",
+      "date": "2025-11-15",
+      "video": "https://www.youtube.com/watch?v=gnnjOoUa9Xg",
+      "publishedAt": "2025-11-15T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-grtpLN3JQYE",
+      "title": "Developer Answers #2",
+      "category": "Ответы разработчиков",
+      "date": "2025-06-17",
+      "video": "https://www.youtube.com/watch?v=grtpLN3JQYE",
+      "publishedAt": "2025-06-17T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-jSev3bnImWQ",
+      "title": "Developer Answers",
+      "category": "Ответы разработчиков",
+      "date": "2025-04-21",
+      "video": "https://www.youtube.com/watch?v=jSev3bnImWQ",
+      "publishedAt": "2025-04-21T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-tG1fJc_z47Y",
+      "title": "Developer Responses: Stream Digest September 5",
+      "category": "Ответы разработчиков",
+      "date": "2024-09-06",
+      "video": "https://www.youtube.com/watch?v=tG1fJc_z47Y",
+      "publishedAt": "2024-09-06T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-tW-8ggysgbc",
+      "title": "Developer Responses: New League, Balance Changes, New Rewards",
+      "category": "Ответы разработчиков",
+      "date": "2024-07-26",
+      "video": "https://www.youtube.com/watch?v=tW-8ggysgbc",
+      "publishedAt": "2024-07-26T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-GAx4u64WcFI",
+      "title": "Developer Responses, July 3",
+      "category": "Ответы разработчиков",
+      "date": "2024-07-05",
+      "video": "https://www.youtube.com/watch?v=GAx4u64WcFI",
+      "publishedAt": "2024-07-05T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Cal1hXjoZfo",
+      "title": "Interview with the CEO of Gear Games",
+      "category": "Ответы разработчиков",
+      "date": "2024-05-04",
+      "video": "https://www.youtube.com/watch?v=Cal1hXjoZfo",
+      "publishedAt": "2024-05-04T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-fWV1VtD61Uw",
+      "title": "Developer's Digest, April 12",
+      "category": "Ответы разработчиков",
+      "date": "2024-04-19",
+      "video": "https://www.youtube.com/watch?v=fWV1VtD61Uw",
+      "publishedAt": "2024-04-19T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-Wpgh_r7e8Lg",
+      "title": "Developer's Digest, March 29",
+      "category": "Ответы разработчиков",
+      "date": "2024-04-12",
+      "video": "https://www.youtube.com/watch?v=Wpgh_r7e8Lg",
+      "publishedAt": "2024-04-12T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-M4LrjDlbVDg",
+      "title": "Developer's Stream Digest, March 22",
+      "category": "Ответы разработчиков",
+      "date": "2024-04-05",
+      "video": "https://www.youtube.com/watch?v=M4LrjDlbVDg",
+      "publishedAt": "2024-04-05T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-ao0w7bE3Iq8",
+      "title": "3v3 MOBA Battles Are Here",
+      "category": "Интересные Видео",
+      "date": "2026-04-01",
+      "video": "https://www.youtube.com/watch?v=ao0w7bE3Iq8",
+      "publishedAt": "2026-04-01T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-RvGBLt6Ueic",
+      "title": "Night battles and weather effects",
+      "category": "Интересные Видео",
+      "date": "2024-04-01",
+      "video": "https://www.youtube.com/watch?v=RvGBLt6Ueic",
+      "publishedAt": "2024-04-01T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-JT4tK6JFeiM",
+      "title": "Tournament at GGFEST: Final Battles",
+      "category": "Интересные Видео",
+      "date": "2025-11-08",
+      "video": "https://www.youtube.com/watch?v=JT4tK6JFeiM",
+      "publishedAt": "2025-11-08T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-JQhozYFyWSY",
+      "title": "Art of War Masters '26 Spring: Best Moments",
+      "category": "Интересные Видео",
+      "date": "2026-05-18",
+      "video": "https://www.youtube.com/watch?v=JQhozYFyWSY",
+      "publishedAt": "2026-05-18T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-dG14Du3mTF8",
+      "title": "Art of War Masters '26 Winter: Best Moments",
+      "category": "Интересные Видео",
+      "date": "2026-02-10",
+      "video": "https://www.youtube.com/watch?v=dG14Du3mTF8",
+      "publishedAt": "2026-02-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-ahVLkt8bp0c",
+      "title": "Art of War Masters '25 Fall: Best Moments",
+      "category": "Интересные Видео",
+      "date": "2025-10-07",
+      "video": "https://www.youtube.com/watch?v=ahVLkt8bp0c",
+      "publishedAt": "2025-10-07T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-IBBAQPlbdsQ",
+      "title": "Clan Fight Best Moments",
+      "category": "Интересные Видео",
+      "date": "2025-03-04",
+      "video": "https://www.youtube.com/watch?v=IBBAQPlbdsQ",
+      "publishedAt": "2025-03-04T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-BiKNV1rXi8s",
+      "title": "Gear Games FEST 2025",
+      "category": "Интересные Видео",
+      "date": "2025-12-14",
+      "video": "https://www.youtube.com/watch?v=BiKNV1rXi8s",
+      "publishedAt": "2025-12-14T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-We68GLaQKH8",
+      "title": "Why does the Confederation use walkers?",
+      "category": "Интересные Видео",
+      "date": "2025-12-10",
+      "video": "https://www.youtube.com/watch?v=We68GLaQKH8",
+      "publishedAt": "2025-12-10T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-B8gjontii_s",
+      "title": "Balance Changes for Support Heroes: Beholder and Wasp",
+      "category": "Интересные Видео",
+      "date": "2025-09-04",
+      "video": "https://www.youtube.com/watch?v=B8gjontii_s",
+      "publishedAt": "2025-09-04T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-7KkwAdCr_bE",
+      "title": "Need an Electrician?: Bringing Bison to Life",
+      "category": "Интересные Видео",
+      "date": "2025-09-02",
+      "video": "https://www.youtube.com/watch?v=7KkwAdCr_bE",
+      "publishedAt": "2025-09-02T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-_13qrlFLyns",
+      "title": "Command Briefing: Object 616",
+      "category": "Интересные Видео",
+      "date": "2024-10-31",
+      "video": "https://www.youtube.com/watch?v=_13qrlFLyns",
+      "publishedAt": "2024-10-31T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en--HAXcZ39PFY",
+      "title": "MythBusters: Episode 2",
+      "category": "Интересные Видео",
+      "date": "2024-07-29",
+      "video": "https://www.youtube.com/watch?v=-HAXcZ39PFY",
+      "publishedAt": "2024-07-29T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-HTgwkb9CjtI",
+      "title": "The Enigmatic John Doe Speaks Every Language",
+      "category": "Интересные Видео",
+      "date": "2024-07-15",
+      "video": "https://www.youtube.com/watch?v=HTgwkb9CjtI",
+      "publishedAt": "2024-07-15T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-hPgqTdF2Gr0",
+      "title": "Wolverine's voicing",
+      "category": "Интересные Видео",
+      "date": "2024-04-09",
+      "video": "https://www.youtube.com/watch?v=hPgqTdF2Gr0",
+      "publishedAt": "2024-04-09T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "en",
+      "id": "video-en-etujCUOp2VM",
+      "title": "MythBusters",
+      "category": "Интересные Видео",
+      "date": "2023-08-02",
+      "video": "https://www.youtube.com/watch?v=etujCUOp2VM",
+      "publishedAt": "2023-08-02T00:00:00.000Z"
     }
   ]
 }
