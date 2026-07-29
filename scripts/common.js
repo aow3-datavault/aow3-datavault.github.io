@@ -6,9 +6,8 @@ AOW.tabTitles = {
   tournaments: "Турниры",
   offline: "Оффлайн",
   basics: "Основы игры",
-  combat: "Бой и управление",
-  progression: "Развитие",
-  competitive: "Соревнования и кланы",
+  interesting: "Интересные статьи",
+  competitions: "Соревнования",
   dossiers: "Досье персонажей",
   "world-history": "История мира",
   stories: "Рассказы"

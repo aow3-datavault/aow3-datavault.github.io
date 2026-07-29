@@ -9,8 +9,8 @@ const searchEntries = [
 const publishedWikiSearchEntries = () => (AOW.getPublishedWiki?.() || []).map((item) => ({
   title: item.title,
   description: item.lead,
-  url: `wiki/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.categoryKey(item.category))}`,
-  section: `Wiki · ${AOW.categoryTitle(AOW.categoryKey(item.category))}`
+  url: `wiki/article.html?id=${encodeURIComponent(item.id)}&category=${encodeURIComponent(AOW.wikiCategoryKey(item.category))}`,
+  section: `Wiki · ${AOW.wikiCategoryTitle(AOW.wikiCategoryKey(item.category))}`
 }));
 
 const searchInput = document.querySelector("#site-search");

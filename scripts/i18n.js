@@ -30,9 +30,8 @@ const translations = {
   "Поиск по Wiki": "Search Wiki",
   "Категории": "Categories",
   "Основы игры": "Game basics",
-  "Бой и управление": "Combat and controls",
-  "Развитие": "Progression",
-  "Соревнования и кланы": "Competitions and clans",
+  "Интересные статьи": "Interesting articles",
+  "Соревнования": "Competitions",
   "Новости": "News",
   "Раздел для обновлений игры, событий, турниров и оффлайн-мероприятий.": "Updates, events, tournaments, and offline activities.",
   "Поиск по новостям": "Search news",
@@ -45,7 +44,7 @@ const translations = {
   "Рассказы": "Stories",
   "Все наши видео, удобно разбитые по категориям!": "All our videos, organized by category.",
   "Обучающие": "Guides",
-  "Соревнования": "Competitive",
+  "Соревнования": "Competitions",
   "Трейлеры": "Trailers",
   "Ответы разработчиков": "Developer answers",
   "Интересные Видео": "Interesting videos",
@@ -142,11 +141,10 @@ const translations = {
 };
 
 AOW.t = (value) => AOW.language === "en" ? (translations[value] || value) : value;
+AOW.wikiCategoryToPanel = { "Основы игры": "basics", "Интересные статьи": "interesting", "Соревнования": "competitions" };
+AOW.wikiCategoryKey = (category) => AOW.wikiCategoryToPanel[category] || "basics";
+AOW.wikiCategoryTitle = (key) => AOW.t({ basics: "Основы игры", interesting: "Интересные статьи", competitions: "Соревнования" }[key] || key);
 AOW.categoryKey = (value) => ({
-  "Основы игры": "basics", "Game basics": "basics",
-  "Бой и управление": "combat", "Combat and controls": "combat",
-  "Развитие": "progression", "Progression": "progression",
-  "Соревнования и кланы": "competitive", "Competitions and clans": "competitive",
   "Обновления": "updates", "Updates": "updates",
   "События": "events", "Events": "events",
   "Турниры": "tournaments", "Tournaments": "tournaments",
@@ -163,7 +161,6 @@ AOW.categoryKey = (value) => ({
 }[value] || value);
 
 AOW.categoryTitle = (key) => AOW.t({
-  basics: "Основы игры", combat: "Бой и управление", progression: "Развитие", competitive: "Соревнования и кланы",
   updates: "Обновления", events: "События", tournaments: "Турниры", offline: "Оффлайн",
   dossiers: "Досье персонажей", "world-history": "История мира", stories: "Рассказы",
   guides: "Обучающие", trailers: "Трейлеры", developers: "Ответы разработчиков", interesting: "Интересные Видео", players: "Видео от игроков"

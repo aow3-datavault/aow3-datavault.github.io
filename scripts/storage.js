@@ -143,7 +143,8 @@ AOW.publicationBackLink = (type, item) => {
   const paths = { wiki: "wiki.html", news: "news.html", lore: "lore.html" };
   const link = document.createElement("a");
   link.className = "article-back";
-  link.href = `../${paths[type]}?category=${encodeURIComponent(AOW.categoryKey(item.category))}`;
+  const category = type === "wiki" ? AOW.wikiCategoryKey(item.category) : AOW.categoryKey(item.category);
+  link.href = `../${paths[type]}?category=${encodeURIComponent(category)}`;
   link.textContent = `← ${AOW.t("Назад")}`;
   return link;
 };
