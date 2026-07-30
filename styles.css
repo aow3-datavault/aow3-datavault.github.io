@@ -1498,6 +1498,12 @@ h3 {
 
 .news-article section h2 {
   margin-bottom: 14px;
+  font-size: clamp(24px, 3vw, 36px);
+  line-height: 1.08;
+}
+
+.news-article section h3 {
+  font-size: clamp(20px, 2vw, 24px);
 }
 
 .news-article section p,
@@ -1835,9 +1841,14 @@ h3 {
     word-break: normal;
   }
 
-  .news-article h2,
-  .news-article h3 {
-    font-size: clamp(26px, 7vw, 34px);
+  .news-article section h2 {
+    font-size: clamp(23px, 6vw, 30px);
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .news-article section h3 {
+    font-size: clamp(20px, 5vw, 24px);
     overflow-wrap: normal;
     word-break: normal;
   }
