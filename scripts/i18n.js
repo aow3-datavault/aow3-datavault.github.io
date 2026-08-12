@@ -31,6 +31,7 @@ const translations = {
   "Категории": "Categories",
   "Основы игры": "Game basics",
   "Интересные статьи": "Interesting articles",
+  "Модификации": "Modifications",
   "Соревнования": "Competitions",
   "Новости": "News",
   "Раздел для обновлений игры, событий, турниров и оффлайн-мероприятий.": "Updates, events, tournaments, and offline activities.",
@@ -141,9 +142,9 @@ const translations = {
 };
 
 AOW.t = (value) => AOW.language === "en" ? (translations[value] || value) : value;
-AOW.wikiCategoryToPanel = { "Основы игры": "basics", "Интересные статьи": "interesting", "Соревнования": "competitions" };
+AOW.wikiCategoryToPanel = { "Основы игры": "basics", "Интересные статьи": "interesting", "Модификации": "modifications", "Соревнования": "competitions" };
 AOW.wikiCategoryKey = (category) => AOW.wikiCategoryToPanel[category] || "basics";
-AOW.wikiCategoryTitle = (key) => AOW.t({ basics: "Основы игры", interesting: "Интересные статьи", competitions: "Соревнования" }[key] || key);
+AOW.wikiCategoryTitle = (key) => AOW.t({ basics: "Основы игры", interesting: "Интересные статьи", modifications: "Модификации", competitions: "Соревнования" }[key] || key);
 AOW.categoryKey = (value) => ({
   "Обновления": "updates", "Updates": "updates",
   "События": "events", "Events": "events",

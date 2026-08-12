@@ -5,7 +5,6 @@ const socialChannels = {
     { title: "ВКонтакте", label: "vk.com/aow3rts", url: "https://vk.com/aow3rts", image: "source materials/logos/vk-communication-internet-network-chat-interaction_128x128.webp", className: "social-vk" },
     { title: "Telegram", label: "t.me/aow3ru", url: "https://t.me/aow3ru", image: "source materials/logos/telegram-communication-chat-interaction-network-connection_128x128.webp", className: "social-tg" },
     { title: "YouTube", label: "@aow3rtsru", url: "https://www.youtube.com/@aow3rtsru", image: "source materials/logos/youtube-player-multimedia-video-communication-interaction_128x128.webp", className: "social-yt" },
-    { title: "WhatsApp", label: "Канал сообщества", url: "https://whatsapp.com/channel/0029Vaf2lCU1XquTrf5OmB15", image: "source materials/logos/whatsapp-communication-message-interaction-network_128x128.webp", className: "social-wa" },
     { title: "RuTube", label: "rutube.ru/channel/42069629", url: "https://rutube.ru/channel/42069629/", image: "source materials/logos/Icon_RUTUBE_dark_color.svg", className: "social-rt" }
   ],
   en: [
