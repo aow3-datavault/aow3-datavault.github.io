@@ -1486,7 +1486,9 @@ h3 {
 
 .article-inline-image {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
+  height: auto;
   margin: 24px 0;
   border: 1px solid var(--line-hot);
 }
