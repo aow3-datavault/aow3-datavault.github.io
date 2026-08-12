@@ -3104,6 +3104,15 @@
       "date": "2023-01-27",
       "video": "https://www.youtube.com/watch?v=OM2bdOObjA4",
       "publishedAt": "2023-01-27T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "id": "video-ruEZcVmngjs",
+      "title": "Как правильно управлять истребителями",
+      "category": "Обучающие",
+      "date": "2026-08-12",
+      "video": "https://youtu.be/ruEZcVmngjs",
+      "publishedAt": "2026-08-12T00:00:00.000Z"
     }
   ]
 }
