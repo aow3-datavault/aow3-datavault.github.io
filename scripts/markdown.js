@@ -12,6 +12,7 @@ AOW.inlineMarkdown = (text) => text
   .replace(/'/g, "&#39;")
   .replace(/!\[([^\]]*)\]\((https?:\/\/[^\s)]+|source materials\/images\/[^)]+)\)/g, (_match, alt, url) => `<img class="article-inline-image" src="${AOW.markdownImageUrl(url)}" alt="${alt}" loading="lazy" />`)
   .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+  .replace(/\[([^\]]+)\]\(#([a-z][a-z0-9-]*)\)/gi, '<a href="#$2">$1</a>')
   .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
   .replace(/\*(.*?)\*/g, "<em>$1</em>");
 
@@ -37,9 +38,14 @@ AOW.markdown = (text) => {
 
     closeList();
 
-    if (/^###\s+/.test(line)) html += `<h3>${AOW.inlineMarkdown(line.replace(/^###\s+/, ""))}</h3>`;
-    else if (/^##\s+/.test(line)) html += `<h2>${AOW.inlineMarkdown(line.replace(/^##\s+/, ""))}</h2>`;
-    else if (/^#\s+/.test(line)) html += `<h1>${AOW.inlineMarkdown(line.replace(/^#\s+/, ""))}</h1>`;
+    const heading = (level) => {
+      const text = line.replace(new RegExp(`^#{${level}}\\s+`), "");
+      const match = text.match(/^(.*?)\s+\{#([a-z][a-z0-9-]*)\}$/i);
+      return `<h${level}${match ? ` id="${match[2]}"` : ""}>${AOW.inlineMarkdown(match ? match[1] : text)}</h${level}>`;
+    };
+    if (/^###\s+/.test(line)) html += heading(3);
+    else if (/^##\s+/.test(line)) html += heading(2);
+    else if (/^#\s+/.test(line)) html += heading(1);
     else if (/^>\s+/.test(line)) html += `<blockquote>${AOW.inlineMarkdown(line.replace(/^>\s+/, ""))}</blockquote>`;
     else if (line.trim()) html += `<p>${AOW.inlineMarkdown(line)}</p>`;
   });
