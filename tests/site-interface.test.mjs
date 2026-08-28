@@ -34,3 +34,8 @@ test("mobile buttons and brand text have a bounded inline layout", () => {
   assert.match(css, /\.button[\s\S]*white-space: normal/);
   assert.match(css, /\.video-card[\s\S]*minmax\(0, 1fr\)/);
 });
+
+test("home hero matches section hero height on desktop", () => {
+  assert.match(css, /\.hero\s*\{(?=[^}]*min-height:\s*340px)[^}]*\}/);
+  assert.match(css, /\.page-hero\s*\{(?=[^}]*min-height:\s*340px)[^}]*\}/);
+});
