@@ -16,7 +16,7 @@ AOW.renderPublishedWiki = () => {
     article.className = "article-row published-row";
     article.dataset.publishedWikiId = item.id;
     const meta = document.createElement("span");
-    meta.textContent = `${AOW.wikiCategoryTitle(categoryKey)} · ${AOW.formatDate(item.date)}`;
+    meta.textContent = AOW.wikiCategoryTitle(categoryKey);
     const title = document.createElement("h3");
     title.textContent = item.title || AOW.t("Без названия");
     const lead = document.createElement("p");
@@ -65,7 +65,7 @@ AOW.renderPublishedWikiArticle = () => {
   const id = new URLSearchParams(window.location.search).get("id");
   const item = AOW.getPublishedWiki().find((entry) => entry.id === id);
   publishedWiki.innerHTML = item
-    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.wikiCategoryTitle(AOW.wikiCategoryKey(item.category)))} · ${AOW.formatDate(item.date)}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
+    ? `<article class="news-article"><div class="article-meta">${AOW.escapeHtml(AOW.wikiCategoryTitle(AOW.wikiCategoryKey(item.category)))}</div><h1>${AOW.escapeHtml(item.title)}</h1><p class="article-lead">${AOW.escapeHtml(item.lead)}</p>${item.image ? `<img class="article-hero-image" src="${AOW.escapeHtml(AOW.articleImageUrl(item.image))}" alt="" />` : ""}<section><div>${AOW.markdown(String(item.body || ""))}</div></section></article>`
     : `<section class="content-section"><h1>${AOW.t("Wiki-страница не найдена")}</h1><a class="article-back" href="../index.html">${AOW.t("На главную")}</a></section>`;
   AOW.fitArticleTitles?.();
   if (item) {

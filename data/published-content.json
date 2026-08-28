@@ -41,19 +41,6 @@
     },
     {
       "typeKey": "wiki",
-      "id": "wiki-ru-c059",
-      "title": "Добро пожаловать в Тренировочное Лобби!",
-      "category": "Основы игры",
-      "date": "2024-01-29",
-      "lead": "Теперь вы можете приглашать игроков в сражения 1×1, 2×2 и 3×3, а также в режимы FFA.",
-      "image": "source materials/images/wiki/telegram/c059-youtube.jpg",
-      "video": "",
-      "body": "В тренировочном лобби можно приглашать игроков в сражения 1×1, 2×2 и 3×3, а также в режимы FFA.\n\nЕсли у вас уже есть Стартовый Пак, то вы как создатель лобби можете выбрать режим боя и карту. Без него вы сможете играть только в режиме 1×1 на случайно выбранной карте.",
-      "language": "ru",
-      "publishedAt": "2024-01-29T00:00:00.000Z"
-    },
-    {
-      "typeKey": "wiki",
       "id": "wiki-ru-c075",
       "title": "Режим зрителя",
       "category": "Основы игры",
@@ -250,13 +237,13 @@
     {
       "typeKey": "wiki",
       "id": "wiki-ru-c061",
-      "title": "Как мы балансируем игру?",
+      "title": "Как разработчики балансируют игру?",
       "category": "Интересные статьи",
       "date": "2024-02-27",
       "lead": "Идеально — это когда винрейт Конфедерации и Сопротивления стремится к 50%.",
       "image": "source materials/images/wiki/telegram/c061-1.jpg",
       "video": "",
-      "body": "Игроки зачастую недовольны балансом. Некоторые считают Конфедерацию слишком сильной, а кому-то кажется, что “Сопротивление 100% имба”. Давайте разбираться, так ли это на самом деле.\n\n## Что такое идеальный баланс в AoW3?\n\nИдеально — это когда винрейт Конфедерации и Сопротивления стремится к 50%. То есть примерно половину боев выигрывает игрок-конфедерат, а другая половина остается за сопротивленцем.\n\n## А откуда вы знаете винрейт для каждой фракции?\n\nДля этого в игре есть специально обученные аналитики. Они собирают данные в режиме онлайн с помощью программ.\n\n## Какая еще аналитика?! Вы Зал славы видели? Там одна Конфедерация!\n\nВ Зале Славы показываются результаты только лучших игроков в различных соревнованиях. Остальные игроки не учитываются, а их тысячи. Балансировать игру, основываясь на результатах 20 лучших, некорректно: необходимо учитывать картину в целом. Именно этим мы и занимаемся.\n\n## Если баланс хороший, то почему за Сопротивление никто не играет?\n\nНа старте игрок выбирает фракцию по наитию. Фракционные особенности не учитываются, ведь новый игрок о них еще не знает. Так что на выбор влияют описание, цвет, положению фракции на экране. По статистике Конфедерацию выбирают на 15% чаще. Значит, игроков Конфедерации больше, и шансы сыграть однофракционный бой повышаются.\n\n## Какая фракция имеет преимущество?\n\nПреимущество зависит от режима, лиги и актуальных статистических данных.\n\n## А вот турниры… Например, “В поисках Наутилуса”. Там же побеждает Сопротивление!\n\nПодавляющее большинство турниров одинаково хороши для обеих фракций. Но особенности некоторых соревнований влияют на расстановку сил. В “Наутилусе” бои на море, а там Сопротивление чувствует себя увереннее. С другой стороны, в турнире “Две крепости” преимущество на стороне Конфедерации.\n\n## А как вы балансите отдельных юнитов?\n\nМы смотрим, как часто игрок использует юнита, а также каких результатов добивается в итоге. Например, спам Циклонов. Игрок произвел 10 и более Циклонов? Мы берем этот бой на анализ. Смотрим, какой винрейт у игрока в таких боях. Если заметим, что и другие игроки штампуют Циклоны и побеждают, то это повод задуматься. Далее мы изучаем бои детально, ищем причины перевеса. Может, проблема не в силе юнита, а его стоимости или скорости производства. Только рассмотрев все факторы, мы меняем баланс, чтобы все юниты игрались комфортно.",
+      "body": "Игроки зачастую недовольны балансом. Некоторые считают Конфедерацию слишком сильной, а кому-то кажется, что “Сопротивление 100% имба”. Стоит разобраться, так ли это на самом деле.\n\n## Что такое идеальный баланс в AoW3?\n\nИдеально — это когда винрейт Конфедерации и Сопротивления стремится к 50%. То есть примерно половину боев выигрывает игрок-конфедерат, а другая половина остается за сопротивленцем.\n\n## А откуда вы знаете винрейт для каждой фракции?\n\nДля этого в игре есть специально обученные аналитики. Они собирают данные в режиме онлайн с помощью программ.\n\n## Какая еще аналитика?! Вы Зал славы видели? Там одна Конфедерация!\n\nВ Зале Славы показываются результаты только лучших игроков в различных соревнованиях. Остальные игроки не учитываются, а их тысячи. Балансировать игру, основываясь на результатах 20 лучших, некорректно: необходимо учитывать картину в целом. Этим занимаются разработчики.\n\n## Если баланс хороший, то почему за Сопротивление никто не играет?\n\nНа старте игрок выбирает фракцию по наитию. Фракционные особенности не учитываются, ведь новый игрок о них еще не знает. Так что на выбор влияют описание, цвет, положению фракции на экране. По статистике Конфедерацию выбирают на 15% чаще. Значит, игроков Конфедерации больше, и шансы сыграть однофракционный бой повышаются.\n\n## Какая фракция имеет преимущество?\n\nПреимущество зависит от режима, лиги и актуальных статистических данных.\n\n## А вот турниры… Например, “В поисках Наутилуса”. Там же побеждает Сопротивление!\n\nПодавляющее большинство турниров одинаково хороши для обеих фракций. Но особенности некоторых соревнований влияют на расстановку сил. В “Наутилусе” бои на море, а там Сопротивление чувствует себя увереннее. С другой стороны, в турнире “Две крепости” преимущество на стороне Конфедерации.\n\n## Как разработчики балансируют отдельных юнитов?\n\nРазработчики изучают, как часто игрок использует юнита, а также каких результатов добивается в итоге. Например, спам Циклонов. Игрок произвел 10 и более Циклонов? Разработчики берут этот бой на анализ. Они изучают, какой винрейт у игрока в таких боях. Если разработчики замечают, что и другие игроки штампуют Циклоны и побеждают, то это повод задуматься. Далее разработчики детально изучают бои и ищут причины перевеса. Может, проблема не в силе юнита, а его стоимости или скорости производства. Только рассмотрев все факторы, разработчики меняют баланс, чтобы все юниты игрались комфортно.",
       "language": "ru",
       "publishedAt": "2024-02-27T00:00:00.000Z"
     },
@@ -269,7 +256,7 @@
       "lead": "Самое время познакомиться с редкой модификацией для всеми любимого Щита.",
       "image": "source materials/images/wiki/telegram/c033-youtube.jpg",
       "video": "",
-      "body": "Рассмотрим редкую модификацию для Щита.\n\n## Какие плюсы?\n\n- Радиус защитного поля больше\n- Вырос запас энергии\n- Скорость восстановления энергии выше\n\n## Но есть нюанс\n\n- Цена возросла\n- Запас прочности снижен\n- Активация и деактивация занимают больше времени",
+      "body": "Рассмотрим редкую модификацию для Щита.\n\n## Какие плюсы?\n\n- Радиус защитного поля увеличен\n- Запас энергии увеличен\n- Скорость восстановления энергии увеличена\n\n## Но есть нюанс\n\n- Цена увеличена\n- Запас прочности снижен\n- Активация и деактивация занимают больше времени",
       "language": "ru",
       "publishedAt": "2026-03-07T00:00:00.000Z"
     },
@@ -282,7 +269,7 @@
       "lead": "Эта редкая модификация Броненосца порадует всех диверсантов Сопротивления!",
       "image": "source materials/images/wiki/telegram/c034-youtube.jpg",
       "video": "",
-      "body": "Эта редкая модификация Броненосца порадует всех диверсантов Сопротивления!\n\n## Имба?\n\n- Выросла скорость\n- Увеличен урон автопушки и мин\n- Выше скорострельность\n- Быстрее ставит мины\n\n## Но\n\n- Цена возросла\n- Дольше производство\n- Запас прочности снижен",
+      "body": "Эта редкая модификация Броненосца порадует всех диверсантов Сопротивления!\n\n## Имба?\n\n- Скорость увеличена\n- Урон автопушки и мин увеличен\n- Скорострельность увеличена\n- Мины устанавливаются быстрее\n\n## Но\n\n- Цена увеличена\n- Производство занимает больше времени\n- Запас прочности снижен",
       "language": "ru",
       "publishedAt": "2026-03-08T00:00:00.000Z"
     },
@@ -295,7 +282,7 @@
       "lead": "Модификация Хамелеона, специализирующаяся на скрытности.",
       "image": "source materials/images/wiki/telegram/c035-youtube.jpg",
       "video": "",
-      "body": "В отличие от «Охотника», эта модификация специализируется на скрытности.\n\n## А чем он хорош?\n\n- Дешевле цена\n- Высокая скорость\n- Быстрее активация и деактивация тумана\n- Больше запас прочности\n- Больше брони\n\n## Однако\n\n- Меньше радиус тумана",
+      "body": "В отличие от «Охотника», эта модификация специализируется на скрытности.\n\n## А чем он хорош?\n\n- Цена снижена\n- Высокая скорость\n- Активация и деактивация тумана происходят быстрее\n- Запас прочности увеличен\n- Броня увеличена\n\n## Однако\n\n- Радиус тумана уменьшен",
       "language": "ru",
       "publishedAt": "2026-03-09T00:00:00.000Z"
     },
@@ -308,7 +295,7 @@
       "lead": "Танк, который создан для тотального уничтожения.",
       "image": "source materials/images/wiki/telegram/c036-youtube.jpg",
       "video": "",
-      "body": "Танк, который создан для тотального уничтожения. Встречайте тяжёлую модификацию Молота!\n\n## Какие плюсы?\n\n- Больше урона\n- Больше запас прочности и брони\n- Повышен урон по всем типам брони\n- Увеличен радиус взрыва\n\n## Но есть нюансы\n\n- Выросла стоимость\n- Снижена скорость стрельбы\n- Меньше максимальная скорость\n- Дольше производится\n\nМедленный, но смертоносный.",
+      "body": "Танк, который создан для тотального уничтожения. Встречайте тяжёлую модификацию Молота!\n\n## Какие плюсы?\n\n- Урон увеличен\n- Запас прочности и броня увеличены\n- Урон по всем типам брони увеличен\n- Радиус взрыва увеличен\n\n## Но есть нюансы\n\n- Стоимость увеличена\n- Скорость стрельбы снижена\n- Максимальная скорость снижена\n- Производство занимает больше времени\n\nМедленный, но смертоносный.",
       "language": "ru",
       "publishedAt": "2026-03-10T00:00:00.000Z"
     },
@@ -344,7 +331,7 @@
       "title": "Мамонт «Сокрушитель»",
       "lead": "Эпическая модификация Мамонта с особо мощным артиллерийским выстрелом.",
       "image": "source materials/images/wiki/telegram/mod-sokrushitel.jpg",
-      "body": "## Какие плюсы?\n\n- Больше урона\n- Больше радиус взрыва\n- Больше радиус обзора\n- Лучше меткость\n\n## Но есть нюанс\n\n- Выше стоимость производства\n- Дольше переход в осадный и походный режим\n- Меньше скорострельность\n- На один выстрел меньше\n- +1 КО к стоимости",
+      "body": "## Какие плюсы?\n\n- Урон увеличен\n- Радиус взрыва увеличен\n- Радиус обзора увеличен\n- Меткость повышена\n\n## Но есть нюанс\n\n- Стоимость производства увеличена\n- Переход в осадный и походный режим занимает больше времени\n- Скорострельность снижена\n- Залп содержит на один выстрел меньше\n- +1 КО к стоимости",
       "category": "Модификации",
       "date": "2026-07-30",
       "publishedAt": "2026-07-30",
@@ -357,7 +344,7 @@
       "title": "Град «Рагнарёк»",
       "lead": "Эпическая модификация Града с плотным залпом и повышенной огневой мощью.",
       "image": "source materials/images/wiki/telegram/mod-ragnaryok.jpg",
-      "body": "## Какие плюсы?\n\n- На 4 снаряда больше за залп\n- Больше урона\n- Больше радиус взрыва\n- Выше скорострельность\n- Быстрее скорость полёта ракет\n\n## Но есть нюанс\n\n- Выше стоимость производства\n- +1 КО к стоимости\n- Дольше переход в осадный и походный режим\n- Ниже меткость",
+      "body": "## Какие плюсы?\n\n- Залп содержит на 4 снаряда больше\n- Урон увеличен\n- Радиус взрыва увеличен\n- Скорострельность увеличена\n- Скорость полёта ракет увеличена\n\n## Но есть нюанс\n\n- Стоимость производства увеличена\n- +1 КО к стоимости\n- Переход в осадный и походный режим занимает больше времени\n- Меткость снижена",
       "category": "Модификации",
       "date": "2026-07-30",
       "publishedAt": "2026-07-30",
@@ -960,6 +947,19 @@
       "body": "The studio's cooling systems hummed softly, yet beads of sweat glistened on Dr. Camilius's forehead. A team of assistants was making the final preparations for the broadcast, making sure the host and the doctor looked impeccable and that nothing unwanted made it into the shot.\n\nThe scientist had never liked public appearances, but there was little he could do about it: a request from the chairman of the Confederation Academy of Sciences was more of an order.\n\n\"Twenty seconds to air! Clear the set!\" a voice boomed from the speakers. The people around them vanished as if swept away by the wind.\n\nThe cameras began moving through the studio. The music of the opening sequence started playing.\n\n\"I am Angela Paradise, and you're watching the evening news on the Freedom Network. Summer has once again come into its own, and with it returns the season's most pressing question: will there be enough Cryocapsules for everyone on the planet?\"\n\nThe news anchor spoke clearly and confidently, her many years of experience showing.\n\n\"During the Confederation Senate's Counterterrorist Operation, a number of Cryotech Corporation facilities were damaged. Officials describe the situation as 'under control,' but alarming reports are coming in from across the globe: power grids are overloaded, dozens of regions are experiencing blackouts, and conventional air-conditioning systems are struggling with even relatively low temperatures of around 50°C, never mind truly extreme heat.\"\n\nThe young woman turned toward Dr. Camilius. The camera smoothly shifted to bring them both into frame.\n\n\"Joining us in the studio today is Dr. Camilius, honored member of the Confederation Academy of Sciences, Nobel Prize laureate, and supervisor of the climate project in San Antonio, which recently concluded with great success. Good evening, Doctor.\"\n\n\"Thank you for having me, Angela.\"\n\n\"Doctor, tell us more about the project. Abnormal heat has been with us for years, yet infrastructure and power systems are still struggling to cope. How did you manage to overcome these difficulties on the scale of an entire metropolis?\"\n\nCamilius relaxed slightly in his chair, trying to look natural.\n\n\"Of course, abnormal heat is one of the greatest challenges facing humanity. Our joint experiment with Cryotech and the Confederation Senate was intended to develop the most efficient system for distributing Cryocapsules amid constantly growing demand and the possibility of shortages. And the experiment, one might say, was a brilliant success. From beginning to end...\"\n\n---\n\nThree months earlier. Project Day 0\n\nBright sunlight flooded the streets of San Antonio. Dr. Camilius looked over the city with curiosity from the transport helicopter.\n\nThe white and silver buildings of the administrative center contrasted with the vivid green of the trees and ornamental shrubs. Residential districts of varying prosperity spread around the center like chicks around a hen. The farther they lay from the center, the denser and more colorful the jumble of buildings became, but overall, San Antonio was a model Confederation city.\n\nBillboards and public service posters were everywhere. On the wall of one skyscraper, an enormous Assault was depicted holding a child in his arms. Beneath him was written:\n\n\"HE PROTECTS OUR CHILDREN.\"\n\nDirectly below the poster, a police drone shot past, barking some angry, unintelligible signal at the cars below.\n\nCamilius mentally noted several cooling stations scattered throughout the city. They were hard to miss: each one proudly displayed Cryotech's glowing neon logo. Cooling pipelines spread out from the stations like a spiderweb, as though wrapping the entire city in their grasp.\n\nThe doctor shuffled through the papers resting on his lap.\n\n\"Expected Cryocapsule supply levels...\"\n\n\"Projected climate stress during the experimental period shall not exceed...\"\n\n\"San Antonio's infrastructure is a jewel among the cities of the Confederation...\"\n\nSo far, the task did not appear impossible. The experimental model Camilius had developed was supposed to distribute the Cryocapsule reserves flawlessly and allow the city to survive the crisis period.\n\nOnly a few matters with the city administration remained to be settled.\n\n---\n\n\"Are you saying, Doctor, that you managed to provide every resident of San Antonio with a sufficient supply of Cryocapsules? Our viewers are already familiar with the Academy of Sciences' official statements, but how exactly did you accomplish it?\"\n\nDr. Camilius shifted uncomfortably.\n\n\"Er... yes. You see, it's all about my model. Every citizen included in the main testing program received the level of climate protection prescribed by the regulations.\"\n\n\"Doctor, you said 'included.' Could you explain in more detail what that means?\"\n\n---\n\nProject Day 17\n\nDr. Camilius stood in a sterile white office inside the city administration building, presenting his findings to those assembled on a large screen.\n\n\"Thus, as you can see in diagram six, at the current rate of Cryocapsule consumption, San Antonio will begin experiencing widespread power outages within a week due to grid overload. However, the problem is, in my opinion, entirely manageable, gentlemen, er... yes. We merely need to adopt a series of comprehensive measures for a short period. According to my mathematical model, if we prohibit public gatherings, introduce evenly distributed scheduled blackouts, and slightly reduce cooling levels in administrative buildings, the overall efficiency of the system will increase by thirty-eight to forty percent...\"\n\nHis presentation was interrupted by the chairman of the experimental project commission. Raising one hand slightly, he spoke with a gentle smile, as though addressing a child.\n\n\"Esteemed Doctor, that is completely out of the question.\"\n\n\"Then we can request additional Cryocapsule shipments...\"\n\n\"We cannot.\"\n\n\"Then...\" Camilius's expression darkened. \"Then our only remaining option is to publicly acknowledge the shortage.\"\n\nA wave of whispers swept through the room. The chairman frowned and continued in a sterner tone.\n\n\"Absolutely not. Doctor, do you truly not understand? It is not your reputation or another award that is at stake. We are talking about the reputation of the Confederation's scientific program. Our leadership is already facing criticism over the Resistance crisis. Do you want the San Antonio administration, at such a critical moment, to publicly admit its helplessness in the face of a little heat?!\"\n\nCamilius stared at him in disbelief. The chairman raised his voice.\n\n\"This is a demonstration project! We cannot have it accompanied by blackouts. The administrative center must operate at full capacity. Just imagine what would happen to hospitals, schools, priority districts! And publicly admitting there is a shortage would cause genuine panic among the population. There would be riots! Did you think about that for even a second, Doctor? Will you personally answer to the Ministry of Distribution?\"\n\n\"Then what do you propose?\"\n\nThe chairman looked at the secretary seated beside him. The man jumped to his feet, hurried over to the projector, and connected a data drive.\n\nA map of San Antonio appeared on the screen, divided into multicolored sectors.\n\n\"Ahem... I propose a rational solution, Doctor. We divide the city into zones. Cryocapsules will first be supplied to 'continuous supply zones.' These will, naturally, as I have already said, include hospitals, schools, kindergartens, clinics. And priority districts, including the city's administrative center.\"\n\nThe chairman pointed toward the residential neighborhoods surrounding the center.\n\n\"'Regulated consumption zones' will receive second-level priority. We will not deprive them, of course, but it might, let us say, become somewhat warmer there. Or perhaps we reduce Cryocapsule supply slightly during the night.\"\n\nThen he pointed at the outskirts.\n\n\"Finally, we will designate these districts as 'temporary adaptation zones.' They will receive the lowest priority within the system.\"\n\n\"But how will simply dividing the city into zones help ensure the project's success?\"\n\nThe chairman smiled again and pointed a finger at Camilius.\n\n\"Doctor, Doctor... You are the one who sets the temperature standards in the documentation, aren't you?\"\n\n---\n\nThe studio remained just as fresh and cool as before, but the memories made Camilius feel sick, as though he might collapse at any moment.\n\nNoticing that the doctor had gone pale, Angela pushed the glass of water on the table toward him. Camilius took a sip and felt slightly better.\n\n\"You see, er... Angela, social statistics is an extraordinarily complex science. Just imagine how many different methods of analysis must be applied across a city as large as San Antonio. Every district, every building has to be considered individually rather than simply, so to speak, treating them all the same.\"\n\nHe smiled nervously.\n\n\"Take, for example, the Adenauer mathematical model. I happen to know the academician personally. An outstanding luminary of our science, you know... Forgive me. Er, yes, well: I incorporated numerous factors into my model, such as local load relief, user-environment deviations, and associated medical circumstances. In addition, I naturally had to exclude cases in which no direct connection to the experiment could be established. All of this, you understand, required an enormous amount of work spanning many weeks, even months...\"\n\n---\n\nProject Day 54\n\nThe administration building remained as cool and comfortable as ever. Dr. Camilius sat in his office, approving yet another stack of reports on the San Antonio experiment.\n\nHis mathematical model was working flawlessly. The proof lay directly in front of him on the desk. Distribution efficiency had reached 99.7 percent with a margin of error of half a percentage point, precisely as the theory had predicted.\n\nBut whenever Camilius closed his eyes, scenes he had witnessed personally flashed before him.\n\nOvercrowded hospitals on the outskirts. People forced to sleep not in their own homes but beside Cryotech distribution stations. Regular emergency alerts instructing residents of the \"temporary adaptation zones\" to seek shelter in schools because cooling to residential blocks had been shut off...\n\nSuddenly, a crash sounded in the corridor. Hurried footsteps followed, along with someone's loud, agitated voice. The office door burst open and a man rushed inside. Sweat streamed down his flushed face. He wore an electrician's work overalls, and in his right hand he was still clutching some kind of tool.\n\nWhen he saw Camilius, the man almost burst into tears.\n\n\"Doctor! Doctor... You were on television the day the experiment began! I'm so glad I managed to get through to you! Please, I'm begging you... I'm from Adaptation Zone Sixteen. Don't believe the reports, Doctor! They're lying to you! Check it yourself! I've lived in San Antonio for five years, and now my district has suddenly been 'excluded from the infrastructure'?!\"\n\nCamilius frowned and listened in silence as the electrician frantically told him what the doctor already knew perfectly well. Then the man began talking about his five-year-old daughter, who had been admitted to the hospital. Camilius turned his gaze toward the office window, which looked out upon the same enormous poster of the Assault holding a child.\n\n\"HE PROTECTS OUR CHILDREN.\"\n\n\"Yes... Of course. I'll help...\"\n\nBut he did not get the chance to finish. Two security guards burst into the office and threw the electrician to the floor. They handcuffed him, dragged him out into the corridor, and took him away.\n\nCamilius was once again left alone with his thoughts. He already knew what was happening. The measures adopted by the commission had come at a monstrous price for the city. Temperature standards were constantly being revised. Entire neighborhoods had to be sacrificed and excluded from the experiment on the grounds that they had an \"insufficient level of integration into the urban infrastructure.\"\n\nBut his work could not end in failure. If the experiment were declared unsuccessful, humanity's struggle against the abnormal heat would be set back by a decade. Camilius's mathematical model could be adapted, improved, perfected. But first, the Senate had to be convinced that it already worked, that further funding for the research was justified. The fate of millions depended on him, Dr. Camilius, not merely the residents of San Antonio.\n\nOnly the walls of his office heard his answer to the electrician:\n\n\"I must do everything for the sake of our bright future. Even if we have to pay for it with human lives... and with my own soul. It will be better this way, for the sake of saving everyone. Forgive me...\"\n\n---\n\nSeeing that Camilius had relaxed, Angela decided to press him harder.\n\n\"Doctor, you are an excellent storyteller. But I cannot help wondering about the fate of certain districts. According to eyewitnesses, conditions in several parts of San Antonio differed considerably from the glowing reports of the project's success. How would you respond to that?\"\n\nThe scientist flinched, and the doctor answered in the voice of a machine:\n\n\"Angela, you were most likely given incorrect information. The fact is that the experiment was originally conducted only in fully integrated districts of the city. The areas you mentioned did not meet the technical requirements of the experimental program.\"\n\nHe looked Angela directly in the eyes, and it felt as though she were staring into two infinitely deep, dark wells. A chill ran down her spine. The director's voice in her earpiece snapped her out of her stupor:\n\n\"Wrap up the interview. The segment's running long. Say goodbye and go to commercial.\"\n\n\"Well, thank you very much for your time, Doctor. Our viewers can rest assured: the future is guarded by the most advanced mathematical models, backed by very real results. Stay with us. After a short commercial break, we'll reveal what really caused the breakup between famous actor Adam Smasher and singer Lucy Nightingale.\"\n\n---\n\nThe news broadcast ended. The television screen flared brightly and went dark. The electronics inside had finally succumbed to the infernal heat.\n\nAnd with it, gone were the last signs of life from a residential block on the outskirts of San Antonio...",
       "id": "eksperiment-en",
       "publishedAt": "2026-08-07T12:00:00.000Z"
+    },
+    {
+      "typeKey": "lore",
+      "language": "ru",
+      "id": "lore-ru-raul-cortes",
+      "title": "Досье: командующий Рауль Кортес",
+      "category": "Досье персонажей",
+      "date": "2026-08-22",
+      "lead": "Личное дело командующего Рауля Кортеса, правой руки генерала Монтероса.",
+      "image": "",
+      "video": "",
+      "body": "Командиры! Вам открыт доступ к личному делу командующего Рауля Кортеса — правой руки легендарного генерала Монтероса. Благодаря его таланту стратега и умелому командованию Сопротивление одержало множество побед по всему миру.\n\nИмя: Рауль Кортес\nЗвание: командующий\nДолжность: командир фронта\n\nРауль родился 12 июня 2001 года в бедном районе города Мерида в Мексике, в семье портного. В юности он постоянно связывался с различными уличными бандами и даже состоял в картеле. Но всё изменилось, когда жертвой очередной разборки стала его семья. Во время одной из карательных операций вражеский картель \"зачистил\" ателье отца, когда там находились оба родителя Рауля.\n\nЭта утрата оставила глубокий след в душе молодого Кортеса. Однако свою ненависть он направил не только против картелей, но и против администрации Конфедерации, которая либо не могла, либо не желала менять сложившийся в Мексике порядок. Рауль был убеждён: если бы Конфедерация действительно стремилась изменить мир к лучшему, а её администраторы не закрывали глаза на преступления в обмен на взятки, его родители остались бы живы.\n\nВскоре Рауль Кортес основал собственную группировку и несколько лет вёл тайную войну одновременно против картелей и Конфедерации. Украденные у противников припасы и продовольствие его люди бесплатно раздавали жителям бедных районов Юкатана. За дерзкие вылазки и помощь простым людям Рауля даже прозвали \"мексиканским Робин Гудом\".\n\nИменно в эти годы впервые по-настоящему проявился его талант полководца. Людям Кортеса постоянно приходилось сражаться с превосходящими силами противника, и раз за разом тщательно продуманные планы Рауля позволяли им выходить победителями из, казалось бы, безнадёжных ситуаций.\n\nКогда генерал Хосе Монтерос объявил всему миру о начале восстания против Конфедерации и провозгласил независимость Перу, Кортес и его люди одними из первых прибыли, чтобы присоединиться к Освободительной Армии.\n\nМонтерос прекрасно разбирался в людях и быстро оценил способности Рауля. Уже после нескольких успешных операций Кортесу доверили командование крупными соединениями Освободительной Армии. А вскоре вместе с новым талантливым командиром — вами — он повёл силы Сопротивления дальше, разнося пламя революции по всему миру.",
+      "publishedAt": "2026-08-22T09:02:45.000Z"
     }
   ],
   "video": [
@@ -3113,6 +3113,46 @@
       "date": "2026-08-12",
       "video": "https://youtu.be/ruEZcVmngjs",
       "publishedAt": "2026-08-12T00:00:00.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "ru",
+      "id": "video-VXM7N36meCY",
+      "title": "Обновление баланса: «Превосходство в воздухе»",
+      "category": "Обновления",
+      "date": "2026-08-20",
+      "video": "https://www.youtube.com/watch?v=VXM7N36meCY",
+      "publishedAt": "2026-08-20T08:22:14.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "ru",
+      "id": "video-dPXbh_7g1lQ",
+      "title": "Военная академия. Подготовка к бою",
+      "category": "Обновления",
+      "date": "2026-08-27",
+      "video": "https://www.youtube.com/watch?v=dPXbh_7g1lQ",
+      "publishedAt": "2026-08-27T09:00:43.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "ru",
+      "id": "video-znS8WoiKYCo",
+      "title": "Как на САМОМ ДЕЛЕ выглядит Gear Games Fest",
+      "category": "Интересные Видео",
+      "date": "2026-08-18",
+      "video": "https://www.youtube.com/watch?v=znS8WoiKYCo",
+      "publishedAt": "2026-08-18T13:01:19.000Z"
+    },
+    {
+      "typeKey": "video",
+      "language": "ru",
+      "id": "video-LuEBgGW7vvQ",
+      "title": "Что же происходило на Gear Games Fest?",
+      "category": "Интересные Видео",
+      "date": "2026-08-24",
+      "video": "https://www.youtube.com/watch?v=LuEBgGW7vvQ",
+      "publishedAt": "2026-08-24T09:36:07.000Z"
     }
   ]
 }

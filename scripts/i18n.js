@@ -81,7 +81,6 @@ const translations = {
   "Этот портал собирает знания об игре в одном месте: новости, гайды, справочные материалы, сюжет, видео, турниры и ссылки сообщества.": "This portal brings game knowledge together in one place: news, guides, reference materials, lore, videos, tournaments, and community links.",
   "Сайт ведёт команда сообщества Art of War 3. Материалы создаются для игроков, авторов гайдов, организаторов турниров и всех командиров, которым нужен удобный справочник по игре.": "The Art of War 3 community team runs the site. Its materials are for players, guide authors, tournament organizers, and every commander who needs a handy game reference.",
   "В будущем здесь появятся полноценные публикации, авторская зона, архив турниров, база видео и разделы с материалами для партнёров.": "Full publications, an author area, a tournament archive, a video library, and partner resource sections will appear here.",
-  "Открыть Wiki": "Open Wiki",
   "Аккаунт, управление, магазин, соревнования...": "Account, controls, store, competitions...",
   "Патч, событие, турнир, оффлайн...": "Patch, event, tournament, offline...",
   "Новички": "Beginners",

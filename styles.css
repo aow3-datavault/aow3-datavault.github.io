@@ -10,12 +10,6 @@
   font-weight: 700;
 }
 
-@font-face {
-  font-family: "Squares";
-  src: url("source materials/fonts/Squares Bold Free.otf") format("opentype");
-  font-weight: 700;
-}
-
 :root {
   --bg: #101717;
   --panel: rgba(31, 43, 43, 0.88);
@@ -115,7 +109,7 @@ a {
   place-items: center;
   border: 2px solid var(--cyan);
   color: var(--cyan);
-  font-family: "Squares", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 22px;
   background: rgba(15, 83, 90, 0.75);
   box-shadow: inset 0 0 18px rgba(95, 210, 219, 0.35), 0 0 24px rgba(95, 210, 219, 0.12);
@@ -138,7 +132,7 @@ h3,
 .main-nav a,
 .wiki-grid a,
 .tournament-grid strong {
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -200,7 +194,7 @@ a[href*="author.html"] {
   padding: 11px 13px;
   border: 0;
   color: var(--muted);
-  font: 16px "Squares", "Refrigerator", sans-serif;
+  font: 16px "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
   background: transparent;
 }
@@ -261,7 +255,7 @@ a[href*="author.html"] {
 .hero-kicker {
   margin: 0 0 14px;
   color: var(--gold);
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: clamp(20px, 2.2vw, 34px);
   text-transform: uppercase;
 }
@@ -281,7 +275,7 @@ a[href*="author.html"] {
 .eyebrow {
   margin: 0 0 10px;
   color: var(--cyan);
-  font-family: "Squares", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 15px;
   text-transform: uppercase;
 }
@@ -337,7 +331,7 @@ h3 {
   border: 1px solid var(--line-hot);
   color: inherit;
   font-size: 18px;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
   cursor: pointer;
   box-shadow: inset 0 0 18px rgba(95, 210, 219, 0.22);
@@ -393,7 +387,7 @@ h3 {
 
 .status-panel strong {
   color: var(--green);
-  font-family: "Squares", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 31px;
   text-transform: uppercase;
 }
@@ -828,7 +822,7 @@ h3 {
   padding: 9px 12px;
   border: 1px solid rgba(143, 206, 75, 0.78);
   color: #ecffe4;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 16px;
   line-height: 1;
   text-transform: uppercase;
@@ -921,7 +915,7 @@ h3 {
   border: 1px solid rgba(95, 210, 219, 0.42);
   color: var(--cyan);
   font: inherit;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   background: rgba(10, 62, 68, 0.36);
   cursor: pointer;
   text-transform: uppercase;
@@ -959,7 +953,7 @@ h3 {
 
 .footer strong {
   color: var(--text);
-  font-family: "Squares", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 23px;
   text-transform: uppercase;
 }
@@ -998,7 +992,7 @@ h3 {
   border: 1px solid var(--line);
   border-left: 4px solid var(--cyan);
   color: #eefcfd;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   background: linear-gradient(135deg, rgba(16, 82, 89, 0.74), rgba(22, 31, 32, 0.92));
 }
 
@@ -1098,7 +1092,7 @@ h3 {
   place-items: center;
   border: 2px solid rgba(255, 255, 255, 0.82);
   color: #fff;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   background: rgba(238, 247, 248, 0.92);
   box-shadow: 0 0 22px rgba(95, 210, 219, 0.18), inset 0 0 12px rgba(0, 0, 0, 0.12);
 }
@@ -1111,7 +1105,7 @@ h3 {
 
 .social-card strong {
   color: var(--text);
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -1164,7 +1158,7 @@ h3 {
 
 .partner-card strong {
   color: var(--text);
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -1269,7 +1263,7 @@ h3 {
   place-items: center;
   border-color: rgba(242, 194, 53, 0.42);
   color: var(--gold);
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
   background:
     radial-gradient(circle at 35% 35%, rgba(95, 210, 219, 0.28), transparent 34%),
@@ -1321,7 +1315,7 @@ h3 {
 
 .video-card span {
   padding: 18px 20px;
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   font-size: 22px;
   line-height: 1.05;
 }
@@ -1355,8 +1349,12 @@ h3 {
   }
 
   .video-card span {
+    min-width: 0;
     padding: 12px 14px;
     font-size: 19px;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 }
 
@@ -1442,7 +1440,7 @@ h3 {
 .article-meta {
   margin-bottom: 14px;
   color: var(--cyan);
-  font-family: "Squares", "Refrigerator", sans-serif;
+  font-family: "Refrigerator", "Arial Narrow", Arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -1618,6 +1616,9 @@ h3 {
 
   .brand {
     min-width: 0;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .brand-mark {
@@ -1671,6 +1672,9 @@ h3 {
   .main-nav a,
   .login-link {
     width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .language-switcher {
@@ -1713,7 +1717,7 @@ h3 {
 
   .hero-copy {
     min-width: 0;
-    overflow-wrap: anywhere;
+    overflow-wrap: normal;
   }
 
   .page-hero {
@@ -1732,6 +1736,9 @@ h3 {
 
   .button {
     width: 100%;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .three-cols,
@@ -1782,7 +1789,9 @@ h3 {
   .side-panel a {
     flex: 0 0 auto;
     padding: 10px 12px;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: normal;
+    word-break: normal;
   }
 
   .social-grid {
