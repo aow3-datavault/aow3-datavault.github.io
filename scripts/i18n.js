@@ -150,6 +150,7 @@ AOW.categoryKey = (value) => ({
   "Турниры": "tournaments", "Tournaments": "tournaments",
   "Оффлайн": "offline", "Offline": "offline",
   "Досье персонажей": "dossiers", "Character dossiers": "dossiers",
+  "Герои": "heroes", "Heroes": "heroes",
   "История мира": "world-history", "World history": "world-history",
   "Рассказы": "stories", "Stories": "stories",
   "Обучающие": "guides", "Guides": "guides",
@@ -162,7 +163,7 @@ AOW.categoryKey = (value) => ({
 
 AOW.categoryTitle = (key) => AOW.t({
   updates: "Обновления", events: "События", tournaments: "Турниры", offline: "Оффлайн",
-  dossiers: "Досье персонажей", "world-history": "История мира", stories: "Рассказы",
+  dossiers: "Досье персонажей", heroes: "Герои", "world-history": "История мира", stories: "Рассказы",
   guides: "Обучающие", trailers: "Трейлеры", developers: "Ответы разработчиков", interesting: "Интересные Видео", players: "Видео от игроков"
 }[key] || key);
 

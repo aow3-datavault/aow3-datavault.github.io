@@ -3,6 +3,9 @@ import test from "node:test";
 import { readFile } from "node:fs/promises";
 
 const content = JSON.parse(await readFile(new URL("../data/published-content.json", import.meta.url), "utf8"));
+const lorePage = await readFile(new URL("../lore.html", import.meta.url), "utf8");
+const common = await readFile(new URL("../scripts/common.js", import.meta.url), "utf8");
+const i18n = await readFile(new URL("../scripts/i18n.js", import.meta.url), "utf8");
 
 const youtubeId = (value) => {
   const url = new URL(value);
@@ -46,6 +49,35 @@ test("includes the Raúl Cortes dossier without an invented image", () => {
   assert.equal(dossier.category, "Досье персонажей");
   assert.equal(dossier.image, "");
   assert.match(dossier.body, /Рауль Кортес/);
+});
+
+test("imports the military academies and approved hero lore", () => {
+  const expectedIds = [
+    "military-academies",
+    "hero-seraphim",
+    "hero-mole",
+    "hero-atlant",
+    "hero-bison",
+    "hero-cerberus",
+    "hero-wasp",
+    "hero-solaris",
+    "hero-leviathan",
+  ];
+  const imported = content.lore.filter((item) => expectedIds.includes(item.id));
+  assert.deepEqual(imported.map((item) => item.id), expectedIds);
+  assert.equal(imported[0].category, "История мира");
+  assert.deepEqual(imported.slice(1).map((item) => item.category), Array(8).fill("Герои"));
+  assert.match(imported.find((item) => item.id === "hero-seraphim").body, /Энрико Макиавелли/);
+  assert.match(imported.find((item) => item.id === "hero-atlant").body, /Гарри Крюс/);
+  assert.match(imported.find((item) => item.id === "hero-bison").body, /Владимир Вольтович/);
+  assert.equal(imported.some((item) => /Громовержец|Потрошитель/.test(item.title)), false);
+});
+
+test("renders Heroes as a separate lore category", () => {
+  assert.match(lorePage, /data-tab="heroes">Герои</);
+  assert.match(lorePage, /data-panel="heroes"><div data-lore-list="Герои"><\/div>/);
+  assert.match(common, /heroes: "Герои"/);
+  assert.match(i18n, /"Герои": "heroes"/);
 });
 
 test("has unique YouTube IDs and excludes the audited livestreams", () => {

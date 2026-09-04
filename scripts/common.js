@@ -9,6 +9,7 @@ AOW.tabTitles = {
   interesting: "Интересные статьи",
   competitions: "Соревнования",
   dossiers: "Досье персонажей",
+  heroes: "Герои",
   "world-history": "История мира",
   stories: "Рассказы"
 };
