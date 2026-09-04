@@ -71,6 +71,7 @@ test("imports the military academies and approved hero lore", () => {
   assert.match(imported.find((item) => item.id === "hero-atlant").body, /Гарри Крюс/);
   assert.match(imported.find((item) => item.id === "hero-bison").body, /Владимир Вольтович/);
   assert.equal(imported.some((item) => /Громовержец|Потрошитель/.test(item.title)), false);
+  assert.equal(imported.some((item) => /\n\nИсточник:/.test(item.body)), false);
 });
 
 test("renders Heroes as a separate lore category", () => {
